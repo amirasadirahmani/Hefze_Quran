@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 19,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "قالوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "طآئِرُكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مَعَكُمؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَئِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "ذُكِّرتُمؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "بَل",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "اَنتُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "قَومٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "مُسرِفونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

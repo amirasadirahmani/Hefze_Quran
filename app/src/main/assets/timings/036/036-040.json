@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 40,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "لَا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "الشَّمسُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "يَنبَغي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "لَهآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "تُدرِكَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "القَمَرَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "وَلَا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "الَّيلُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "سابِقُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "النَّهارِؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "وَكُلٌّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 12,
+      "text": "في",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 13,
+      "text": "فَلَكٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 14,
+      "text": "يَسبَحونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 32,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَاِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "كُلٌّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "لَمّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "جَميعٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "لَدَينا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مُحضَرونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

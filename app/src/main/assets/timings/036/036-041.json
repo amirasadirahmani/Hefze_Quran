@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 41,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَءايَةٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اَنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "حَمَلنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "ذُرِّيَّتَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "فِي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "الفُلكِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "المَشحونِ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

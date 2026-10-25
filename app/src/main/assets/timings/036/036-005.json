@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 5,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "تَنزيلَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "العَزيزِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "الرَّحيمِ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

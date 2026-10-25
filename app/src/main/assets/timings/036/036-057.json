@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 57,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "لَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "فيها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "فاكِهَةٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "وَلَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "ما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "يَدَّعونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

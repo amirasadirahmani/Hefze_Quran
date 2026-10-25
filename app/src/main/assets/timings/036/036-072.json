@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 72,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَذَلَّلنٰها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "فَمِنها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "رَكوبُهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "وَمِنها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "يَأكُلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 31,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اَلَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يَرَوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "كَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَهلَكنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "قَبلَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "القُرونِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اَنَّهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "اِلَيهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "لا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "يَرجِعونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

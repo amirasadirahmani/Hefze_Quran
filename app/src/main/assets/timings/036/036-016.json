@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 16,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "قالوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "رَبُّنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "يَعلَمُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اِنّ‍ــآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اِلَيكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "لَمُرسَلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

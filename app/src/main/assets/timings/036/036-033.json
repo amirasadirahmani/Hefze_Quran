@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 33,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَءايَةٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لَهُمُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "الاَرضُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "المَيتَةُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اَحيَينٰها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "وَاَخرَجنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "مِنها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "حَبًّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "فَمِنهُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "يَأكُلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

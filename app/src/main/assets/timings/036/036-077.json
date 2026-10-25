@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 77,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اَوَلَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يَرَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "الاِنسانُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "خَلَقنٰهُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "نُطفَةٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "فَاِذا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "هُوَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "خَصيمٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "مُبينٌ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

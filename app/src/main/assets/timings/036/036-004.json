@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 4,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "عَليٰ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "صِراطٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مُستَقيمٍ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

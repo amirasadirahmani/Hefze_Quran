@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 76,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "فَلا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يَحزُنكَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "قَولُهُمۘ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اِنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "نَعلَمُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "ما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "يُسِرّونَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "وَما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "يُعلِنونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

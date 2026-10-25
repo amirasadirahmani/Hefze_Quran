@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 79,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "قُل",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يُحييهَا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "الَّذيٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَنشَاَهآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اَوَّلَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مَرَّةٍؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "وَهُوَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "بِكُلِّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "خَلقٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "عَليمٌ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

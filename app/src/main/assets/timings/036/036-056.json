@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 56,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "هُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "وَاَزواجُهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "في",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "ظِلٰلٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "عَلَي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "الاَرآئِكِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "مُتَّكِـٔونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 78,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَضَرَبَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لَنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مَثَلًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "وَنَسِيَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "خَلقَهۥۚ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "قالَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "مَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "يُحيِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "العِظامَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "وَهِيَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "رَميمٌ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

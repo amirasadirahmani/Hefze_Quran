@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 24,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنّيٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اِذًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "لَفي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "ضَلٰلٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "مُبينٍ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

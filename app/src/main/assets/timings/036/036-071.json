@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 71,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اَوَلَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يَرَوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اَنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "خَلَقنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "لَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِمّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "عَمِلَت",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اَيدينآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "اَنعامًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "فَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "لَها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "مٰلِكونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

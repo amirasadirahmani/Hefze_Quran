@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 9,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَجَعَلنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "بَينِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَيديهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "سَدًّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "وَمِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "خَلفِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "سَدًّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "فَاَغشَينٰهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "فَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "لا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "يُبصِرونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

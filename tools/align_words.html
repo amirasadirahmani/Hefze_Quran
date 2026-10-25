@@ -1,0 +1,36 @@
+<!doctype html><html lang="fa" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>زمان‌بندی کلمات یاسین</title>
+<style>body{font-family:Tahoma,sans-serif;background:#f5f6ec;color:#293d2d;max-width:950px;margin:32px auto;padding:20px;line-height:1.9}button,input,select{font:inherit;padding:8px;border:1px solid #b9c89b;border-radius:8px}button{cursor:pointer;background:#e2eccd;margin:4px}label{display:block;margin:12px 0}table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid #ccd5bb;padding:6px;text-align:center}tr.active{background:#e2eccd}audio{width:100%}small{color:#566647}#message{min-height:32px;color:#734521}input[type=number]{width:110px}h1{font-size:26px}</style>
+<h1>زمان‌بندی کلمات یاسین</h1><p>فایل JSON همان آیه و MP3 را انتخاب کنید. هنگام گوش‌دادن، آغاز و پایان هر کلمه را ثبت کنید. زمان‌ها از خود فایل صوت خوانده می‌شوند. هیچ داده‌ای به اینترنت فرستاده نمی‌شود.</p>
+<label>قالب آیه یا زمان‌بندی قبلی <input id="timing" type="file" accept=".json"></label><label>صوت همان آیه <input id="file" type="file" accept="audio/mpeg,.mp3"></label><audio id="audio" controls></audio>
+<label>سرعت بازبینی <select id="rate"><option value="1">۱</option><option value="0.75">۰٫۷۵</option><option value="0.5">۰٫۵</option></select></label>
+<button id="start">ثبت شروع (S)</button><button id="end">ثبت پایان و کلمهٔ بعد (E)</button><button id="previous">کلمهٔ قبل</button><button id="next">کلمهٔ بعد</button>
+<p id="message" role="status"></p><table><thead><tr><th>کلمه</th><th>شروع ms</th><th>پایان ms</th><th>بازشنوی</th></tr></thead><tbody id="rows"></tbody></table>
+<label><input id="reviewed" type="checkbox"> تمام مرزها را با گوش‌دادن بازبینی کرده‌ام.</label><button id="export">دریافت JSON</button><p><small>برای بسم‌اللهٔ ابتدای صوت، شروع اولین کلمهٔ آیه را بعد از بسم‌الله بگذارید. نام خروجی را تغییر ندهید. تکرارهای داخل صوت را پیش از زمان‌بندی جدا کنید.</small></p>
+<script>
+'use strict';
+const el=id=>document.getElementById(id);let data=null,index=0,audioFile=null,objectUrl=null;
+const message=text=>el('message').textContent=text;
+const duration=()=>Math.round(el('audio').duration*1000);
+function render(){
+ el('rows').replaceChildren();if(!data)return;
+ data.words.forEach((w,i)=>{const tr=document.createElement('tr');tr.className=i===index?'active':'';const word=document.createElement('td');word.textContent=w.text;tr.append(word);
+ for(const key of ['startMs','endMs']){const cell=document.createElement('td'),input=document.createElement('input');input.type='number';input.min=0;input.value=w[key]??'';input.onchange=()=>{w[key]=input.value===''?null:Number(input.value);el('reviewed').checked=false;};cell.append(input);tr.append(cell);}
+ const cell=document.createElement('td'),button=document.createElement('button');button.textContent='شنیدن';button.onclick=()=>{index=i;el('audio').currentTime=(w.startMs??0)/1000;el('audio').play().catch(e=>message(e.message));render();};cell.append(button);tr.append(cell);el('rows').append(tr);});
+ message('آیهٔ '+data.ayah+' — کلمهٔ '+(index+1)+' از '+data.words.length);
+}
+el('timing').onchange=async event=>{try{const file=event.target.files[0];if(!file)return;const candidate=JSON.parse(await file.text());if(candidate.surah!==36||!Number.isInteger(candidate.ayah)||candidate.ayah<1||candidate.ayah>83||!Array.isArray(candidate.words)||!candidate.words.length||candidate.words.some((w,i)=>w.index!==i||typeof w.text!=='string'))throw Error('قالب معتبر نیست.');data=candidate;index=0;el('reviewed').checked=false;render();}catch(e){message(e.message);}};
+el('file').onchange=event=>{audioFile=event.target.files[0];if(!audioFile)return;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=URL.createObjectURL(audioFile);el('audio').src=objectUrl;el('reviewed').checked=false;};
+el('rate').onchange=()=>el('audio').playbackRate=Number(el('rate').value);
+function capture(end){if(!data||!Number.isFinite(duration())){message('ابتدا قالب و صوت را باز کنید.');return;}const time=Math.round(el('audio').currentTime*1000);data.words[index][end?'endMs':'startMs']=time;if(end)index=Math.min(data.words.length-1,index+1);el('reviewed').checked=false;render();}
+el('start').onclick=()=>capture(false);el('end').onclick=()=>capture(true);el('previous').onclick=()=>{if(data){index=Math.max(0,index-1);render();}};el('next').onclick=()=>{if(data){index=Math.min(data.words.length-1,index+1);render();}};
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.code==='KeyS'){e.preventDefault();capture(false);}if(e.code==='KeyE'){e.preventDefault();capture(true);}});
+el('export').onclick=async()=>{try{
+ if(!data||!audioFile||!Number.isFinite(duration()))throw Error('قالب و صوت لازم است.');
+ const expected='036-'+String(data.ayah).padStart(3,'0')+'.mp3';if(audioFile.name!==expected)throw Error('نام صوت باید '+expected+' باشد.');
+ if(!el('reviewed').checked)throw Error('ابتدا همهٔ مرزها را بازبینی و تأیید کنید.');let end=0;
+ for(const w of data.words){if(!Number.isInteger(w.startMs)||!Number.isInteger(w.endMs)||w.startMs<end||w.endMs<=w.startMs||w.endMs>duration())throw Error('مرز نامعتبر در کلمهٔ '+(w.index+1));end=w.endMs;}
+ if(!globalThis.crypto?.subtle)throw Error('مرورگر امکان SHA-256 ندارد؛ فایل را با مرورگر به‌روز یا از localhost باز کنید.');
+ const digest=await crypto.subtle.digest('SHA-256',await audioFile.arrayBuffer());const result={...data,reviewed:true,durationMs:duration(),audioSha256:[...new Uint8Array(digest)].map(v=>v.toString(16).padStart(2,'0')).join('')};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)+'\n'],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=expected.replace('.mp3','.json');a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message('فایل زمان‌بندی دریافت شد.');
+ }catch(e){message(e.message);}};
+</script></html>

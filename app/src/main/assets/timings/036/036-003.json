@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 3,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنَّكَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لَمِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "المُرسَلينَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

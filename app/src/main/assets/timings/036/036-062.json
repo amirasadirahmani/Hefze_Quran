@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 62,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَلَقَد",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اَضَلَّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مِنكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "جِبِلًّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "كَثيرًاۚ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "اَفَلَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "تَكونوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "تَعقِلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

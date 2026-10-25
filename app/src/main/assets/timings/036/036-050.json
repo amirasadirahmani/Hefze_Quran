@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 50,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "فَلا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يَستَطيعونَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "تَوصِيَةً",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "وَلآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اِليٰٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "اَهلِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "يَرجِعونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

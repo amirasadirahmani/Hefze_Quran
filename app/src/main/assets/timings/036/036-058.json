@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 58,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "سَلٰمٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "قَولًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "رَبٍّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "رَحيمٍ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 52,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "قالوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "يٰوَيلَنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "بَعَثَنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مَرقَدِناۜ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "هٰذا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "ما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "وَعَدَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "الرَّحمٰنُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "وَصَدَقَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "المُرسَلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

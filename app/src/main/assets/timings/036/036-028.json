@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 28,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَمآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اَنزَلنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "عَليٰ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "قَومِهٖ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "بَعدِهٖ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "جُندٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "مِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "السَّمآءِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "وَما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "كُنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 12,
+      "text": "مُنزِلينَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

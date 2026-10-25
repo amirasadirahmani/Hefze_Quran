@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 8,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "جَعَلنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "فيٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَعناقِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اَغلٰلًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "فَهِيَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "اِلَي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "الاَذقانِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "فَهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "مُقمَحونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

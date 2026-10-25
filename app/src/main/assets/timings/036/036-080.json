@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 80,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اؘلَّذي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "جَعَلَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "لَكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "مِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "الشَّجَرِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "الاَخضَرِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "نارًا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "فَاِذآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "اَنتُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "مِنهُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "توقِدونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

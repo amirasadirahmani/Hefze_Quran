@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 65,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اؘليَومَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "نَختِمُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "عَليٰٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَفواهِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "وَتُكَلِّمُنآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "اَيديهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "وَتَشهَدُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اَرجُلُهُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "بِما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "كانوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "يَكسِبونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

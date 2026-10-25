@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 25,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنّيٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "ءامَنتُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "بِرَبِّكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "فَاسمَعونِ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

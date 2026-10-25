@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 81,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اَوَلَيسَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "الَّذي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "خَلَقَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "السَّمٰوٰتِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "وَالاَرضَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "بِقٰدِرٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "عَليٰٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "يَخلُقَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "مِثلَهُمۚ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "بَليٰؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "وَهُوَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 12,
+      "text": "الخَلّٰقُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 13,
+      "text": "العَليمُ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 59,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَامتازُوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اليَومَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اَيُّهَا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "المُجرِمونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

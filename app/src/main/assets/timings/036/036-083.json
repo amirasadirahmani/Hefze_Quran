@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 83,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "فَسُبحٰنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "الَّذي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "بِيَدِهٖ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "مَلَكوتُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "كُلِّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "شَيءٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "وَاِلَيهِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "تُرجَعونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

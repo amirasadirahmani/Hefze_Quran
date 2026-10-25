@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 46,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "تَأتيهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "ءايَةٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "مِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "ءايٰتِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "رَبِّهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اِلّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "كانوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "عَنها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "مُعرِضينَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

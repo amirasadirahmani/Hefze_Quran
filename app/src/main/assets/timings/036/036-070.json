@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 70,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "لِيُنذِرَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "مَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "كانَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "حَيًّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "وَيَحِقَّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "القَولُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "عَلَي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "الكٰفِرينَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

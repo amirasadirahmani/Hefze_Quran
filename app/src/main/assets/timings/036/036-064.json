@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 64,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اؚصلَوهَا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اليَومَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "بِما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "كُنتُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "تَكفُرونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

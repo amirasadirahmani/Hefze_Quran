@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 51,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَنُفِخَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "فِي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "الصّورِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "فَاِذا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "هُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "الاَجداثِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اِليٰ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "رَبِّهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "يَنسِلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 54,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "فَاليَومَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "لا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "تُظلَمُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "نَفسٌ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "شَيـًٔا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "وَلا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "تُجزَونَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "اِلّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "ما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "كُنتُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "تَعمَلونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 36,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "سُبحٰنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "الَّذي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "خَلَقَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "الاَزواجَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "كُلَّها",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِمّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "تُنبِتُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "الاَرضُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "وَمِن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "اَنفُسِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "وَمِمّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "لا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 12,
+      "text": "يَعلَمونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

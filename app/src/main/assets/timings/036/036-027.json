@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 27,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "بِما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "غَفَرَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "لي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "رَبّي",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "وَجَعَلَ‍ني",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "مِنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "المُكرَمينَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

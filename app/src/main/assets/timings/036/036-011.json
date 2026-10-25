@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 11,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنَّما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "تُنذِرُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "مَنِ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اتَّبَعَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "الذِّكرَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "وَخَشِيَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "الرَّحمٰنَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "بِالغَيبِؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "فَبَشِّرهُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "بِمَغفِرَةٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "وَاَجرٍ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "كَريمٍ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

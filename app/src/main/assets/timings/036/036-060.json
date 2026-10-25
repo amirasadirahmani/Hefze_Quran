@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 60,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اَلَم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اَعهَد",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اِلَيكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "يٰبَنيٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "ءادَمَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "اَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "لا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "تَعبُدُوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "الشَّيطٰنَؗ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "اِنَّهۥ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 10,
+      "text": "لَكُم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 11,
+      "text": "عَدُوٌّ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 12,
+      "text": "مُبينٌ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

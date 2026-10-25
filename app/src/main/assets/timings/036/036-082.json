@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 82,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "اِنَّمآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "اَمرُهٓۥ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اِذآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "اَرادَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "شَيـًٔا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "اَن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "يَقولَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "لَهۥ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "كُن",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 9,
+      "text": "فَيَكونُ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

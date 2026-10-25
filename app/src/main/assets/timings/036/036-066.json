@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 66,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَلَو",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "نَشآءُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "لَطَمَسنا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "عَليٰٓ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "اَعيُنِهِم",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 5,
+      "text": "فَاستَبَقُوا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 6,
+      "text": "الصِّراطَ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 7,
+      "text": "فَاَنّيٰ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 8,
+      "text": "يُبصِرونَ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

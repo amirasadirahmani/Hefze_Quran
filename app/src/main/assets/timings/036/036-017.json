@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "surah": 36,
+  "ayah": 17,
+  "reviewed": false,
+  "audioSha256": null,
+  "durationMs": null,
+  "words": [
+    {
+      "index": 0,
+      "text": "وَما",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 1,
+      "text": "عَلَينآ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 2,
+      "text": "اِلَّا",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 3,
+      "text": "البَلٰغُ",
+      "startMs": null,
+      "endMs": null
+    },
+    {
+      "index": 4,
+      "text": "المُبينُ",
+      "startMs": null,
+      "endMs": null
+    }
+  ]
+}

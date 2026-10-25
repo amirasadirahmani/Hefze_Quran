@@ -26,6 +26,8 @@ Android native، Java 17 و APIهای خود Android، بدون وابستگی r
 - مقدار زمان شنیدن تقریباً از زمان monotonic هنگام playing جمع می‌شود و زمان سکوت حذف است؛ این اندازه‌گیری telemetry دقیق نمونه‌به‌نمونهٔ decoder نیست.
 - ابزار هم‌ترازی دستی آماده است. هم‌ترازی اجباری خودکار به انتخاب مدل و بررسی کیفیت روی صوت قاری نیاز دارد و هنوز اجرا نشده است.
 
+`StudyStore` اکنون فقط schema نسخهٔ ۱ دارد؛ `onUpgrade` در نصب این نسخه اجرا نمی‌شود. هنگام ایجاد نسخهٔ ۲ باید migration حفظ‌کنندهٔ داده و آزمون ارتقای پایگاه پرشده از نسخهٔ ۱ اضافه شود. حذف جدول‌ها یا افزودن `ALTER TABLE` بدون تعریف schema آینده راه‌حل معتبری نیست. استفاده از `Activity` استاندارد Android عمدی است تا وابستگی runtime اضافه نشود. VectorDrawable از API ۲۱ پشتیبانی می‌شود و حداقل API برنامه ۲۶ است؛ برنامه تم روشن ثابت دارد و Night Mode خودکار AppCompat را ارائه نمی‌کند. ابزار تولید محتوا در CI با نسخهٔ ثابت Pillow اجرا و خروجی‌اش با JSON ثبت‌شده مقایسه می‌شود.
+
 ## تغییر داده یا فونت
 
 JSON تولیدی همراه سورس است؛ ساخت APK به Python نیاز ندارد. فقط برای بازتولید صفحه‌ها از متن، Python با Pillow و پشتیبانی RAQM لازم است:
@@ -33,8 +35,9 @@ JSON تولیدی همراه سورس است؛ ساخت APK به Python نیاز
 ```bash
 python3 -m venv .tools/content-env
 source .tools/content-env/bin/activate
-python -m pip install Pillow==12.3.0
+python -m pip install -r tools/requirements-content.txt
 python tools/generate_content.py
+python tools/check_generated_content.py
 python tools/validate_assets.py
 ```
 

@@ -2,6 +2,7 @@ package ir.hefze.quran.core;
 
 /** Single-threaded state machine. All times use a monotonic clock; callbacks carry a generation. */
 public final class PlaybackQueue {
+    public static final int YASIN_AYAH_COUNT = 83;
     public enum State { IDLE, LOADING, PLAYING, GAP, PAUSED, FINISHED, ERROR }
     public interface Port {
         void load(int ayah, long generation);
@@ -12,14 +13,14 @@ public final class PlaybackQueue {
         void completed(int ayah);
     }
     private final Port port;
-    private final int[] repeats = new int[84], gaps = new int[84];
+    private final int[] repeats = new int[YASIN_AYAH_COUNT + 1], gaps = new int[YASIN_AYAH_COUNT + 1];
     private State state = State.IDLE, resumeState = State.IDLE;
-    private int ayah = 1, iteration = 1, first = 1, last = 83;
+    private int ayah = 1, iteration = 1, first = 1, last = YASIN_AYAH_COUNT;
     private long generation, deadline, remaining;
     public PlaybackQueue(Port port) { this.port = port; defaults(3, 3); }
-    public void defaults(int repeat, int gap) { for (int i=1;i<=83;i++) configure(i,repeat,gap); }
+    public void defaults(int repeat, int gap) { for (int i=1;i<=YASIN_AYAH_COUNT;i++) configure(i,repeat,gap); }
     public void configure(int verse, int repeat, int gap) {
-        if (verse<1 || verse>83 || repeat<1 || repeat>10 || gap<0 || gap>30) throw new IllegalArgumentException();
+        if (verse<1 || verse>YASIN_AYAH_COUNT || repeat<1 || repeat>10 || gap<0 || gap>30) throw new IllegalArgumentException();
         repeats[verse]=repeat; gaps[verse]=gap;
     }
     public State state() { return state; }
@@ -33,7 +34,7 @@ public final class PlaybackQueue {
     public boolean running() { return state==State.PLAYING || state==State.GAP || state==State.LOADING; }
     public long gapRemaining(long now) { return state==State.PAUSED ? remaining : Math.max(0, deadline-now); }
     public void range(int start, int end) {
-        if (start<1 || end>83 || end<start) throw new IllegalArgumentException();
+        if (start<1 || end>YASIN_AYAH_COUNT || end<start) throw new IllegalArgumentException();
         stop(); first=start; last=end; ayah=start; iteration=1; port.changed();
     }
     public void select(int verse, boolean autoplay) {

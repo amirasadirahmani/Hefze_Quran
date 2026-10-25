@@ -21,6 +21,10 @@ jobs:
       - run: bash tools/test_core.sh
       - run: python3 tools/validate_assets.py
       - run: python3 -m unittest discover -s tests -v
+      - name: Verify reproducible Quran layout
+        run: |
+          python3 -m pip install -r tools/requirements-content.txt
+          python3 tools/check_generated_content.py
       - name: Build and lint APK
         run: |
           bash gradlew --no-daemon :app:assembleDebug :app:lintDebug || {

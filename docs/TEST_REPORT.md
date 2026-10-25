@@ -16,10 +16,10 @@ Date: 2026-10-25
 
 ## Blocked / not executed
 
-- `./gradlew --version` could not download Gradle 8.11.1: **Network is unreachable**. Android SDK is also absent. APK generation, Android compilation, lint, installation and emulator/device checks remain unexecuted.
+- Local `./gradlew --version` could not download Gradle 8.11.1: **Network is unreachable**; Android SDK is absent locally. GitHub Actions run 40203849671 successfully compiled the Android app, assembled the debug APK, passed lint and uploaded `hefze-yasin-debug`. Installation and emulator/device checks remain unexecuted.
 - Playwright browser interaction could not launch: Chromium executable is not installed. No browser interaction test is reported as passed.
 - Real audio decode, lifecycle behavior on Android, headset/audio focus, notifications and word synchronization await device testing and actual reciter audio.
 - Full release validation is intentionally failing until all audio and reviewed timing files are supplied.
-- GitHub Actions workflow execution is verified after the initial push.
+- GitHub Actions run 40203849671 passed, with downloadable APK artifact 12602404623.
 
 The initial push and workflow run are tracked in GitHub Actions.

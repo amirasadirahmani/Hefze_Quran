@@ -21,7 +21,12 @@ jobs:
       - run: bash tools/test_core.sh
       - run: python3 tools/validate_assets.py
       - run: python3 -m unittest discover -s tests -v
-      - run: bash gradlew --no-daemon :app:assembleDebug :app:lintDebug
+      - name: Build and lint APK
+        run: |
+          bash gradlew --no-daemon :app:assembleDebug :app:lintDebug || {
+            cat app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt || true
+            exit 1
+          }
       - uses: actions/upload-artifact@v4
         with:
           name: hefze-yasin-debug

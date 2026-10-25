@@ -25,4 +25,10 @@ class ContentTests(unittest.TestCase):
         path=self.root/'app/src/main/assets/timings/036/036-001.json';data=json.loads(path.read_text());data.update(reviewed=True,durationMs=1000,audioSha256='stale');data['words'][0].update(startMs=0,endMs=1000);path.write_text(json.dumps(data))
         (self.root/'app/src/main/assets/audio/036/036-001.mp3').write_bytes(b'fixture only')
         errors,_=assets.validate(self.root);self.assertTrue(any('different audio' in e for e in errors))
+    def test_catalog_must_not_advertise_unavailable_packs(self):
+        path=self.root/'app/src/main/assets/content/surahs.json';data=json.loads(path.read_text());data['surahs'][0]['available']=True;path.write_text(json.dumps(data))
+        errors,_=assets.validate(self.root);self.assertIn('Only Yasin has a learning pack',errors)
+    def test_yasin_juz_boundary_is_preserved(self):
+        path=self.root/'app/src/main/assets/content/surahs.json';data=json.loads(path.read_text());data['surahs'][35]['lastJuz']=22;path.write_text(json.dumps(data))
+        errors,_=assets.validate(self.root);self.assertIn('Yasin must span juz 22 and 23',errors)
 if __name__=='__main__':unittest.main()

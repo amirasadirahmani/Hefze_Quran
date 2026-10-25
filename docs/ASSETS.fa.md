@@ -1,11 +1,33 @@
-# دارایی‌های تصویری
+# قاب، فونت و منابع نسخهٔ پسته‌ای
 
-برای این نسخه تصویر اجباری نداریم. پس‌زمینهٔ پسته‌ای، قاب صفحه و آیکن کتاب داخل برنامه رسم شده‌اند. متن قرآن همیشه متن واقعی است و داخل تصویر تولیدی قرار نمی‌گیرد.
+## پس‌زمینه
 
-اگر ظاهر تصویری برای صفحهٔ ورود می‌خواهید، این پرامپت یک دارایی اختیاری تولید می‌کند؛ فایل هنوز به رابط وصل نشده و پس از دریافت، با حفظ خوانایی فرم اضافه می‌شود:
+فایل `app/src/main/res/drawable-nodpi/mushaf_pistachio.png` با ویرایش تصویر ارسالی کاربر در ابزار داخلی imagegen ساخته شد. ابعاد واقعی خروجی **941×1672** پیکسل است (تقریباً ۹:۱۶). تصویر اولیه 1024×1024 بود. کادر بالا و پایین مستطیلی، حاشیهٔ متن مستقیم و رنگ‌ها پسته‌ای و کرم هستند. متن و دکمه داخل تصویر پخته نشده‌اند.
 
-> Create a quiet, refined portrait background for an offline Quran memorization Android app. Very pale warm ivory paper, muted pistachio green and delicate sage accents, restrained Persian Islamic geometric ornament only in the outer corners, thin elegant arabesque lines with low contrast. Keep the central 75 percent completely empty and visually calm for real UI text. Flat even lighting, no gradients that reduce text legibility. No text, no Arabic letters, no calligraphy, no Quran verses, no book pages, no people, no logos, no watermarks. Portrait 9:16, 1440 by 2560 pixels. Minimal contemporary design, respectful and serene.
+`MushafFrameDrawable` تصویر را در زمان رسم به سه ناحیهٔ بالا (۰ تا ۱۶٪)، بدنه (۱۶ تا ۸۱٫۵٪) و پایین تقسیم می‌کند. ارتفاع بالا و پایین از View واقعی سربرگ و پلیر گرفته می‌شود؛ نوارهای تزئینی ابتدا و انتهای این دو بخش ارتفاع محدود دارند تا فضای کنترل‌ها آزاد بماند؛ بدنه فضای باقی‌مانده را پر می‌کند. این روش برای نسبت‌های مختلف نمایشگر است، نه ادعای یکسان‌بودن تمام دستگاه‌ها. محتوای متن در ارتفاع کم قابل اسکرول است.
 
-نام پیشنهادی: `onboarding_background.webp` با نسبت ۹:۱۶ و حجم ترجیحاً کمتر از ۵۰۰KB. پس از دریافت می‌توان آن را در `app/src/main/res/drawable-nodpi/` قرار داد و به پس‌زمینهٔ صفحهٔ ثبت‌نام متصل کرد. فعلاً صرف قرار دادن فایل باعث نمایش خودکار آن نمی‌شود.
+خلاصهٔ پرامپت نهایی: ویرایش قاب مربع به یک تصویر عمودی ۹:۱۶، کاغذ کرم، سبز پسته‌ای، خطوط مستقیم با گوشه‌های قائمه، تزئینات کوچک در حاشیه، کادر مستطیلی بالایی برای عنوان و بسم‌الله و کادر مستطیلی پایینی برای پلیر؛ بدون متن، عدد، آیکن یا واترمارک. ابزار: built-in image_gen، حالت ویرایش تصویر ارسالی.
 
-فونت Amiri و مجوز OFL همراه برنامه هستند. جایگزینی فونت، یک تغییر در هویت صفحه‌بندی است؛ نباید بدون بازتولید و بازبینی تمام صفحه‌ها انجام شود.
+## فونت
+
+ZIP با نام `osmantaha.zip` در واقع `ScheherazadeRegOT.ttf` نسخهٔ 1.0rc1 را داشت. این فایل سه نویسهٔ U+0617، U+0618 و U+061A موجود در متن فعلی را پوشش نمی‌دهد. نام فایل ZIP تضمین نمی‌کند فونت، عثمان‌طه یا همان فونت اختصاصی تصویر نمونه باشد.
+
+نسخهٔ همراه برنامه **Scheherazade New 4.500 Regular** است؛ از خانوادهٔ همان فونت و دارای پوشش همهٔ نویسه‌های متن فعلی. فایل از منبع رسمی دریافت شده و مجوز SIL OFL در `fonts/Scheherazade-OFL.txt` همراه آن است:
+
+- https://software.sil.org/scheherazade/download/
+- https://software.sil.org/downloads/r/scheherazade/ScheherazadeNew-4.500.zip
+- https://software.sil.org/scheherazade/download/previous-versions/
+
+صفحه‌بندی مجدداً تولید شده: ۱۰ صفحه، ۱۰۸ سطر، حداکثر ۱۱ سطر در هر صفحه، اندازهٔ مرجع فونت ۴۴، فاصلهٔ سطر ۹۶ و بوم 760×1072. طرح حروف را نمی‌کشیم؛ تنها فاصلهٔ میان کلمات تنظیم می‌شود. نام سوره و بسم‌الله نیز متن واقعی‌اند.
+
+این صفحه‌بندی اختصاصی برنامه است و ادعای انطباق با صفحه‌های مصحف نمونه ندارد. تصویرهای نمونه فقط مرجع ظاهر بودند و به‌عنوان متن قرآن بسته‌بندی نشده‌اند.
+
+## فهرست
+
+فایل `content/surahs.json` از metadata عمومی Al Quran Cloud تهیه شده است: https://api.alquran.cloud/v1/surah و https://api.alquran.cloud/v1/meta . این فایل فقط نام، شماره، تعداد آیه و محدودهٔ جزءها را دارد؛ متن سایر سوره‌ها هنوز بسته‌بندی نشده است.
+
+## پیش‌نمایش
+
+`tools/preview.html` یک پیش‌نمایش مرورگری طراحی با همان متن، فونت و قاب است؛ تصویر اجرای Android نیست. از ریشهٔ پروژه `python3 -m http.server 8765` را اجرا و `http://localhost:8765/tools/preview.html` را باز کنید. نسخهٔ اصلی همچنان اپلیکیشن native Java است.
+
+برای تولید دوبارهٔ تصویرِ طراحی، وابستگی‌های اختیاری `weasyprint`، `pymupdf` و `Pillow` را نصب و `python3 tools/render_preview.py` را اجرا کنید. این ابزار جزو ساخت APK یا CI نیست.

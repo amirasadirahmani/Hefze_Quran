@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'app/src/main/assets'
-font = ImageFont.truetype(str(ASSETS / 'fonts/Amiri-Regular.ttf'), 34)
+font = ImageFont.truetype(str(ASSETS / 'fonts/ScheherazadeNew-Regular.ttf'), 44)
 source = (ROOT / 'docs/yasin-user-source.txt').read_text()
 verses, tokens = [], []
 for text, number in re.findall(r'(.+?)\s*\((\d+)\)', source):
@@ -18,19 +18,24 @@ for text, number in re.findall(r'(.+?)\s*\((\d+)\)', source):
     tokens.extend(dict(ayah=n, word=i, text=w) for i,w in enumerate(words))
     tokens.append(dict(ayah=n, word=-1, text='﴿'+str(n).translate(str.maketrans('0123456789','٠١٢٣٤٥٦٧٨٩'))+'﴾'))
 assert [v['number'] for v in verses] == list(range(1,84))
+def line_width(items):
+    width = font.getlength(' '.join(t['text'] for t in items), direction='rtl', language='ar')
+    # Android draws the end-of-ayah medallion as a fixed-width ReplacementSpan.
+    return width + sum(46 - font.getlength(t['text'], direction='rtl', language='ar') for t in items if t['word'] == -1)
+
 lines, line = [], []
 for token in tokens:
     candidate = ' '.join(t['text'] for t in line + [token])
-    if line and font.getlength(candidate, direction='rtl', language='ar') > 650:
+    if line and line_width(line + [token]) > 660:
         lines.append(line); line = []
     line.append(token)
 if line: lines.append(line)
-pages = [dict(number=i//14+1, lines=lines[i:i+14]) for i in range(0,len(lines),14)]
+pages = [dict(number=i//11+1, lines=lines[i:i+11]) for i in range(0,len(lines),11)]
 for verse in verses:
     verse['page'] = next(p['number'] for p in pages if any(t['ayah']==verse['number'] for l in p['lines'] for t in l))
 content = dict(schemaVersion=1, surah=36, name='يس', basmala='بِسمِ اللهِ الرَّحمٰنِ الرَّحيمِ',
-    reciter='pending', source='user-supplied; pending editorial verification',
-    layout=dict(id='yasin-app-v1', width=760, height=1120, fontSize=34, lineHeight=62, linesPerPage=14),
+    reciter='Mishary Rashid Alafasy (EveryAyah, 64 kbps)', source='user-supplied; pending editorial verification',
+    layout=dict(id='yasin-app-v2-scheherazade', width=760, height=1072, fontSize=44, lineHeight=96, linesPerPage=11, font='fonts/ScheherazadeNew-Regular.ttf'),
     verses=verses, pages=pages)
 (ASSETS/'content/yasin.json').write_text(json.dumps(content,ensure_ascii=False,indent=2)+'\n')
 for v in verses:

@@ -1,25 +1,29 @@
-# Verification report
+# Verification report — pistachio / optional audio edition
 
-Date: 2026-10-25
+Date: 2026-10-26
+Base commit: b0308eef504af857f2b9d3335bf1ff48a64873e9
 
-## Executed successfully
+## Passed
 
-- Java 17 compilation and execution of the platform-independent playback queue, study-method presets, and word timeline: **36 assertions passed**.
-- Python content tests: **5 passed**. Includes missing-asset release rejection, corrupted page text, unreviewed/fake timing metadata and stale audio hashes.
-- Development package validation: **0 structural errors**, **166 pending items** (83 audio files and 83 reviewed alignments).
-- Java compiler parser: all **10 Android/core Java source files** parsed without syntax diagnostics. This is a parsing check, not Android compilation/type checking.
-- Android manifest, theme and icon XML parsed successfully. Resource linking was not run.
-- Alignment editor JavaScript passed `node --check`. Browser interaction is not tested.
-- All Quran text code points (except the intentionally non-rendering ZWJ) are covered by the bundled Amiri font.
-- All 83 verse markers and every word appear exactly once in page order. Six pages / 84 fixed lines. Maximum measured line width: 647.14 reference pixels, within the 680-pixel Android text column.
-- All six page layouts visually inspected using Pillow with the bundled font. This does not verify Android shaping or constitute a device screenshot.
+- Java core tests: **36 assertions** for playback, study presets and word timelines.
+- Audio transfer tests: **15 assertions** for completed writes, truncated responses, decoder rejection, cancellation, empty/chunked responses, size limits and preservation of an existing file on failure.
+- Python content/catalog tests: **7 passed**.
+- Content validation: **0 structural errors**. The 166 pending reference-package items are 83 MP3s (now optional runtime downloads) and 83 unreviewed word timelines.
+- Reproducible generation: committed content matches the pinned-Pillow generator. All 83 original verse texts and all timing templates remain unchanged.
+- Layout geometry: **108 lines / 10 app pages**, maximum 11 lines per page; maximum measured width **659.78 / 660**, maximum ink height **88 / 96** reference pixels.
+- Scheherazade New 4.500 covers all characters in the supplied Quran text. The uploaded legacy font did not cover U+0617, U+0618 or U+061A.
+- Android API 35 compilation, resource linking, debug APK assembly and Android Lint completed successfully locally using JDK 17. Lint reports **0 errors / 8 warnings** (portrait orientation, existing view constructors/backup configuration and programmatic text/gravity).
+- Packaging probe: a temporary `.mp3` was placed inside the local assets directory during the build. The resulting APK contains **no MP3 or partial files** and includes the text, catalog, font and artwork. The temporary fixture was removed afterward. Final local APK: **2,545,314 bytes**.
+- The first EveryAyah Yasin file was downloaded over HTTPS and inspected with ffprobe: 38,033 bytes, 4.728163 seconds. This is a source/file check, not Android playback validation.
+- The design proof in `docs/previews/pistachio-preview.png` was rendered from the actual bundled text, font and background. It is explicitly labeled as a design proof, not a running Android screenshot.
+- `git diff --check` passed.
 
-## Blocked / not executed
+## Still requires device testing / editorial work
 
-- Local `./gradlew --version` could not download Gradle 8.11.1: **Network is unreachable**; Android SDK is absent locally. GitHub Actions run 40203849671 successfully compiled the Android app, assembled the debug APK, passed lint and uploaded `hefze-yasin-debug`. Installation and emulator/device checks remain unexecuted.
-- Playwright browser interaction could not launch: Chromium executable is not installed. No browser interaction test is reported as passed.
-- Real audio decode, lifecycle behavior on Android, headset/audio focus, notifications and word synchronization await device testing and actual reciter audio.
-- Full release validation is intentionally failing until all audio and reviewed timing files are supplied.
-- GitHub Actions run 40203849671 passed, with downloadable APK artifact 12602404623.
+- Actual Android rendering, taps, accessibility, download interruptions and playback/audio-focus behavior on a phone or emulator. No device test is claimed.
+- Word-by-word highlighting requires reviewed timing JSON tied by SHA-256 to the downloaded recordings. Downloading audio alone does not supply timings.
+- Only Yasin has a reading/study pack. The remaining 113 catalog entries are visibly unavailable.
+- Quran editorial review and comparison with a chosen reference mushaf. The 10 pages are app-specific, not official printed page numbers.
+- Browser interaction of the optional HTML preview was not tested: Chromium launch was blocked by the execution environment. The static design proof was rendered with WeasyPrint/PyMuPDF instead.
 
-The initial push and workflow run are tracked in GitHub Actions.
+The GitHub workflow independently runs the core/content/layout checks, builds and lints the APK, verifies that it contains no recordings, and uploads `hefze-yasin-debug`. See the workflow run for the corresponding commit for its status.

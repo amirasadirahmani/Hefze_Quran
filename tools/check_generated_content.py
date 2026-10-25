@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory() as directory:
     replica = Path(directory)
     for relative in ('tools/generate_content.py', 'docs/yasin-user-source.txt',
-                     'app/src/main/assets/fonts/Amiri-Regular.ttf'):
+                     'app/src/main/assets/fonts/ScheherazadeNew-Regular.ttf'):
         target = replica / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(root / relative, target)

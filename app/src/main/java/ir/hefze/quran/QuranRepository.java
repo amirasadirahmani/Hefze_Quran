@@ -50,13 +50,18 @@ public final class QuranRepository {
         }
     }
     public Verse verse(int ayah) { return verses.get(ayah-1); }
-    public boolean hasAudio(int ayah) {
+    public synchronized boolean hasAudio(int ayah) {
+        if(audioFile(ayah).isFile() && audioFile(ayah).length()>0)return true;
         if(audioAvailability.containsKey(ayah))return audioAvailability.get(ayah);
         boolean available;
         try(InputStream in=context.getAssets().open(verse(ayah).audio)) { available=in.read()!=-1; }
         catch(IOException e) { available=false; }
         audioAvailability.put(ayah,available);return available;
     }
+    public File audioFile(int ayah) { return new File(context.getFilesDir(), "recitations/alafasy64/" + String.format(Locale.ROOT,"036-%03d.mp3",ayah)); }
+    public synchronized void audioChanged(int ayah) { audioAvailability.remove(ayah); checked.remove(ayah); timelines.remove(ayah); }
+    public InputStream openAudio(int ayah) throws IOException { File f=audioFile(ayah); return f.isFile()?new FileInputStream(f):context.getAssets().open(verse(ayah).audio); }
+    public int downloadedCount() { int count=0;for(int i=1;i<=83;i++)if(hasAudio(i))count++;return count; }
     private JSONObject read(String path) throws Exception {
         try(InputStream in=context.getAssets().open(path); ByteArrayOutputStream out=new ByteArrayOutputStream()) {
             byte[] buffer=new byte[8192];int n;while((n=in.read(buffer))!=-1)out.write(buffer,0,n);
@@ -64,7 +69,7 @@ public final class QuranRepository {
         }
     }
     /** Reject missing, unreviewed, stale, incomplete or malformed timing data. Never approximate. */
-    public WordTimeline timeline(int ayah) {
+    public synchronized WordTimeline timeline(int ayah) {
         if(checked.contains(ayah))return timelines.get(ayah);
         checked.add(ayah);
         try {
@@ -78,7 +83,7 @@ public final class QuranRepository {
                 starts[i]=w.getInt("startMs");ends[i]=w.getInt("endMs");
             }
             MessageDigest md=MessageDigest.getInstance("SHA-256");
-            try(InputStream in=context.getAssets().open(v.audio)) {byte[] b=new byte[8192];int n;while((n=in.read(b))!=-1)md.update(b,0,n);}
+            try(InputStream in=openAudio(ayah)) {byte[] b=new byte[8192];int n;while((n=in.read(b))!=-1)md.update(b,0,n);}
             StringBuilder hash=new StringBuilder();for(byte b:md.digest())hash.append(String.format(Locale.ROOT,"%02x",b&255));
             if(!hash.toString().equals(o.getString("audioSha256")))return null;
             WordTimeline result=new WordTimeline(starts,ends,o.getInt("durationMs"));timelines.put(ayah,result);return result;

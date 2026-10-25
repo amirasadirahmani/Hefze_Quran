@@ -25,12 +25,15 @@ jobs:
         run: |
           python3 -m pip install -r tools/requirements-content.txt
           python3 tools/check_generated_content.py
+          python3 tools/check_layout.py
       - name: Build and lint APK
         run: |
           bash gradlew --no-daemon :app:assembleDebug :app:lintDebug || {
             cat app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt || true
             exit 1
           }
+      - name: Check lightweight APK contents
+        run: python3 tools/check_apk.py
       - uses: actions/upload-artifact@v4
         with:
           name: hefze-yasin-debug

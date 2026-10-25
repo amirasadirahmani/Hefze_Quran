@@ -1,0 +1,917 @@
+{
+  "source": "https://api.alquran.cloud/v1/meta",
+  "surahs": [
+    {
+      "number": 1,
+      "name": "سُورَةُ ٱلْفَاتِحَةِ",
+      "ayahs": 7,
+      "firstJuz": 1,
+      "lastJuz": 1,
+      "available": false
+    },
+    {
+      "number": 2,
+      "name": "سُورَةُ البَقَرَةِ",
+      "ayahs": 286,
+      "firstJuz": 1,
+      "lastJuz": 3,
+      "available": false
+    },
+    {
+      "number": 3,
+      "name": "سُورَةُ آلِ عِمۡرَانَ",
+      "ayahs": 200,
+      "firstJuz": 3,
+      "lastJuz": 4,
+      "available": false
+    },
+    {
+      "number": 4,
+      "name": "سُورَةُ النِّسَاءِ",
+      "ayahs": 176,
+      "firstJuz": 4,
+      "lastJuz": 6,
+      "available": false
+    },
+    {
+      "number": 5,
+      "name": "سُورَةُ المَائـِدَةِ",
+      "ayahs": 120,
+      "firstJuz": 6,
+      "lastJuz": 7,
+      "available": false
+    },
+    {
+      "number": 6,
+      "name": "سُورَةُ الأَنۡعَامِ",
+      "ayahs": 165,
+      "firstJuz": 7,
+      "lastJuz": 8,
+      "available": false
+    },
+    {
+      "number": 7,
+      "name": "سُورَةُ الأَعۡرَافِ",
+      "ayahs": 206,
+      "firstJuz": 8,
+      "lastJuz": 9,
+      "available": false
+    },
+    {
+      "number": 8,
+      "name": "سُورَةُ الأَنفَالِ",
+      "ayahs": 75,
+      "firstJuz": 9,
+      "lastJuz": 10,
+      "available": false
+    },
+    {
+      "number": 9,
+      "name": "سُورَةُ التَّوۡبَةِ",
+      "ayahs": 129,
+      "firstJuz": 10,
+      "lastJuz": 11,
+      "available": false
+    },
+    {
+      "number": 10,
+      "name": "سُورَةُ يُونُسَ",
+      "ayahs": 109,
+      "firstJuz": 11,
+      "lastJuz": 11,
+      "available": false
+    },
+    {
+      "number": 11,
+      "name": "سُورَةُ هُودٍ",
+      "ayahs": 123,
+      "firstJuz": 11,
+      "lastJuz": 12,
+      "available": false
+    },
+    {
+      "number": 12,
+      "name": "سُورَةُ يُوسُفَ",
+      "ayahs": 111,
+      "firstJuz": 12,
+      "lastJuz": 13,
+      "available": false
+    },
+    {
+      "number": 13,
+      "name": "سُورَةُ الرَّعۡدِ",
+      "ayahs": 43,
+      "firstJuz": 13,
+      "lastJuz": 13,
+      "available": false
+    },
+    {
+      "number": 14,
+      "name": "سُورَةُ إِبۡرَاهِيمَ",
+      "ayahs": 52,
+      "firstJuz": 13,
+      "lastJuz": 13,
+      "available": false
+    },
+    {
+      "number": 15,
+      "name": "سُورَةُ الحِجۡرِ",
+      "ayahs": 99,
+      "firstJuz": 14,
+      "lastJuz": 14,
+      "available": false
+    },
+    {
+      "number": 16,
+      "name": "سُورَةُ النَّحۡلِ",
+      "ayahs": 128,
+      "firstJuz": 14,
+      "lastJuz": 14,
+      "available": false
+    },
+    {
+      "number": 17,
+      "name": "سُورَةُ الإِسۡرَاءِ",
+      "ayahs": 111,
+      "firstJuz": 15,
+      "lastJuz": 15,
+      "available": false
+    },
+    {
+      "number": 18,
+      "name": "سُورَةُ الكَهۡفِ",
+      "ayahs": 110,
+      "firstJuz": 15,
+      "lastJuz": 16,
+      "available": false
+    },
+    {
+      "number": 19,
+      "name": "سُورَةُ مَرۡيَمَ",
+      "ayahs": 98,
+      "firstJuz": 16,
+      "lastJuz": 16,
+      "available": false
+    },
+    {
+      "number": 20,
+      "name": "سُورَةُ طه",
+      "ayahs": 135,
+      "firstJuz": 16,
+      "lastJuz": 16,
+      "available": false
+    },
+    {
+      "number": 21,
+      "name": "سُورَةُ الأَنبِيَاءِ",
+      "ayahs": 112,
+      "firstJuz": 17,
+      "lastJuz": 17,
+      "available": false
+    },
+    {
+      "number": 22,
+      "name": "سُورَةُ الحَجِّ",
+      "ayahs": 78,
+      "firstJuz": 17,
+      "lastJuz": 17,
+      "available": false
+    },
+    {
+      "number": 23,
+      "name": "سُورَةُ المُؤۡمِنُونَ",
+      "ayahs": 118,
+      "firstJuz": 18,
+      "lastJuz": 18,
+      "available": false
+    },
+    {
+      "number": 24,
+      "name": "سُورَةُ النُّورِ",
+      "ayahs": 64,
+      "firstJuz": 18,
+      "lastJuz": 18,
+      "available": false
+    },
+    {
+      "number": 25,
+      "name": "سُورَةُ الفُرۡقَانِ",
+      "ayahs": 77,
+      "firstJuz": 18,
+      "lastJuz": 19,
+      "available": false
+    },
+    {
+      "number": 26,
+      "name": "سُورَةُ الشُّعَرَاءِ",
+      "ayahs": 227,
+      "firstJuz": 19,
+      "lastJuz": 19,
+      "available": false
+    },
+    {
+      "number": 27,
+      "name": "سُورَةُ النَّمۡلِ",
+      "ayahs": 93,
+      "firstJuz": 19,
+      "lastJuz": 20,
+      "available": false
+    },
+    {
+      "number": 28,
+      "name": "سُورَةُ القَصَصِ",
+      "ayahs": 88,
+      "firstJuz": 20,
+      "lastJuz": 20,
+      "available": false
+    },
+    {
+      "number": 29,
+      "name": "سُورَةُ العَنكَبُوتِ",
+      "ayahs": 69,
+      "firstJuz": 20,
+      "lastJuz": 21,
+      "available": false
+    },
+    {
+      "number": 30,
+      "name": "سُورَةُ الرُّومِ",
+      "ayahs": 60,
+      "firstJuz": 21,
+      "lastJuz": 21,
+      "available": false
+    },
+    {
+      "number": 31,
+      "name": "سُورَةُ لُقۡمَانَ",
+      "ayahs": 34,
+      "firstJuz": 21,
+      "lastJuz": 21,
+      "available": false
+    },
+    {
+      "number": 32,
+      "name": "سُورَةُ السَّجۡدَةِ",
+      "ayahs": 30,
+      "firstJuz": 21,
+      "lastJuz": 21,
+      "available": false
+    },
+    {
+      "number": 33,
+      "name": "سُورَةُ الأَحۡزَابِ",
+      "ayahs": 73,
+      "firstJuz": 21,
+      "lastJuz": 22,
+      "available": false
+    },
+    {
+      "number": 34,
+      "name": "سُورَةُ سَبَإٍ",
+      "ayahs": 54,
+      "firstJuz": 22,
+      "lastJuz": 22,
+      "available": false
+    },
+    {
+      "number": 35,
+      "name": "سُورَةُ فَاطِرٍ",
+      "ayahs": 45,
+      "firstJuz": 22,
+      "lastJuz": 22,
+      "available": false
+    },
+    {
+      "number": 36,
+      "name": "سُورَةُ يسٓ",
+      "ayahs": 83,
+      "firstJuz": 22,
+      "lastJuz": 23,
+      "available": true
+    },
+    {
+      "number": 37,
+      "name": "سُورَةُ الصَّافَّاتِ",
+      "ayahs": 182,
+      "firstJuz": 23,
+      "lastJuz": 23,
+      "available": false
+    },
+    {
+      "number": 38,
+      "name": "سُورَةُ صٓ",
+      "ayahs": 88,
+      "firstJuz": 23,
+      "lastJuz": 23,
+      "available": false
+    },
+    {
+      "number": 39,
+      "name": "سُورَةُ الزُّمَرِ",
+      "ayahs": 75,
+      "firstJuz": 23,
+      "lastJuz": 24,
+      "available": false
+    },
+    {
+      "number": 40,
+      "name": "سُورَةُ غَافِرٍ",
+      "ayahs": 85,
+      "firstJuz": 24,
+      "lastJuz": 24,
+      "available": false
+    },
+    {
+      "number": 41,
+      "name": "سُورَةُ فُصِّلَتۡ",
+      "ayahs": 54,
+      "firstJuz": 24,
+      "lastJuz": 25,
+      "available": false
+    },
+    {
+      "number": 42,
+      "name": "سُورَةُ الشُّورَىٰ",
+      "ayahs": 53,
+      "firstJuz": 25,
+      "lastJuz": 25,
+      "available": false
+    },
+    {
+      "number": 43,
+      "name": "سُورَةُ الزُّخۡرُفِ",
+      "ayahs": 89,
+      "firstJuz": 25,
+      "lastJuz": 25,
+      "available": false
+    },
+    {
+      "number": 44,
+      "name": "سُورَةُ الدُّخَانِ",
+      "ayahs": 59,
+      "firstJuz": 25,
+      "lastJuz": 25,
+      "available": false
+    },
+    {
+      "number": 45,
+      "name": "سُورَةُ الجَاثِيَةِ",
+      "ayahs": 37,
+      "firstJuz": 25,
+      "lastJuz": 25,
+      "available": false
+    },
+    {
+      "number": 46,
+      "name": "سُورَةُ الأَحۡقَافِ",
+      "ayahs": 35,
+      "firstJuz": 26,
+      "lastJuz": 26,
+      "available": false
+    },
+    {
+      "number": 47,
+      "name": "سُورَةُ مُحَمَّدٍ",
+      "ayahs": 38,
+      "firstJuz": 26,
+      "lastJuz": 26,
+      "available": false
+    },
+    {
+      "number": 48,
+      "name": "سُورَةُ الفَتۡحِ",
+      "ayahs": 29,
+      "firstJuz": 26,
+      "lastJuz": 26,
+      "available": false
+    },
+    {
+      "number": 49,
+      "name": "سُورَةُ الحُجُرَاتِ",
+      "ayahs": 18,
+      "firstJuz": 26,
+      "lastJuz": 26,
+      "available": false
+    },
+    {
+      "number": 50,
+      "name": "سُورَةُ قٓ",
+      "ayahs": 45,
+      "firstJuz": 26,
+      "lastJuz": 26,
+      "available": false
+    },
+    {
+      "number": 51,
+      "name": "سُورَةُ الذَّارِيَاتِ",
+      "ayahs": 60,
+      "firstJuz": 26,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 52,
+      "name": "سُورَةُ الطُّورِ",
+      "ayahs": 49,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 53,
+      "name": "سُورَةُ النَّجۡمِ",
+      "ayahs": 62,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 54,
+      "name": "سُورَةُ القَمَرِ",
+      "ayahs": 55,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 55,
+      "name": "سُورَةُ الرَّحۡمَٰن",
+      "ayahs": 78,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 56,
+      "name": "سُورَةُ الوَاقِعَةِ",
+      "ayahs": 96,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 57,
+      "name": "سُورَةُ الحَدِيدِ",
+      "ayahs": 29,
+      "firstJuz": 27,
+      "lastJuz": 27,
+      "available": false
+    },
+    {
+      "number": 58,
+      "name": "سُورَةُ المُجَادلَةِ",
+      "ayahs": 22,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 59,
+      "name": "سُورَةُ الحَشۡرِ",
+      "ayahs": 24,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 60,
+      "name": "سُورَةُ المُمۡتَحنَةِ",
+      "ayahs": 13,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 61,
+      "name": "سُورَةُ الصَّفِّ",
+      "ayahs": 14,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 62,
+      "name": "سُورَةُ الجُمُعَةِ",
+      "ayahs": 11,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 63,
+      "name": "سُورَةُ المُنَافِقُونَ",
+      "ayahs": 11,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 64,
+      "name": "سُورَةُ التَّغَابُنِ",
+      "ayahs": 18,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 65,
+      "name": "سُورَةُ الطَّلَاقِ",
+      "ayahs": 12,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 66,
+      "name": "سُورَةُ التَّحۡرِيمِ",
+      "ayahs": 12,
+      "firstJuz": 28,
+      "lastJuz": 28,
+      "available": false
+    },
+    {
+      "number": 67,
+      "name": "سُورَةُ المُلۡكِ",
+      "ayahs": 30,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 68,
+      "name": "سُورَةُ القَلَمِ",
+      "ayahs": 52,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 69,
+      "name": "سُورَةُ الحَاقَّةِ",
+      "ayahs": 52,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 70,
+      "name": "سُورَةُ المَعَارِجِ",
+      "ayahs": 44,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 71,
+      "name": "سُورَةُ نُوحٍ",
+      "ayahs": 28,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 72,
+      "name": "سُورَةُ الجِنِّ",
+      "ayahs": 28,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 73,
+      "name": "سُورَةُ المُزَّمِّلِ",
+      "ayahs": 20,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 74,
+      "name": "سُورَةُ المُدَّثِّرِ",
+      "ayahs": 56,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 75,
+      "name": "سُورَةُ القِيَامَةِ",
+      "ayahs": 40,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 76,
+      "name": "سُورَةُ الإِنسَانِ",
+      "ayahs": 31,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 77,
+      "name": "سُورَةُ المُرۡسَلَاتِ",
+      "ayahs": 50,
+      "firstJuz": 29,
+      "lastJuz": 29,
+      "available": false
+    },
+    {
+      "number": 78,
+      "name": "سُورَةُ النَّبَإِ",
+      "ayahs": 40,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 79,
+      "name": "سُورَةُ النَّازِعَاتِ",
+      "ayahs": 46,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 80,
+      "name": "سُورَةُ عَبَسَ",
+      "ayahs": 42,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 81,
+      "name": "سُورَةُ التَّكۡوِيرِ",
+      "ayahs": 29,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 82,
+      "name": "سُورَةُ الانفِطَارِ",
+      "ayahs": 19,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 83,
+      "name": "سُورَةُ المُطَفِّفِينَ",
+      "ayahs": 36,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 84,
+      "name": "سُورَةُ الانشِقَاقِ",
+      "ayahs": 25,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 85,
+      "name": "سُورَةُ البُرُوجِ",
+      "ayahs": 22,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 86,
+      "name": "سُورَةُ الطَّارِقِ",
+      "ayahs": 17,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 87,
+      "name": "سُورَةُ الأَعۡلَىٰ",
+      "ayahs": 19,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 88,
+      "name": "سُورَةُ الغَاشِيَةِ",
+      "ayahs": 26,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 89,
+      "name": "سُورَةُ الفَجۡرِ",
+      "ayahs": 30,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 90,
+      "name": "سُورَةُ البَلَدِ",
+      "ayahs": 20,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 91,
+      "name": "سُورَةُ الشَّمۡسِ",
+      "ayahs": 15,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 92,
+      "name": "سُورَةُ اللَّيۡلِ",
+      "ayahs": 21,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 93,
+      "name": "سُورَةُ الضُّحَىٰ",
+      "ayahs": 11,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 94,
+      "name": "سُورَةُ الشَّرۡحِ",
+      "ayahs": 8,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 95,
+      "name": "سُورَةُ التِّينِ",
+      "ayahs": 8,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 96,
+      "name": "سُورَةُ العَلَقِ",
+      "ayahs": 19,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 97,
+      "name": "سُورَةُ القَدۡرِ",
+      "ayahs": 5,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 98,
+      "name": "سُورَةُ البَيِّنَةِ",
+      "ayahs": 8,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 99,
+      "name": "سُورَةُ الزَّلۡزَلَةِ",
+      "ayahs": 8,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 100,
+      "name": "سُورَةُ العَادِيَاتِ",
+      "ayahs": 11,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 101,
+      "name": "سُورَةُ القَارِعَةِ",
+      "ayahs": 11,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 102,
+      "name": "سُورَةُ التَّكَاثُرِ",
+      "ayahs": 8,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 103,
+      "name": "سُورَةُ العَصۡرِ",
+      "ayahs": 3,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 104,
+      "name": "سُورَةُ الهُمَزَةِ",
+      "ayahs": 9,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 105,
+      "name": "سُورَةُ الفِيلِ",
+      "ayahs": 5,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 106,
+      "name": "سُورَةُ قُرَيۡشٍ",
+      "ayahs": 4,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 107,
+      "name": "سُورَةُ المَاعُونِ",
+      "ayahs": 7,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 108,
+      "name": "سُورَةُ الكَوۡثَرِ",
+      "ayahs": 3,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 109,
+      "name": "سُورَةُ الكَافِرُونَ",
+      "ayahs": 6,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 110,
+      "name": "سُورَةُ النَّصۡرِ",
+      "ayahs": 3,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 111,
+      "name": "سُورَةُ المَسَدِ",
+      "ayahs": 5,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 112,
+      "name": "سُورَةُ الإِخۡلَاصِ",
+      "ayahs": 4,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 113,
+      "name": "سُورَةُ الفَلَقِ",
+      "ayahs": 5,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    },
+    {
+      "number": 114,
+      "name": "سُورَةُ النَّاسِ",
+      "ayahs": 6,
+      "firstJuz": 30,
+      "lastJuz": 30,
+      "available": false
+    }
+  ]
+}

@@ -6,10 +6,14 @@ android {
         applicationId 'ir.hefze.quran'
         minSdk 26
         targetSdk 35
-        versionCode 1
-        versionName '0.1.0'
+        versionCode 2
+        versionName '0.2.0'
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
-    androidResources { noCompress += ['mp3', 'ttf'] }
+    androidResources {
+        noCompress += ['mp3', 'ttf']
+        // Keep local handoff recordings out of every APK, even if present on a developer's machine.
+        ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~:*.mp3:*.part'
+    }
     buildTypes { release { minifyEnabled false } }
 }

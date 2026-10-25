@@ -3,15 +3,16 @@
   "surah": 36,
   "name": "يس",
   "basmala": "بِسمِ اللهِ الرَّحمٰنِ الرَّحيمِ",
-  "reciter": "pending",
+  "reciter": "Mishary Rashid Alafasy (EveryAyah, 64 kbps)",
   "source": "user-supplied; pending editorial verification",
   "layout": {
-    "id": "yasin-app-v1",
+    "id": "yasin-app-v2-scheherazade",
     "width": 760,
-    "height": 1120,
-    "fontSize": 34,
-    "lineHeight": 62,
-    "linesPerPage": 14
+    "height": 1072,
+    "fontSize": 44,
+    "lineHeight": 96,
+    "linesPerPage": 11,
+    "font": "fonts/ScheherazadeNew-Regular.ttf"
   },
   "verses": [
     {
@@ -246,7 +247,7 @@
       "topics": [],
       "audio": "audio/036/036-013.mp3",
       "timing": "timings/036/036-013.json",
-      "page": 1
+      "page": 2
     },
     {
       "number": 14,
@@ -268,7 +269,7 @@
       "topics": [],
       "audio": "audio/036/036-014.mp3",
       "timing": "timings/036/036-014.json",
-      "page": 1
+      "page": 2
     },
     {
       "number": 15,
@@ -294,7 +295,7 @@
       "topics": [],
       "audio": "audio/036/036-015.mp3",
       "timing": "timings/036/036-015.json",
-      "page": 1
+      "page": 2
     },
     {
       "number": 16,
@@ -311,7 +312,7 @@
       "topics": [],
       "audio": "audio/036/036-016.mp3",
       "timing": "timings/036/036-016.json",
-      "page": 1
+      "page": 2
     },
     {
       "number": 17,
@@ -391,7 +392,7 @@
       "topics": [],
       "audio": "audio/036/036-020.mp3",
       "timing": "timings/036/036-020.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 21,
@@ -409,7 +410,7 @@
       "topics": [],
       "audio": "audio/036/036-021.mp3",
       "timing": "timings/036/036-021.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 22,
@@ -428,7 +429,7 @@
       "topics": [],
       "audio": "audio/036/036-022.mp3",
       "timing": "timings/036/036-022.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 23,
@@ -454,7 +455,7 @@
       "topics": [],
       "audio": "audio/036/036-023.mp3",
       "timing": "timings/036/036-023.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 24,
@@ -470,7 +471,7 @@
       "topics": [],
       "audio": "audio/036/036-024.mp3",
       "timing": "timings/036/036-024.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 25,
@@ -485,7 +486,7 @@
       "topics": [],
       "audio": "audio/036/036-025.mp3",
       "timing": "timings/036/036-025.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 26,
@@ -503,7 +504,7 @@
       "topics": [],
       "audio": "audio/036/036-026.mp3",
       "timing": "timings/036/036-026.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 27,
@@ -521,7 +522,7 @@
       "topics": [],
       "audio": "audio/036/036-027.mp3",
       "timing": "timings/036/036-027.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 28,
@@ -545,7 +546,7 @@
       "topics": [],
       "audio": "audio/036/036-028.mp3",
       "timing": "timings/036/036-028.json",
-      "page": 2
+      "page": 3
     },
     {
       "number": 29,
@@ -564,7 +565,7 @@
       "topics": [],
       "audio": "audio/036/036-029.mp3",
       "timing": "timings/036/036-029.json",
-      "page": 2
+      "page": 4
     },
     {
       "number": 30,
@@ -586,7 +587,7 @@
       "topics": [],
       "audio": "audio/036/036-030.mp3",
       "timing": "timings/036/036-030.json",
-      "page": 2
+      "page": 4
     },
     {
       "number": 31,
@@ -608,7 +609,7 @@
       "topics": [],
       "audio": "audio/036/036-031.mp3",
       "timing": "timings/036/036-031.json",
-      "page": 2
+      "page": 4
     },
     {
       "number": 32,
@@ -625,7 +626,7 @@
       "topics": [],
       "audio": "audio/036/036-032.mp3",
       "timing": "timings/036/036-032.json",
-      "page": 3
+      "page": 4
     },
     {
       "number": 33,
@@ -646,7 +647,7 @@
       "topics": [],
       "audio": "audio/036/036-033.mp3",
       "timing": "timings/036/036-033.json",
-      "page": 3
+      "page": 4
     },
     {
       "number": 34,
@@ -667,7 +668,7 @@
       "topics": [],
       "audio": "audio/036/036-034.mp3",
       "timing": "timings/036/036-034.json",
-      "page": 3
+      "page": 4
     },
     {
       "number": 35,
@@ -686,7 +687,7 @@
       "topics": [],
       "audio": "audio/036/036-035.mp3",
       "timing": "timings/036/036-035.json",
-      "page": 3
+      "page": 4
     },
     {
       "number": 36,
@@ -710,7 +711,7 @@
       "topics": [],
       "audio": "audio/036/036-036.mp3",
       "timing": "timings/036/036-036.json",
-      "page": 3
+      "page": 4
     },
     {
       "number": 37,
@@ -730,7 +731,7 @@
       "topics": [],
       "audio": "audio/036/036-037.mp3",
       "timing": "timings/036/036-037.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 38,
@@ -749,7 +750,7 @@
       "topics": [],
       "audio": "audio/036/036-038.mp3",
       "timing": "timings/036/036-038.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 39,
@@ -767,7 +768,7 @@
       "topics": [],
       "audio": "audio/036/036-039.mp3",
       "timing": "timings/036/036-039.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 40,
@@ -793,7 +794,7 @@
       "topics": [],
       "audio": "audio/036/036-040.mp3",
       "timing": "timings/036/036-040.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 41,
@@ -812,7 +813,7 @@
       "topics": [],
       "audio": "audio/036/036-041.mp3",
       "timing": "timings/036/036-041.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 42,
@@ -829,7 +830,7 @@
       "topics": [],
       "audio": "audio/036/036-042.mp3",
       "timing": "timings/036/036-042.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 43,
@@ -849,7 +850,7 @@
       "topics": [],
       "audio": "audio/036/036-043.mp3",
       "timing": "timings/036/036-043.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 44,
@@ -866,7 +867,7 @@
       "topics": [],
       "audio": "audio/036/036-044.mp3",
       "timing": "timings/036/036-044.json",
-      "page": 3
+      "page": 5
     },
     {
       "number": 45,
@@ -888,7 +889,7 @@
       "topics": [],
       "audio": "audio/036/036-045.mp3",
       "timing": "timings/036/036-045.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 46,
@@ -910,7 +911,7 @@
       "topics": [],
       "audio": "audio/036/036-046.mp3",
       "timing": "timings/036/036-046.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 47,
@@ -945,7 +946,7 @@
       "topics": [],
       "audio": "audio/036/036-047.mp3",
       "timing": "timings/036/036-047.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 48,
@@ -963,7 +964,7 @@
       "topics": [],
       "audio": "audio/036/036-048.mp3",
       "timing": "timings/036/036-048.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 49,
@@ -982,7 +983,7 @@
       "topics": [],
       "audio": "audio/036/036-049.mp3",
       "timing": "timings/036/036-049.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 50,
@@ -1000,7 +1001,7 @@
       "topics": [],
       "audio": "audio/036/036-050.mp3",
       "timing": "timings/036/036-050.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 51,
@@ -1021,7 +1022,7 @@
       "topics": [],
       "audio": "audio/036/036-051.mp3",
       "timing": "timings/036/036-051.json",
-      "page": 4
+      "page": 6
     },
     {
       "number": 52,
@@ -1044,7 +1045,7 @@
       "topics": [],
       "audio": "audio/036/036-052.mp3",
       "timing": "timings/036/036-052.json",
-      "page": 4
+      "page": 7
     },
     {
       "number": 53,
@@ -1065,7 +1066,7 @@
       "topics": [],
       "audio": "audio/036/036-053.mp3",
       "timing": "timings/036/036-053.json",
-      "page": 4
+      "page": 7
     },
     {
       "number": 54,
@@ -1087,7 +1088,7 @@
       "topics": [],
       "audio": "audio/036/036-054.mp3",
       "timing": "timings/036/036-054.json",
-      "page": 4
+      "page": 7
     },
     {
       "number": 55,
@@ -1105,7 +1106,7 @@
       "topics": [],
       "audio": "audio/036/036-055.mp3",
       "timing": "timings/036/036-055.json",
-      "page": 4
+      "page": 7
     },
     {
       "number": 56,
@@ -1123,7 +1124,7 @@
       "topics": [],
       "audio": "audio/036/036-056.mp3",
       "timing": "timings/036/036-056.json",
-      "page": 4
+      "page": 7
     },
     {
       "number": 57,
@@ -1140,7 +1141,7 @@
       "topics": [],
       "audio": "audio/036/036-057.mp3",
       "timing": "timings/036/036-057.json",
-      "page": 5
+      "page": 7
     },
     {
       "number": 58,
@@ -1156,7 +1157,7 @@
       "topics": [],
       "audio": "audio/036/036-058.mp3",
       "timing": "timings/036/036-058.json",
-      "page": 5
+      "page": 7
     },
     {
       "number": 59,
@@ -1171,7 +1172,7 @@
       "topics": [],
       "audio": "audio/036/036-059.mp3",
       "timing": "timings/036/036-059.json",
-      "page": 5
+      "page": 7
     },
     {
       "number": 60,
@@ -1195,7 +1196,7 @@
       "topics": [],
       "audio": "audio/036/036-060.mp3",
       "timing": "timings/036/036-060.json",
-      "page": 5
+      "page": 7
     },
     {
       "number": 61,
@@ -1211,7 +1212,7 @@
       "topics": [],
       "audio": "audio/036/036-061.mp3",
       "timing": "timings/036/036-061.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 62,
@@ -1230,7 +1231,7 @@
       "topics": [],
       "audio": "audio/036/036-062.mp3",
       "timing": "timings/036/036-062.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 63,
@@ -1246,7 +1247,7 @@
       "topics": [],
       "audio": "audio/036/036-063.mp3",
       "timing": "timings/036/036-063.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 64,
@@ -1262,7 +1263,7 @@
       "topics": [],
       "audio": "audio/036/036-064.mp3",
       "timing": "timings/036/036-064.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 65,
@@ -1284,7 +1285,7 @@
       "topics": [],
       "audio": "audio/036/036-065.mp3",
       "timing": "timings/036/036-065.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 66,
@@ -1304,7 +1305,7 @@
       "topics": [],
       "audio": "audio/036/036-066.mp3",
       "timing": "timings/036/036-066.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 67,
@@ -1325,7 +1326,7 @@
       "topics": [],
       "audio": "audio/036/036-067.mp3",
       "timing": "timings/036/036-067.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 68,
@@ -1343,7 +1344,7 @@
       "topics": [],
       "audio": "audio/036/036-068.mp3",
       "timing": "timings/036/036-068.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 69,
@@ -1366,7 +1367,7 @@
       "topics": [],
       "audio": "audio/036/036-069.mp3",
       "timing": "timings/036/036-069.json",
-      "page": 5
+      "page": 8
     },
     {
       "number": 70,
@@ -1385,7 +1386,7 @@
       "topics": [],
       "audio": "audio/036/036-070.mp3",
       "timing": "timings/036/036-070.json",
-      "page": 5
+      "page": 9
     },
     {
       "number": 71,
@@ -1408,7 +1409,7 @@
       "topics": [],
       "audio": "audio/036/036-071.mp3",
       "timing": "timings/036/036-071.json",
-      "page": 5
+      "page": 9
     },
     {
       "number": 72,
@@ -1425,7 +1426,7 @@
       "topics": [],
       "audio": "audio/036/036-072.mp3",
       "timing": "timings/036/036-072.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 73,
@@ -1442,7 +1443,7 @@
       "topics": [],
       "audio": "audio/036/036-073.mp3",
       "timing": "timings/036/036-073.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 74,
@@ -1460,7 +1461,7 @@
       "topics": [],
       "audio": "audio/036/036-074.mp3",
       "timing": "timings/036/036-074.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 75,
@@ -1478,7 +1479,7 @@
       "topics": [],
       "audio": "audio/036/036-075.mp3",
       "timing": "timings/036/036-075.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 76,
@@ -1498,7 +1499,7 @@
       "topics": [],
       "audio": "audio/036/036-076.mp3",
       "timing": "timings/036/036-076.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 77,
@@ -1520,7 +1521,7 @@
       "topics": [],
       "audio": "audio/036/036-077.mp3",
       "timing": "timings/036/036-077.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 78,
@@ -1542,7 +1543,7 @@
       "topics": [],
       "audio": "audio/036/036-078.mp3",
       "timing": "timings/036/036-078.json",
-      "page": 6
+      "page": 9
     },
     {
       "number": 79,
@@ -1563,7 +1564,7 @@
       "topics": [],
       "audio": "audio/036/036-079.mp3",
       "timing": "timings/036/036-079.json",
-      "page": 6
+      "page": 10
     },
     {
       "number": 80,
@@ -1585,7 +1586,7 @@
       "topics": [],
       "audio": "audio/036/036-080.mp3",
       "timing": "timings/036/036-080.json",
-      "page": 6
+      "page": 10
     },
     {
       "number": 81,
@@ -1610,7 +1611,7 @@
       "topics": [],
       "audio": "audio/036/036-081.mp3",
       "timing": "timings/036/036-081.json",
-      "page": 6
+      "page": 10
     },
     {
       "number": 82,
@@ -1631,7 +1632,7 @@
       "topics": [],
       "audio": "audio/036/036-082.mp3",
       "timing": "timings/036/036-082.json",
-      "page": 6
+      "page": 10
     },
     {
       "number": 83,
@@ -1650,7 +1651,7 @@
       "topics": [],
       "audio": "audio/036/036-083.mp3",
       "timing": "timings/036/036-083.json",
-      "page": 6
+      "page": 10
     }
   ],
   "pages": [
@@ -1692,7 +1693,9 @@
             "ayah": 3,
             "word": 1,
             "text": "لَمِنَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 3,
             "word": 2,
@@ -1702,9 +1705,7 @@
             "ayah": 3,
             "word": -1,
             "text": "﴿٣﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 4,
             "word": 0,
@@ -1729,7 +1730,9 @@
             "ayah": 5,
             "word": 0,
             "text": "تَنزيلَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 5,
             "word": 1,
@@ -1749,9 +1752,7 @@
             "ayah": 6,
             "word": 0,
             "text": "لِتُنذِرَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 6,
             "word": 1,
@@ -1771,7 +1772,9 @@
             "ayah": 6,
             "word": 4,
             "text": "ءابآؤُهُم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 6,
             "word": 5,
@@ -1806,14 +1809,14 @@
             "ayah": 7,
             "word": 3,
             "text": "عَليٰٓ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 7,
             "word": 4,
             "text": "اَكثَرِهِم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 7,
             "word": 5,
@@ -1853,14 +1856,14 @@
             "ayah": 8,
             "word": 3,
             "text": "اَعناقِهِم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 8,
             "word": 4,
             "text": "اَغلٰلًا"
-          }
-        ],
-        [
+          },
           {
             "ayah": 8,
             "word": 5,
@@ -1890,7 +1893,9 @@
             "ayah": 8,
             "word": -1,
             "text": "﴿٨﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 9,
             "word": 0,
@@ -1905,9 +1910,7 @@
             "ayah": 9,
             "word": 2,
             "text": "بَينِ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 9,
             "word": 3,
@@ -1927,7 +1930,9 @@
             "ayah": 9,
             "word": 6,
             "text": "خَلفِهِم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 9,
             "word": 7,
@@ -1952,9 +1957,7 @@
             "ayah": 9,
             "word": 11,
             "text": "يُبصِرونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 9,
             "word": -1,
@@ -1964,7 +1967,9 @@
             "ayah": 10,
             "word": 0,
             "text": "وَسَوآءٌ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 10,
             "word": 1,
@@ -1999,14 +2004,14 @@
             "ayah": 10,
             "word": 7,
             "text": "يُؤمِنونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 10,
             "word": -1,
             "text": "﴿١٠﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 11,
             "word": 0,
@@ -2041,14 +2046,14 @@
             "ayah": 11,
             "word": 6,
             "text": "الرَّحمٰنَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 11,
             "word": 7,
             "text": "بِالغَيبِؗ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 11,
             "word": 8,
@@ -2078,7 +2083,14 @@
             "ayah": 12,
             "word": 0,
             "text": "اِنّا"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "lines": [
+        [
           {
             "ayah": 12,
             "word": 1,
@@ -2093,9 +2105,7 @@
             "ayah": 12,
             "word": 3,
             "text": "المَوتيٰ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 12,
             "word": 4,
@@ -2110,7 +2120,9 @@
             "ayah": 12,
             "word": 6,
             "text": "قَدَّموا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 12,
             "word": 7,
@@ -2182,7 +2194,9 @@
             "ayah": 13,
             "word": 5,
             "text": "اِذ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 13,
             "word": 6,
@@ -2192,9 +2206,7 @@
             "ayah": 13,
             "word": 7,
             "text": "المُرسَلونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 13,
             "word": -1,
@@ -2219,7 +2231,9 @@
             "ayah": 14,
             "word": 3,
             "text": "اثنَينِ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 14,
             "word": 4,
@@ -2239,9 +2253,7 @@
             "ayah": 14,
             "word": 7,
             "text": "فَقالوٓا"
-          }
-        ],
-        [
+          },
           {
             "ayah": 14,
             "word": 8,
@@ -2251,7 +2263,9 @@
             "ayah": 14,
             "word": 9,
             "text": "اِلَيكُم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 14,
             "word": 10,
@@ -2338,7 +2352,9 @@
             "ayah": 15,
             "word": 14,
             "text": "تَكذِبونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 15,
             "word": -1,
@@ -2353,14 +2369,7 @@
             "ayah": 16,
             "word": 1,
             "text": "رَبُّنا"
-          }
-        ]
-      ]
-    },
-    {
-      "number": 2,
-      "lines": [
-        [
+          },
           {
             "ayah": 16,
             "word": 2,
@@ -2390,7 +2399,9 @@
             "ayah": 17,
             "word": 0,
             "text": "وَما"
-          },
+          }
+        ],
+        [
           {
             "ayah": 17,
             "word": 1,
@@ -2410,9 +2421,7 @@
             "ayah": 17,
             "word": 4,
             "text": "المُبينُ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 17,
             "word": -1,
@@ -2437,7 +2446,9 @@
             "ayah": 18,
             "word": 3,
             "text": "بِكُمؗ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 18,
             "word": 4,
@@ -2504,7 +2515,14 @@
             "ayah": 19,
             "word": 3,
             "text": "اَئِن"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "lines": [
+        [
           {
             "ayah": 19,
             "word": 4,
@@ -2524,9 +2542,7 @@
             "ayah": 19,
             "word": 7,
             "text": "قَومٌ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 19,
             "word": 8,
@@ -2546,7 +2562,9 @@
             "ayah": 20,
             "word": 1,
             "text": "مِن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 20,
             "word": 2,
@@ -2571,9 +2589,7 @@
             "ayah": 20,
             "word": 6,
             "text": "قالَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 20,
             "word": 7,
@@ -2583,7 +2599,9 @@
             "ayah": 20,
             "word": 8,
             "text": "اتَّبِعُوا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 20,
             "word": 9,
@@ -2665,7 +2683,9 @@
             "ayah": 22,
             "word": 5,
             "text": "فَطَرَني"
-          },
+          }
+        ],
+        [
           {
             "ayah": 22,
             "word": 6,
@@ -2675,9 +2695,7 @@
             "ayah": 22,
             "word": 7,
             "text": "تُرجَعونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 22,
             "word": -1,
@@ -2707,7 +2725,9 @@
             "ayah": 23,
             "word": 4,
             "text": "اِن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 23,
             "word": 5,
@@ -2732,9 +2752,7 @@
             "ayah": 23,
             "word": 9,
             "text": "تُغنِ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 23,
             "word": 10,
@@ -2744,7 +2762,9 @@
             "ayah": 23,
             "word": 11,
             "text": "شَفاعَتُهُم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 23,
             "word": 12,
@@ -2784,14 +2804,14 @@
             "ayah": 24,
             "word": 3,
             "text": "ضَلٰلٍ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 24,
             "word": 4,
             "text": "مُبينٍ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 24,
             "word": -1,
@@ -2826,14 +2846,14 @@
             "ayah": 26,
             "word": 0,
             "text": "قيلَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 26,
             "word": 1,
             "text": "ادخُلِ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 26,
             "word": 2,
@@ -2868,7 +2888,9 @@
             "ayah": 27,
             "word": 0,
             "text": "بِما"
-          },
+          }
+        ],
+        [
           {
             "ayah": 27,
             "word": 1,
@@ -2883,9 +2905,7 @@
             "ayah": 27,
             "word": 3,
             "text": "رَبّي"
-          }
-        ],
-        [
+          },
           {
             "ayah": 27,
             "word": 4,
@@ -2910,7 +2930,9 @@
             "ayah": 28,
             "word": 0,
             "text": "وَمآ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 28,
             "word": 1,
@@ -2935,9 +2957,7 @@
             "ayah": 28,
             "word": 5,
             "text": "بَعدِهٖ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 28,
             "word": 6,
@@ -2952,7 +2972,14 @@
             "ayah": 28,
             "word": 8,
             "text": "مِنَ"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 4,
+      "lines": [
+        [
           {
             "ayah": 28,
             "word": 9,
@@ -3029,7 +3056,9 @@
             "ayah": 30,
             "word": 0,
             "text": "يٰ‍حَسرَةً"
-          },
+          }
+        ],
+        [
           {
             "ayah": 30,
             "word": 1,
@@ -3039,9 +3068,7 @@
             "ayah": 30,
             "word": 2,
             "text": "العِبادِۚ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 30,
             "word": 3,
@@ -3076,7 +3103,9 @@
             "ayah": 30,
             "word": 9,
             "text": "بِهٖ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 30,
             "word": 10,
@@ -3096,14 +3125,7 @@
             "ayah": 31,
             "word": 1,
             "text": "يَرَوا"
-          }
-        ]
-      ]
-    },
-    {
-      "number": 3,
-      "lines": [
-        [
+          },
           {
             "ayah": 31,
             "word": 2,
@@ -3123,7 +3145,9 @@
             "ayah": 31,
             "word": 5,
             "text": "مِنَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 31,
             "word": 6,
@@ -3153,9 +3177,7 @@
             "ayah": 31,
             "word": -1,
             "text": "﴿٣١﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 32,
             "word": 0,
@@ -3165,7 +3187,9 @@
             "ayah": 32,
             "word": 1,
             "text": "كُلٌّ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 32,
             "word": 2,
@@ -3200,14 +3224,14 @@
             "ayah": 33,
             "word": 1,
             "text": "لَهُمُ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 33,
             "word": 2,
             "text": "الاَرضُ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 33,
             "word": 3,
@@ -3232,7 +3256,9 @@
             "ayah": 33,
             "word": 7,
             "text": "حَبًّا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 33,
             "word": 8,
@@ -3252,9 +3278,7 @@
             "ayah": 34,
             "word": 0,
             "text": "وَجَعَلنا"
-          }
-        ],
-        [
+          },
           {
             "ayah": 34,
             "word": 1,
@@ -3269,7 +3293,9 @@
             "ayah": 34,
             "word": 3,
             "text": "مِن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 34,
             "word": 4,
@@ -3341,7 +3367,9 @@
             "ayah": 35,
             "word": 6,
             "text": "اَفَلا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 35,
             "word": 7,
@@ -3351,9 +3379,7 @@
             "ayah": 35,
             "word": -1,
             "text": "﴿٣٥﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 36,
             "word": 0,
@@ -3373,7 +3399,14 @@
             "ayah": 36,
             "word": 3,
             "text": "الاَزواجَ"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 5,
+      "lines": [
+        [
           {
             "ayah": 36,
             "word": 4,
@@ -3398,9 +3431,7 @@
             "ayah": 36,
             "word": 8,
             "text": "وَمِن"
-          }
-        ],
-        [
+          },
           {
             "ayah": 36,
             "word": 9,
@@ -3410,7 +3441,9 @@
             "ayah": 36,
             "word": 10,
             "text": "وَمِمّا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 36,
             "word": 11,
@@ -3487,7 +3520,9 @@
             "ayah": 38,
             "word": 1,
             "text": "تَجري"
-          },
+          }
+        ],
+        [
           {
             "ayah": 38,
             "word": 2,
@@ -3497,9 +3532,7 @@
             "ayah": 38,
             "word": 3,
             "text": "لَهاؗ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 38,
             "word": 4,
@@ -3524,7 +3557,9 @@
             "ayah": 38,
             "word": -1,
             "text": "﴿٣٨﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 39,
             "word": 0,
@@ -3544,9 +3579,7 @@
             "ayah": 39,
             "word": 3,
             "text": "حَتّيٰ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 39,
             "word": 4,
@@ -3556,7 +3589,9 @@
             "ayah": 39,
             "word": 5,
             "text": "كَالعُرجونِ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 39,
             "word": 6,
@@ -3591,14 +3626,14 @@
             "ayah": 40,
             "word": 4,
             "text": "اَن"
-          }
-        ],
-        [
+          },
           {
             "ayah": 40,
             "word": 5,
             "text": "تُدرِكَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 40,
             "word": 6,
@@ -3638,14 +3673,14 @@
             "ayah": 40,
             "word": 13,
             "text": "فَلَكٍ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 40,
             "word": 14,
             "text": "يَسبَحونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 40,
             "word": -1,
@@ -3680,7 +3715,9 @@
             "ayah": 41,
             "word": 5,
             "text": "فِي"
-          },
+          }
+        ],
+        [
           {
             "ayah": 41,
             "word": 6,
@@ -3690,9 +3727,7 @@
             "ayah": 41,
             "word": 7,
             "text": "المَشحونِ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 41,
             "word": -1,
@@ -3722,7 +3757,9 @@
             "ayah": 42,
             "word": 4,
             "text": "ما"
-          },
+          }
+        ],
+        [
           {
             "ayah": 42,
             "word": 5,
@@ -3742,9 +3779,7 @@
             "ayah": 43,
             "word": 1,
             "text": "نَشَأ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 43,
             "word": 2,
@@ -3764,7 +3799,9 @@
             "ayah": 43,
             "word": 5,
             "text": "لَهُم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 43,
             "word": 6,
@@ -3799,14 +3836,7 @@
             "ayah": 44,
             "word": 2,
             "text": "مِنّا"
-          }
-        ]
-      ]
-    },
-    {
-      "number": 4,
-      "lines": [
-        [
+          },
           {
             "ayah": 44,
             "word": 3,
@@ -3816,7 +3846,14 @@
             "ayah": 44,
             "word": 4,
             "text": "اِليٰ"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 6,
+      "lines": [
+        [
           {
             "ayah": 44,
             "word": 5,
@@ -3898,7 +3935,9 @@
             "ayah": 46,
             "word": 1,
             "text": "تَأتيهِم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 46,
             "word": 2,
@@ -3913,9 +3952,7 @@
             "ayah": 46,
             "word": 4,
             "text": "مِن"
-          }
-        ],
-        [
+          },
           {
             "ayah": 46,
             "word": 5,
@@ -3940,7 +3977,9 @@
             "ayah": 46,
             "word": 9,
             "text": "عَنها"
-          },
+          }
+        ],
+        [
           {
             "ayah": 46,
             "word": 10,
@@ -3965,9 +4004,7 @@
             "ayah": 47,
             "word": 2,
             "text": "لَهُم"
-          }
-        ],
-        [
+          },
           {
             "ayah": 47,
             "word": 3,
@@ -3982,7 +4019,9 @@
             "ayah": 47,
             "word": 5,
             "text": "رَزَقَكُمُ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 47,
             "word": 6,
@@ -4017,14 +4056,14 @@
             "ayah": 47,
             "word": 12,
             "text": "اَنُطعِمُ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 47,
             "word": 13,
             "text": "مَن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 47,
             "word": 14,
@@ -4069,7 +4108,9 @@
             "ayah": 47,
             "word": 22,
             "text": "ضَلٰلٍ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 47,
             "word": 23,
@@ -4079,9 +4120,7 @@
             "ayah": 47,
             "word": -1,
             "text": "﴿٤٧﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 48,
             "word": 0,
@@ -4111,7 +4150,9 @@
             "ayah": 48,
             "word": 5,
             "text": "كُنتُم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 48,
             "word": 6,
@@ -4131,9 +4172,7 @@
             "ayah": 49,
             "word": 1,
             "text": "يَنظُرونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 49,
             "word": 2,
@@ -4148,7 +4187,9 @@
             "ayah": 49,
             "word": 4,
             "text": "واحِدَةً"
-          },
+          }
+        ],
+        [
           {
             "ayah": 49,
             "word": 5,
@@ -4173,14 +4214,14 @@
             "ayah": 50,
             "word": 0,
             "text": "فَلا"
-          }
-        ],
-        [
+          },
           {
             "ayah": 50,
             "word": 1,
             "text": "يَستَطيعونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 50,
             "word": 2,
@@ -4257,7 +4298,14 @@
             "ayah": 51,
             "word": 8,
             "text": "رَبِّهِم"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 7,
+      "lines": [
+        [
           {
             "ayah": 51,
             "word": 9,
@@ -4267,9 +4315,7 @@
             "ayah": 51,
             "word": -1,
             "text": "﴿٥١﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 52,
             "word": 0,
@@ -4299,7 +4345,9 @@
             "ayah": 52,
             "word": 5,
             "text": "مَرقَدِناۜ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 52,
             "word": 6,
@@ -4324,9 +4372,7 @@
             "ayah": 52,
             "word": 10,
             "text": "وَصَدَقَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 52,
             "word": 11,
@@ -4336,7 +4382,9 @@
             "ayah": 52,
             "word": -1,
             "text": "﴿٥٢﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 53,
             "word": 0,
@@ -4418,7 +4466,9 @@
             "ayah": 54,
             "word": 4,
             "text": "شَيـًٔا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 54,
             "word": 5,
@@ -4428,9 +4478,7 @@
             "ayah": 54,
             "word": 6,
             "text": "تُجزَونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 54,
             "word": 7,
@@ -4460,7 +4508,9 @@
             "ayah": 55,
             "word": 0,
             "text": "اِنَّ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 55,
             "word": 1,
@@ -4485,9 +4535,7 @@
             "ayah": 55,
             "word": 5,
             "text": "شُغُلٍ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 55,
             "word": 6,
@@ -4497,7 +4545,9 @@
             "ayah": 55,
             "word": -1,
             "text": "﴿٥٥﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 56,
             "word": 0,
@@ -4527,19 +4577,14 @@
             "ayah": 56,
             "word": 5,
             "text": "الاَرآئِكِ"
-          }
-        ]
-      ]
-    },
-    {
-      "number": 5,
-      "lines": [
-        [
+          },
           {
             "ayah": 56,
             "word": 6,
             "text": "مُتَّكِـٔونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 56,
             "word": -1,
@@ -4579,14 +4624,14 @@
             "ayah": 57,
             "word": -1,
             "text": "﴿٥٧﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 58,
             "word": 0,
             "text": "سَلٰمٌ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 58,
             "word": 1,
@@ -4626,14 +4671,14 @@
             "ayah": 59,
             "word": 2,
             "text": "اَيُّهَا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 59,
             "word": 3,
             "text": "المُجرِمونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 59,
             "word": -1,
@@ -4668,7 +4713,9 @@
             "ayah": 60,
             "word": 5,
             "text": "اَن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 60,
             "word": 6,
@@ -4688,9 +4735,7 @@
             "ayah": 60,
             "word": 9,
             "text": "اِنَّهۥ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 60,
             "word": 10,
@@ -4710,7 +4755,14 @@
             "ayah": 60,
             "word": -1,
             "text": "﴿٦٠﴾"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 8,
+      "lines": [
+        [
           {
             "ayah": 61,
             "word": 0,
@@ -4735,9 +4787,7 @@
             "ayah": 61,
             "word": 4,
             "text": "مُستَقيمٌ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 61,
             "word": -1,
@@ -4747,7 +4797,9 @@
             "ayah": 62,
             "word": 0,
             "text": "وَلَقَد"
-          },
+          }
+        ],
+        [
           {
             "ayah": 62,
             "word": 1,
@@ -4819,7 +4871,9 @@
             "ayah": 63,
             "word": -1,
             "text": "﴿٦٣﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 64,
             "word": 0,
@@ -4829,9 +4883,7 @@
             "ayah": 64,
             "word": 1,
             "text": "اليَومَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 64,
             "word": 2,
@@ -4856,7 +4908,9 @@
             "ayah": 65,
             "word": 0,
             "text": "اؘليَومَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 65,
             "word": 1,
@@ -4876,9 +4930,7 @@
             "ayah": 65,
             "word": 4,
             "text": "وَتُكَلِّمُنآ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 65,
             "word": 5,
@@ -4888,7 +4940,9 @@
             "ayah": 65,
             "word": 6,
             "text": "وَتَشهَدُ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 65,
             "word": 7,
@@ -4955,7 +5009,9 @@
             "ayah": 66,
             "word": 7,
             "text": "فَاَنّيٰ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 66,
             "word": 8,
@@ -4965,9 +5021,7 @@
             "ayah": 66,
             "word": -1,
             "text": "﴿٦٦﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 67,
             "word": 0,
@@ -4987,7 +5041,9 @@
             "ayah": 67,
             "word": 3,
             "text": "عَليٰ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 67,
             "word": 4,
@@ -5012,14 +5068,14 @@
             "ayah": 67,
             "word": 8,
             "text": "وَلا"
-          }
-        ],
-        [
+          },
           {
             "ayah": 67,
             "word": 9,
             "text": "يَرجِعونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 67,
             "word": -1,
@@ -5054,14 +5110,14 @@
             "ayah": 68,
             "word": 5,
             "text": "اَفَلا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 68,
             "word": 6,
             "text": "يَعقِلونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 68,
             "word": -1,
@@ -5096,7 +5152,14 @@
             "ayah": 69,
             "word": 5,
             "text": "لَهٓۥؗ"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 9,
+      "lines": [
+        [
           {
             "ayah": 69,
             "word": 6,
@@ -5116,9 +5179,7 @@
             "ayah": 69,
             "word": 9,
             "text": "ذِكرٌ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 69,
             "word": 10,
@@ -5143,7 +5204,9 @@
             "ayah": 70,
             "word": 1,
             "text": "مَن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 70,
             "word": 2,
@@ -5168,9 +5231,7 @@
             "ayah": 70,
             "word": 6,
             "text": "عَلَي"
-          }
-        ],
-        [
+          },
           {
             "ayah": 70,
             "word": 7,
@@ -5185,7 +5246,9 @@
             "ayah": 71,
             "word": 0,
             "text": "اَوَلَم"
-          },
+          }
+        ],
+        [
           {
             "ayah": 71,
             "word": 1,
@@ -5220,19 +5283,14 @@
             "ayah": 71,
             "word": 7,
             "text": "اَيدينآ"
-          }
-        ]
-      ]
-    },
-    {
-      "number": 6,
-      "lines": [
-        [
+          },
           {
             "ayah": 71,
             "word": 8,
             "text": "اَنعامًا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 71,
             "word": 9,
@@ -5267,7 +5325,9 @@
             "ayah": 72,
             "word": 2,
             "text": "فَمِنها"
-          },
+          }
+        ],
+        [
           {
             "ayah": 72,
             "word": 3,
@@ -5277,9 +5337,7 @@
             "ayah": 72,
             "word": 4,
             "text": "وَمِنها"
-          }
-        ],
-        [
+          },
           {
             "ayah": 72,
             "word": 5,
@@ -5304,7 +5362,9 @@
             "ayah": 73,
             "word": 2,
             "text": "مَنافِعُ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 73,
             "word": 3,
@@ -5319,9 +5379,7 @@
             "ayah": 73,
             "word": 5,
             "text": "يَشكُرونَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 73,
             "word": -1,
@@ -5341,7 +5399,9 @@
             "ayah": 74,
             "word": 2,
             "text": "دونِ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 74,
             "word": 3,
@@ -5366,9 +5426,7 @@
             "ayah": 74,
             "word": -1,
             "text": "﴿٧٤﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 75,
             "word": 0,
@@ -5378,7 +5436,9 @@
             "ayah": 75,
             "word": 1,
             "text": "يَستَطيعونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 75,
             "word": 2,
@@ -5455,7 +5515,9 @@
             "ayah": 76,
             "word": 8,
             "text": "يُعلِنونَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 76,
             "word": -1,
@@ -5470,9 +5532,7 @@
             "ayah": 77,
             "word": 1,
             "text": "يَرَ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 77,
             "word": 2,
@@ -5502,7 +5562,9 @@
             "ayah": 77,
             "word": 7,
             "text": "فَاِذا"
-          },
+          }
+        ],
+        [
           {
             "ayah": 77,
             "word": 8,
@@ -5522,9 +5584,7 @@
             "ayah": 77,
             "word": -1,
             "text": "﴿٧٧﴾"
-          }
-        ],
-        [
+          },
           {
             "ayah": 78,
             "word": 0,
@@ -5544,7 +5604,14 @@
             "ayah": 78,
             "word": 3,
             "text": "وَنَسِيَ"
-          },
+          }
+        ]
+      ]
+    },
+    {
+      "number": 10,
+      "lines": [
+        [
           {
             "ayah": 78,
             "word": 4,
@@ -5579,14 +5646,14 @@
             "ayah": 78,
             "word": 10,
             "text": "رَميمٌ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 78,
             "word": -1,
             "text": "﴿٧٨﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 79,
             "word": 0,
@@ -5626,14 +5693,14 @@
             "ayah": 79,
             "word": 7,
             "text": "بِكُلِّ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 79,
             "word": 8,
             "text": "خَلقٍ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 79,
             "word": 9,
@@ -5668,7 +5735,9 @@
             "ayah": 80,
             "word": 4,
             "text": "الشَّجَرِ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 80,
             "word": 5,
@@ -5683,9 +5752,7 @@
             "ayah": 80,
             "word": 7,
             "text": "فَاِذآ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 80,
             "word": 8,
@@ -5710,7 +5777,9 @@
             "ayah": 81,
             "word": 0,
             "text": "اَوَلَيسَ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 81,
             "word": 1,
@@ -5725,9 +5794,7 @@
             "ayah": 81,
             "word": 3,
             "text": "السَّمٰوٰتِ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 81,
             "word": 4,
@@ -5747,7 +5814,9 @@
             "ayah": 81,
             "word": 7,
             "text": "اَن"
-          },
+          }
+        ],
+        [
           {
             "ayah": 81,
             "word": 8,
@@ -5777,9 +5846,7 @@
             "ayah": 81,
             "word": 13,
             "text": "العَليمُ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 81,
             "word": -1,
@@ -5789,7 +5856,9 @@
             "ayah": 82,
             "word": 0,
             "text": "اِنَّمآ"
-          },
+          }
+        ],
+        [
           {
             "ayah": 82,
             "word": 1,
@@ -5834,14 +5903,14 @@
             "ayah": 82,
             "word": 9,
             "text": "فَيَكونُ"
-          }
-        ],
-        [
+          },
           {
             "ayah": 82,
             "word": -1,
             "text": "﴿٨٢﴾"
-          },
+          }
+        ],
+        [
           {
             "ayah": 83,
             "word": 0,

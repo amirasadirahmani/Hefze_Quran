@@ -65,7 +65,9 @@ public final class AudioController implements PlaybackQueue.Port {
                 try {
                     player=new MediaPlayer();
                     player.setAudioAttributes(new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
-                    try(AssetFileDescriptor fd=context.getAssets().openFd(repository.verse(ayah).audio)) {player.setDataSource(fd.getFileDescriptor(),fd.getStartOffset(),fd.getLength());}
+                    java.io.File local=repository.audioFile(ayah);
+                    if(local.isFile())player.setDataSource(local.getAbsolutePath());
+                    else try(AssetFileDescriptor fd=context.getAssets().openFd(repository.verse(ayah).audio)) {player.setDataSource(fd.getFileDescriptor(),fd.getStartOffset(),fd.getLength());}
                     player.setOnPreparedListener(mp->{
                         if(closed||queue.generation()!=generation)return;
                         prepared=true;
@@ -77,7 +79,7 @@ public final class AudioController implements PlaybackQueue.Port {
                     player.setOnCompletionListener(mp->{account();queue.ended(generation,SystemClock.elapsedRealtime());});
                     player.setOnErrorListener((mp,what,extra)->{error="فایل صوتی قابل پخش نیست.";queue.failed(generation);return true;});
                     player.prepareAsync();
-                } catch(Exception e){error="صوت آیهٔ "+MainActivity.fa(ayah)+" هنوز اضافه نشده یا قابل خواندن نیست.";queue.failed(generation);}
+                } catch(Exception e){error="صوت آیهٔ "+MainActivity.fa(ayah)+" دانلود نشده یا قابل خواندن نیست؛ از بخش دریافت صوت استفاده کنید.";queue.failed(generation);}
             });
         });
     }

@@ -8,3 +8,7 @@ local.properties
 *.keystore
 __pycache__/
 .tools/
+
+# Audio is downloaded by the user, not bundled in the APK.
+app/src/main/assets/audio/**/*.mp3
+*.part

@@ -27,9 +27,9 @@ public final class MainActivity extends Activity {
     private Button downloadAll,downloadOne,cancelDownload,fullscreenExit;
     private SurahCatalog catalog;
     private Typeface quranFont;
-    private LinearLayout root,readerTools,topBar;
+    private LinearLayout root,readerTools,topBar,readerNav;
     private QuranPageView page;
-    private TextView status,positionLabel,pageLabel;
+    private TextView status,positionLabel,pageLabel,headerTitle;
     private Button playButton,hideButton,masterButton;
     private ProgressBar playbackProgress;
     private boolean hidden,fullscreen;
@@ -98,20 +98,22 @@ public final class MainActivity extends Activity {
     private TextView compact(LinearLayout parent,String text,int size){TextView v=label(parent,text,size);v.setPadding(dp(2),dp(1),dp(2),dp(1));return v;}
     private void reader(){
         screen="reader";frameRoot();lastVerse=-1;lastWord=-2;lastRead=-2;masterButton=null;
-        topBar=column();topBar.setPadding(dp(28),dp(18),dp(28),dp(18));root.addView(topBar,new LinearLayout.LayoutParams(-1,-2));
-        LinearLayout title=row(topBar);button(title,"فهرست",this::surahs);
-        TextView name=compact(title,"سورة يس",28);name.setTypeface(quranFont);name.setLayoutParams(new LinearLayout.LayoutParams(0,dp(48),1.4f));
-        button(title,"بیشتر",this::readerMenu);
-        LinearLayout heading=row(topBar);TextView basmala=compact(heading,repository.basmala,24);basmala.setTypeface(quranFont);basmala.setLayoutParams(new LinearLayout.LayoutParams(0,-2,4));
-        pageLabel=compact(heading,"",12);pageLabel.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
+        topBar=column();topBar.setGravity(Gravity.CENTER);topBar.setPadding(dp(35),dp(10),dp(35),dp(22));root.addView(topBar,new LinearLayout.LayoutParams(-1,dp(100)));
+        headerTitle=compact(topBar,"‌",22);headerTitle.setTypeface(quranFont);headerTitle.setIncludeFontPadding(false);headerTitle.setSingleLine(true);headerTitle.setEllipsize(android.text.TextUtils.TruncateAt.END);
+        pageLabel=compact(topBar,"",12);pageLabel.setIncludeFontPadding(false);
+        readerNav=row(root);readerNav.setPadding(dp(26),0,dp(26),0);
+        button(readerNav,"فهرست",this::surahs);button(readerNav,"بیشتر",this::readerMenu);
         ScrollView paper=new ScrollView(this);paper.setFillViewport(false);paper.setPadding(dp(10),0,dp(10),0);paper.setClipToPadding(true);
         page=new QuranPageView(this,repository,this::selectVerse);paper.addView(page,new ScrollView.LayoutParams(-1,-2));root.addView(paper,new LinearLayout.LayoutParams(-1,0,1));
         fullscreenExit=button(root,"بازگشت از تمام‌صفحه",()->setFullscreen(false));fullscreenExit.setVisibility(View.GONE);
-        readerTools=column();readerTools.setPadding(dp(28),dp(18),dp(28),dp(26));root.addView(readerTools,new LinearLayout.LayoutParams(-1,-2));
-        positionLabel=compact(readerTools,"",12);status=compact(readerTools,"",12);status.setMinHeight(dp(32));status.setMaxLines(2);
-        playbackProgress=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);playbackProgress.setProgressTintList(ColorStateList.valueOf(GREEN));readerTools.addView(playbackProgress,new LinearLayout.LayoutParams(-1,dp(3)));
-        LinearLayout transport=row(readerTools);button(transport,"آیهٔ قبل",()->move(-1));playButton=button(transport,"پخش",()->{if(audio.queue.running()||repository.hasAudio(audio.queue.ayah()))audio.toggle();else downloadPrompt();});primary(playButton);button(transport,"آیهٔ بعد",()->move(1));
+        readerTools=column();readerTools.setPadding(dp(28),dp(8),dp(28),dp(31));root.addView(readerTools,new LinearLayout.LayoutParams(-1,-2));
         LinearLayout navigation=row(readerTools);button(navigation,"صفحهٔ قبل",()->browsePage(-1));hideButton=button(navigation,"آزمون",()->{hidden=!hidden;store.put("hidden",hidden);lastWord=-2;updatePlayback();});button(navigation,"صفحهٔ بعد",()->browsePage(1));
+        positionLabel=compact(readerTools,"",11);status=compact(readerTools,"",11);status.setMaxLines(2);
+        playbackProgress=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);playbackProgress.setProgressTintList(ColorStateList.valueOf(GREEN));readerTools.addView(playbackProgress,new LinearLayout.LayoutParams(-1,dp(3)));
+        LinearLayout transport=row(readerTools);transport.setPadding(dp(26),0,dp(26),0);
+        Button previous=button(transport,"قبل",()->move(-1));previous.setContentDescription("آیهٔ قبل");previous.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+        playButton=button(transport,"پخش",()->{if(audio.queue.running()||repository.hasAudio(audio.queue.ayah()))audio.toggle();else downloadPrompt();});primary(playButton);
+        Button next=button(transport,"بعد",()->move(1));next.setContentDescription("آیهٔ بعد");next.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
         root.setBackground(new MushafFrameDrawable(this,topBar,readerTools));setFullscreen(false);updatePlayback();
     }
     private void readerMenu(){
@@ -160,9 +162,9 @@ public final class MainActivity extends Activity {
     private void surahs(){
         screen="surahs";audio.pauseNow();frameRoot();
         try{if(catalog==null)catalog=new SurahCatalog(this);}catch(Exception e){label(root,"فهرست سوره‌ها خوانده نشد.",18);button(root,"مطالعهٔ یاسین",this::reader);return;}
-        LinearLayout header=column();header.setPadding(dp(28),dp(18),dp(28),dp(20));root.addView(header,new LinearLayout.LayoutParams(-1,-2));
-        TextView title=compact(header,"قرآن کریم",30);title.setTypeface(quranFont);
-        LinearLayout actions=row(header);button(actions,"درباره",()->new AlertDialog.Builder(this).setTitle("حفظ قرآن").setMessage("نسخهٔ فعلی برای تمرین سورهٔ یاسین آماده است. فهرست کامل قرآن برای آشنایی با سوره‌ها و جزءها نمایش داده می‌شود.").setPositiveButton("بستن",null).show());button(actions,"پیشرفت",this::progress);button(actions,"تنظیمات",this::settings);
+        LinearLayout header=column();header.setGravity(Gravity.CENTER);header.setPadding(dp(35),dp(10),dp(35),dp(20));root.addView(header,new LinearLayout.LayoutParams(-1,dp(100)));
+        TextView title=compact(header,"قرآن کریم",30);title.setTypeface(quranFont);title.setIncludeFontPadding(false);
+        LinearLayout actions=row(root);actions.setPadding(dp(26),0,dp(26),0);button(actions,"درباره",()->new AlertDialog.Builder(this).setTitle("حفظ قرآن").setMessage("نسخهٔ فعلی برای تمرین سورهٔ یاسین آماده است. فهرست کامل قرآن برای آشنایی با سوره‌ها و جزءها نمایش داده می‌شود.").setPositiveButton("بستن",null).show());button(actions,"پیشرفت",this::progress);button(actions,"تنظیمات",this::settings);
         LinearLayout body=row(root);body.setLayoutParams(new LinearLayout.LayoutParams(-1,0,1));body.setPadding(dp(22),0,dp(22),0);body.setGravity(Gravity.TOP);
         LinearLayout surahColumn=column();body.addView(surahColumn,new LinearLayout.LayoutParams(0,-1,1));
         EditText search=input(surahColumn,"جستجوی نام یا شمارهٔ سوره","",false);search.setTextSize(15);
@@ -189,7 +191,9 @@ public final class MainActivity extends Activity {
         for(int i=0;i<=30;i++){final int number=i;Button b=button(juz,i==0?"همه":"جزء "+fa(i),()->{selectedJuz[0]=number;for(int j=0;j<juzButtons.size();j++)juzButtons.get(j).setBackgroundTintList(ColorStateList.valueOf(j==number?0xffcbdba8:0xffeef1df));filter.run();});b.setTextSize(12);juzButtons.add(b);}
         juzButtons.get(0).setBackgroundTintList(ColorStateList.valueOf(0xffcbdba8));
         LinearLayout footer=column();footer.setPadding(dp(28),dp(18),dp(28),dp(26));root.addView(footer,new LinearLayout.LayoutParams(-1,-2));
-        compact(footer,"بستهٔ فعال: یاسین • ۸۳ آیه",13);primary(button(footer,"ادامهٔ مطالعهٔ یاسین",this::reader));
+        compact(footer,"بستهٔ فعال: یاسین • ۸۳ آیه",13);
+        Button continueReading=button(footer,"ادامهٔ مطالعهٔ یاسین",this::reader);
+        LinearLayout.LayoutParams continueParams=new LinearLayout.LayoutParams(dp(225),dp(48));continueParams.gravity=Gravity.CENTER;footer.setGravity(Gravity.CENTER_HORIZONTAL);continueReading.setLayoutParams(continueParams);primary(continueReading);
         root.setBackground(new MushafFrameDrawable(this,header,footer));
     }
     private void updatePlayback(){
@@ -199,7 +203,8 @@ public final class MainActivity extends Activity {
         int active=audio.timeline==null?-1:audio.timeline.active(audio.position());int read=audio.timeline==null?-1:audio.timeline.readThrough(audio.position());
         if(active>=0){for(int p=0;p<repository.pages.size();p++)for(List<QuranRepository.Token> l:repository.pages.get(p))for(QuranRepository.Token t:l)if(t.ayah==verse&&t.word==active&&page.page()!=p)page.setPage(p);}
         if(lastWord!=active||lastRead!=read){page.highlight(verse,active,read,hidden);lastWord=active;lastRead=read;}
-        set(pageLabel,fa(page.page()+1)+" از "+fa(repository.pages.size()));set(hideButton,hidden?"نمایش متن":"آزمون حفظ");
+        set(headerTitle,page.page()==0?repository.basmala:"سورة يس");
+        set(pageLabel,"صفحهٔ "+fa(page.page()+1)+" از "+fa(repository.pages.size()));set(hideButton,hidden?"نمایش متن":"آزمون حفظ");
         set(playButton,q.running()?"مکث":repository.hasAudio(verse)?"پخش":"دریافت صوت");set(masterButton,store.mastered(verse)?"حفظ شد ✓":"حفظ کردم");
         set(positionLabel,"آیهٔ "+fa(verse)+"  •  تکرار "+fa(q.iteration())+" از "+fa(q.repeatCount())+"  •  محدودهٔ "+fa(q.first())+" تا "+fa(q.last()));
         String message;
@@ -276,7 +281,7 @@ public final class MainActivity extends Activity {
     }
     @Override public void onRequestPermissionsResult(int request,String[] permissions,int[] results){super.onRequestPermissionsResult(request,permissions,results);if(request==36){boolean allowed=results.length>0&&results[0]==PackageManager.PERMISSION_GRANTED;store.put("reminder",allowed);ReminderReceiver.schedule(this,allowed);if(!allowed)toast("یادآوری فعال نشد؛ مطالعه همچنان در دسترس است.");settings();}}
     private void setFullscreen(boolean enabled){
-        fullscreen=enabled;fullscreenExit.setVisibility(enabled?View.VISIBLE:View.GONE);readerTools.setVisibility(enabled?View.GONE:View.VISIBLE);topBar.setVisibility(enabled?View.GONE:View.VISIBLE);root.invalidate();
+        fullscreen=enabled;fullscreenExit.setVisibility(enabled?View.VISIBLE:View.GONE);readerTools.setVisibility(enabled?View.GONE:View.VISIBLE);topBar.setVisibility(enabled?View.GONE:View.VISIBLE);readerNav.setVisibility(enabled?View.GONE:View.VISIBLE);root.invalidate();
         if(Build.VERSION.SDK_INT>=30){
             WindowInsetsController controller=getWindow().getInsetsController();
             if(controller!=null){if(enabled){controller.hide(WindowInsets.Type.systemBars());controller.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);}else controller.show(WindowInsets.Type.systemBars());}

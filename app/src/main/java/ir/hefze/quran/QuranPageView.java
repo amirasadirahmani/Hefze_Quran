@@ -31,7 +31,7 @@ public final class QuranPageView extends View {
             StringBuilder s=new StringBuilder();List<int[]> ranges=new ArrayList<>();
             for(QuranRepository.Token t:line){if(s.length()>0)s.append(' ');int start=s.length();s.append(t.text);ranges.add(new int[]{start,s.length(),t.ayah,t.word});}
             SpannableString span=new SpannableString(s);strings.add(span);offsets.add(ranges);
-            layouts.add(StaticLayout.Builder.obtain(span,0,span.length(),text,680).setAlignment(Layout.Alignment.ALIGN_NORMAL).setTextDirection(TextDirectionHeuristics.RTL).setIncludePad(true).setBreakStrategy(Layout.BREAK_STRATEGY_SIMPLE).build());
+            layouts.add(StaticLayout.Builder.obtain(span,0,span.length(),text,680).setAlignment(Layout.Alignment.ALIGN_NORMAL).setTextDirection(TextDirectionHeuristics.RTL).setIncludePad(true).build());
         }
         highlight(ayah,active,read,hidden);requestLayout();invalidate();
     }

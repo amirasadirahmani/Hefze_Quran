@@ -16,6 +16,7 @@ public final class StudyStore extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE verses (ayah INTEGER PRIMARY KEY, mastered INTEGER NOT NULL DEFAULT 0, due TEXT)");
         db.execSQL("CREATE TABLE sessions (id INTEGER PRIMARY KEY AUTOINCREMENT, started INTEGER NOT NULL, day TEXT NOT NULL, listened_ms INTEGER NOT NULL DEFAULT 0, plays INTEGER NOT NULL DEFAULT 0, manual INTEGER NOT NULL DEFAULT 0)");
     }
+    // TODO: Define and test a v1-to-v2 migration before bumping SCHEMA_VERSION.
     // No v2 schema exists yet. When bumping SCHEMA_VERSION, add a transactional,
     // data-preserving migration here and test upgrading a populated v1 database.
     // Never drop user progress or silently accept an unknown schema version.

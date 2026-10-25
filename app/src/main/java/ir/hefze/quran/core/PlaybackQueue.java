@@ -13,6 +13,7 @@ public final class PlaybackQueue {
         void completed(int ayah);
     }
     private final Port port;
+    // Verse numbers are 1-based; index 0 is intentionally unused.
     private final int[] repeats = new int[YASIN_AYAH_COUNT + 1], gaps = new int[YASIN_AYAH_COUNT + 1];
     private State state = State.IDLE, resumeState = State.IDLE;
     private int ayah = 1, iteration = 1, first = 1, last = YASIN_AYAH_COUNT;

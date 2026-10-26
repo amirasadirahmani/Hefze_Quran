@@ -14,6 +14,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.graphics.text.LineBreaker;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -474,8 +475,8 @@ public final class FullQuranActivity extends Activity {
         this.passage.setGravity(5);
         this.passage.setTextDirection(4);
         // Justify every complete line; the final line of each surah section stays natural.
-        this.passage.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
-        this.passage.setBreakStrategy(Layout.BREAK_STRATEGY_HIGH_QUALITY);
+        this.passage.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
+        this.passage.setBreakStrategy(LineBreaker.BREAK_STRATEGY_HIGH_QUALITY);
         this.passage.setPadding(dp(10.0f), dp(8.0f), dp(10.0f), dp(12.0f));
         this.passage.setLineSpacing(dp(4.0f), 1.12f);
         this.passage.setMovementMethod(LinkMovementMethod.getInstance());

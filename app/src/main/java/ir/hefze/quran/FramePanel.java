@@ -37,7 +37,7 @@ public final class FramePanel extends FrameLayout {
     }
 
     private int exact(int i) {
-        return View.MeasureSpec.makeMeasureSpec(Math.max(1, i), 1073741824);
+        return View.MeasureSpec.makeMeasureSpec(Math.max(1, i), View.MeasureSpec.EXACTLY);
     }
 
     @Override // android.widget.FrameLayout, android.view.View

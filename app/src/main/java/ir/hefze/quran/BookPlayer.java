@@ -13,7 +13,7 @@ public final class BookPlayer implements AutoCloseable {
     private final Runnable changed;
     private final Runnable ended;
     private final Consumer<String> error;
-    private final AudioFocusRequest focus = new AudioFocusRequest.Builder(1).setAudioAttributes(new AudioAttributes.Builder().setUsage(1).setContentType(1).build()).setOnAudioFocusChangeListener(new AudioManager.OnAudioFocusChangeListener() { // from class: ir.hefze.quran.BookPlayer$$ExternalSyntheticLambda0
+    private final AudioFocusRequest focus = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN).setAudioAttributes(new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build()).setOnAudioFocusChangeListener(new AudioManager.OnAudioFocusChangeListener() { // from class: ir.hefze.quran.BookPlayer$$ExternalSyntheticLambda0
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public final void onAudioFocusChange(int i) {
             BookPlayer.this.lambda$new$0(i);
@@ -29,7 +29,7 @@ public final class BookPlayer implements AutoCloseable {
         this.changed = runnable;
         this.ended = runnable2;
         this.error = consumer;
-        this.manager = (AudioManager) context.getSystemService("audio");
+        this.manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -88,7 +88,7 @@ public final class BookPlayer implements AutoCloseable {
         this.player = new MediaPlayer();
         MediaPlayer mediaPlayer = this.player;
         this.wantsPlay = true;
-        mediaPlayer.setAudioAttributes(new AudioAttributes.Builder().setUsage(1).setContentType(1).build());
+        mediaPlayer.setAudioAttributes(new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
         mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: ir.hefze.quran.BookPlayer$$ExternalSyntheticLambda1
             @Override // android.media.MediaPlayer.OnPreparedListener
             public final void onPrepared(MediaPlayer mediaPlayer2) {

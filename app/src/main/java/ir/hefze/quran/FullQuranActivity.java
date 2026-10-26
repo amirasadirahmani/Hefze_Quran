@@ -147,15 +147,15 @@ public final class FullQuranActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public LinearLayout col() {
         LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(1);
-        linearLayout.setLayoutDirection(1);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         return linearLayout;
     }
 
     private LinearLayout row() {
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setGravity(16);
-        linearLayout.setLayoutDirection(0);
+        linearLayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         return linearLayout;
     }
 
@@ -371,7 +371,7 @@ public final class FullQuranActivity extends Activity {
             }
         });
         TextView textViewText = text("ادامهٔ مطالعه", 20, false);
-        textViewText.setTypeface(getResources().getFont(R.font.vazirmatn_regular), 1);
+        textViewText.setTypeface(getResources().getFont(R.font.vazirmatn_regular), Typeface.BOLD);
         textViewText.setContentDescription("ادامهٔ مطالعهٔ قبلی");
         textViewText.setOnClickListener(new View.OnClickListener() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda17
             @Override // android.view.View.OnClickListener
@@ -424,7 +424,7 @@ public final class FullQuranActivity extends Activity {
                 LinearLayout linearLayoutCol = FullQuranActivity.this.col();
                 linearLayoutCol.setPadding(FullQuranActivity.this.dp(12.0f), FullQuranActivity.this.dp(10.0f), FullQuranActivity.this.dp(12.0f), FullQuranActivity.this.dp(10.0f));
                 TextView textViewText = FullQuranActivity.this.text(FullQuranActivity.this.fa(iIntValue) + "  " + FullQuranActivity.this.book.names[iIntValue], 18, false);
-                textViewText.setTypeface(FullQuranActivity.this.getResources().getFont(R.font.vazirmatn_regular), 1);
+                textViewText.setTypeface(FullQuranActivity.this.getResources().getFont(R.font.vazirmatn_regular), Typeface.BOLD);
                 textViewText.setGravity(5);
                 linearLayoutCol.addView(textViewText);
                 TextView textViewText2 = FullQuranActivity.this.text(FullQuranActivity.this.fa(FullQuranActivity.this.book.surahs.get(iIntValue).size()) + " آیه · صفحهٔ " + FullQuranActivity.this.fa(FullQuranActivity.this.book.surahs.get(iIntValue).get(0).page), 13, false);
@@ -901,7 +901,7 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void toast(String str) {
-        Toast.makeText(this, str, 1).show();
+        Toast.makeText(this, str, Toast.LENGTH_LONG).show();
     }
 
     @Override // android.app.Activity
@@ -909,7 +909,7 @@ public final class FullQuranActivity extends Activity {
         super.onStart();
         IntentFilter intentFilter = new IntentFilter("android.media.AUDIO_BECOMING_NOISY");
         if (Build.VERSION.SDK_INT >= 33) {
-            registerReceiver(this.noisy, intentFilter, 4);
+            registerReceiver(this.noisy, intentFilter, Context.RECEIVER_NOT_EXPORTED);
         } else {
             registerReceiver(this.noisy, intentFilter);
         }

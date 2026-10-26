@@ -23,7 +23,7 @@ class ContentTests(unittest.TestCase):
         errors,_=assets.validate(self.root);self.assertTrue(any('Bad duration' in e for e in errors))
     def test_stale_audio_hash_rejected(self):
         path=self.root/'app/src/main/assets/timings/036/036-001.json';data=json.loads(path.read_text());data.update(reviewed=True,durationMs=1000,audioSha256='stale');data['words'][0].update(startMs=0,endMs=1000);path.write_text(json.dumps(data))
-        (self.root/'app/src/main/assets/audio/036/036-001.mp3').write_bytes(b'fixture only')
+        audio=self.root/'app/src/main/assets/audio/036/036-001.mp3';audio.parent.mkdir(parents=True,exist_ok=True);audio.write_bytes(b'fixture only')
         errors,_=assets.validate(self.root);self.assertTrue(any('different audio' in e for e in errors))
     def test_catalog_must_not_advertise_unavailable_packs(self):
         path=self.root/'app/src/main/assets/content/surahs.json';data=json.loads(path.read_text());data['surahs'][0]['available']=True;path.write_text(json.dumps(data))

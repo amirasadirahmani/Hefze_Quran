@@ -18,6 +18,7 @@ import ir.hefze.quran.core.*;
 
 public final class MainActivity extends Activity {
     private static final int GREEN=0xff607b43,INK=0xff263521,CREAM=0xfffaf8eb;
+    private static final StudyMethod[] AVAILABLE_METHODS={StudyMethod.AUDIO,StudyMethod.LINE,StudyMethod.VISUAL,StudyMethod.VERBAL,StudyMethod.SURAH};
     private final Handler handler=new Handler(Looper.getMainLooper());
     private StudyStore store;
     private QuranRepository repository;
@@ -77,15 +78,15 @@ public final class MainActivity extends Activity {
         screen="profile";if(audio!=null)audio.pauseNow();base();label(root,editing?"روش و مشخصات من":"به مسیر حفظ خوش آمدید",25);LinearLayout content=scroll();
         label(content,"مشخصات فقط روی همین دستگاه ذخیره می‌شود.",15);
         EditText name=input(content,"نام",store.get("name",""),false),age=input(content,"سن",store.get("age",""),true);
-        label(content,"روش حفظ",20);Spinner method=new Spinner(this);String[] options=Arrays.stream(StudyMethod.values()).map(m->m.title).toArray(String[]::new);
-        method.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,options));method.setSelection(StudyMethod.safe(store.get("method","AUDIO")).ordinal());content.addView(method,new LinearLayout.LayoutParams(-1,dp(56)));
-        TextView description=label(content,"",16);method.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener(){public void onNothingSelected(android.widget.AdapterView<?> p){}public void onItemSelected(android.widget.AdapterView<?> p,View v,int i,long id){description.setText(StudyMethod.values()[i].description);}});
+        label(content,"روش حفظ",20);Spinner method=new Spinner(this);String[] options=Arrays.stream(AVAILABLE_METHODS).map(m->m.title).toArray(String[]::new);
+        method.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,options));method.setSelection(Math.max(0,Arrays.asList(AVAILABLE_METHODS).indexOf(StudyMethod.safe(store.get("method","AUDIO")))));content.addView(method,new LinearLayout.LayoutParams(-1,dp(56)));
+        TextView description=label(content,"",16);method.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener(){public void onNothingSelected(android.widget.AdapterView<?> p){}public void onItemSelected(android.widget.AdapterView<?> p,View v,int i,long id){description.setText(AVAILABLE_METHODS[i].description);}});
         if(editing)label(content,"ذخیرهٔ روش، تکرار و مکث همهٔ آیات را به پیش‌فرض آن روش برمی‌گرداند.",14);
         primary(button(content,"ذخیره و شروع",()->{
             String n=name.getText().toString().trim();int a;try{a=Integer.parseInt(age.getText().toString());}catch(Exception e){a=-1;}
             if(n.isEmpty()||n.length()>60){name.setError("نام را بین ۱ تا ۶۰ نویسه وارد کنید.");return;}
             if(a<3||a>120){age.setError("سن را بین ۳ تا ۱۲۰ وارد کنید.");return;}
-            StudyMethod selected=StudyMethod.values()[method.getSelectedItemPosition()];store.put("name",n);store.put("age",a);store.put("method",selected.name());
+            StudyMethod selected=AVAILABLE_METHODS[method.getSelectedItemPosition()];store.put("name",n);store.put("age",a);store.put("method",selected.name());
             audio.queue.defaults(selected.repeats,selected.gap);
             for(int i=1;i<=83;i++){store.put("repeat."+i,selected.repeats);store.put("gap."+i,selected.gap);}
             hidden=selected.hidden;store.put("hidden",hidden);reader();
@@ -274,7 +275,7 @@ public final class MainActivity extends Activity {
             if(enabled&&Build.VERSION.SDK_INT>=33&&checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},36);return;}
             store.put("reminder",enabled);ReminderReceiver.schedule(this,enabled);
         });
-        label(c,"زمان یادآوری ممکن است با مدیریت باتری دستگاه جابه‌جا شود. بعد از راه‌اندازی دوبارهٔ گوشی، برنامه را یک‌بار باز کنید.",14);
+        label(c,"زمان یادآوری ممکن است با مدیریت باتری دستگاه جابه‌جا شود. بعد از راه‌اندازی دوبارهٔ گوشی، یادآوری فعال دوباره زمان‌بندی می‌شود.",14);
         label(c,"صفحه‌بندی ثابت اختصاصی برنامه است؛ متن ارسالی باید پیش از انتشار با نسخهٔ مرجع تطبیق داده شود.",14);
         button(c,"مجوز فونت Scheherazade New",()->{try(java.io.InputStream in=getAssets().open("fonts/Scheherazade-OFL.txt")){java.io.ByteArrayOutputStream out=new java.io.ByteArrayOutputStream();byte[] b=new byte[4096];int n;while((n=in.read(b))!=-1)out.write(b,0,n);new AlertDialog.Builder(this).setTitle("Scheherazade New • SIL OFL 1.1").setMessage(out.toString("UTF-8")).setPositiveButton("بستن",null).show();}catch(Exception e){toast("مجوز فونت همراه بستهٔ پروژه است.");}});
         button(c,"بازگشت",this::reader);
@@ -290,10 +291,10 @@ public final class MainActivity extends Activity {
     private void toast(String message){Toast.makeText(this,message,Toast.LENGTH_SHORT).show();}
     @Override protected void onResume(){super.onResume();if(audio!=null)audio.visible(true);}
     @Override protected void onPause(){
-        if(downloads!=null)downloads.cancel();
         if(audio!=null){int position=audio.position();audio.pauseNow();store.put("ayah",audio.queue.ayah());store.put("position",position);store.put("range.first",audio.queue.first());store.put("range.last",audio.queue.last());store.endSession();audio.visible(false);}
         super.onPause();
     }
+    @Override protected void onStop(){if(downloads!=null)downloads.cancel();super.onStop();}
     @Override protected void onDestroy(){handler.removeCallbacksAndMessages(null);if(downloads!=null)downloads.close();if(audio!=null)audio.close();if(store!=null)store.close();super.onDestroy();}
     @Override public void onBackPressed(){if("surahs".equals(screen)){super.onBackPressed();return;}if(!"reader".equals(screen)&&!"splash".equals(screen)&&!store.get("name","").isEmpty()){reader();return;}if(fullscreen){setFullscreen(false);return;}if("reader".equals(screen)){surahs();return;}super.onBackPressed();}
 }

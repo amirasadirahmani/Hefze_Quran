@@ -6,8 +6,8 @@ android {
         applicationId 'ir.hefze.quran'
         minSdk 26
         targetSdk 35
-        versionCode 5
-        versionName '0.5.0'
+        versionCode 6
+        versionName '0.6.0'
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     androidResources {
@@ -15,5 +15,5 @@ android {
         // Keep local handoff recordings out of every APK, even if present on a developer's machine.
         ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~:*.mp3:*.part'
     }
-    buildTypes { debug { applicationIdSuffix ".review05" }; release { minifyEnabled false } }
+    buildTypes { debug { applicationIdSuffix ".review06" }; release { minifyEnabled false } }
 }

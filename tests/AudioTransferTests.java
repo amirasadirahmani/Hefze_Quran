@@ -22,6 +22,8 @@ public final class AudioTransferTests {
             fails(()->AudioTransfer.save(new ByteArrayInputStream(new byte[]{9,9,9}),3,target,cancel::get,progress,validator),"decoder failure rejected");check(!part.exists(),"decoder failure removes partial");
             cancel.set(true);fails(()->AudioTransfer.save(new ByteArrayInputStream(original),4,target,cancel::get,progress,validator),"cancellation rejected");cancel.set(false);check(!part.exists(),"cancel partial removed");
             fails(()->AudioTransfer.save(new ByteArrayInputStream(original),AudioTransfer.MAX_BYTES+1,target,cancel::get,progress,validator),"oversized response rejected");
+            fails(()->AudioTransfer.save(new ByteArrayInputStream(original),5,target,cancel::get,progress,validator,4),"custom declared limit rejected");
+            fails(()->AudioTransfer.save(new ByteArrayInputStream(original),-1,target,cancel::get,progress,validator,3),"custom streaming limit rejected");
             fails(()->AudioTransfer.save(new ByteArrayInputStream(new byte[0]),-1,target,cancel::get,progress,validator),"empty unknown-length response rejected");
             AudioTransfer.save(new ByteArrayInputStream(original),-1,target,cancel::get,progress,validator);check(target.length()==4,"chunked response accepted after validation");
             fails(()->AudioTransfer.save(new ByteArrayInputStream(original),4,target,cancel::get,(n,t)->cancel.set(true),validator),"cancellation after final byte rejected");

@@ -1,6 +1,6 @@
-# نصب و آزمون نسخهٔ ۰٫۴ روی گوشی با adb (macOS)
+# نصب و آزمون نسخهٔ ۰٫۶ روی گوشی با adb (macOS)
 
-ابزار موردنظر `adb` است. APK آزمایشی با شناسهٔ `ir.hefze.quran.review05` نصب می‌شود و کنار نسخه‌های قبلی قرار می‌گیرد؛ لازم نیست برنامهٔ قبلی یا داده‌هایش را پاک کنید. Android 8 / API26 یا بالاتر لازم است. نسخهٔ آزمایشی debuggable است تا گزارش و فایل‌ها با run-as قابل بررسی باشند؛ برای انتشار عمومی از این بسته استفاده نکنید.
+ابزار موردنظر `adb` است. APK آزمایشی با شناسهٔ `ir.hefze.quran.review06` نصب می‌شود و کنار نسخه‌های قبلی قرار می‌گیرد؛ لازم نیست برنامهٔ قبلی یا داده‌هایش را پاک کنید. Android 8 / API26 یا بالاتر لازم است. نسخهٔ آزمایشی debuggable است تا گزارش و فایل‌ها با run-as قابل بررسی باشند؛ برای انتشار عمومی از این بسته استفاده نکنید.
 
 ## ۱. پیدا کردن adb موجود
 
@@ -33,11 +33,11 @@ adb devices -l
 
 ## ۳. نصب و اجرا
 
-APK پیوست را با نام `Hefze-Quran-0.5-review.apk` در Downloads ذخیره کنید:
+APK پیوست را با نام `Hefze-Quran-0.6-review.apk` در Downloads ذخیره کنید:
 
 ```bash
-adb install -r "$HOME/Downloads/Hefze-Quran-0.5-review.apk"
-adb shell am start -n ir.hefze.quran.review05/ir.hefze.quran.FullQuranActivity
+adb install -r "$HOME/Downloads/Hefze-Quran-0.6-review.apk"
+adb shell am start -n ir.hefze.quran.review06/ir.hefze.quran.FullQuranActivity
 ```
 
 خروجی نصب باید `Success` باشد. اجرای دوم لازم نیست اگر برنامه را از آیکن «حفظ قرآن» باز کرده‌اید.
@@ -45,7 +45,7 @@ adb shell am start -n ir.hefze.quran.review05/ir.hefze.quran.FullQuranActivity
 برای بررسی نسخه و شناسه:
 
 ```bash
-adb shell dumpsys package ir.hefze.quran.review05 | grep -E 'versionCode|versionName'
+adb shell dumpsys package ir.hefze.quran.review06 | grep -E 'versionCode|versionName'
 adb shell getprop ro.build.version.release
 adb shell wm size
 adb shell wm density
@@ -69,7 +69,7 @@ adb shell wm density
 ابتدا برنامه را باز کنید. سپس لاگ همان process را ذخیره کنید:
 
 ```bash
-QURAN_PID=$(adb shell pidof -s ir.hefze.quran.review05 | tr -d '\r')
+QURAN_PID=$(adb shell pidof -s ir.hefze.quran.review06 | tr -d '\r')
 adb logcat --pid="$QURAN_PID" -v threadtime > "$HOME/Desktop/hefze-quran-log.txt"
 ```
 
@@ -94,8 +94,8 @@ adb shell getprop ro.build.version.release
 این نسخه آزمایشی debuggable است و run-as برایش فعال است:
 
 ```bash
-adb shell run-as ir.hefze.quran.review05 ls -R files/recitations
-adb shell run-as ir.hefze.quran.review05 du -k files/recitations
+adb shell run-as ir.hefze.quran.review06 ls -R files/recitations
+adb shell run-as ir.hefze.quran.review06 du -k files/recitations
 ```
 
 نمونهٔ مسیر: `files/recitations/ar.alafasy/112/001.mp3`. نسخه‌های سوره‌ای فایل `surah.mp3` دارند. فایل `.part` فقط هنگام دریافت موقت است و پس از لغو عادی پاک می‌شود. در توقف اجباری سیستم ممکن است فایل موقت باقی بماند؛ دریافت بعدی آن را بازنویسی می‌کند. این پوشه خصوصی برنامه است و در فایل‌منیجر عمومی نمایش داده نمی‌شود.
@@ -103,7 +103,7 @@ adb shell run-as ir.hefze.quran.review05 du -k files/recitations
 برای گرفتن نسخهٔ پشتیبان از داده‌های همین نسخهٔ آزمایشی، بدون حذف هیچ چیز:
 
 ```bash
-adb exec-out run-as ir.hefze.quran.review05 tar -cf - files shared_prefs > "$HOME/Desktop/hefze-quran-review-backup.tar"
+adb exec-out run-as ir.hefze.quran.review06 tar -cf - files shared_prefs > "$HOME/Desktop/hefze-quran-review-backup.tar"
 ```
 
 این دستور را پس از بازکردن برنامه و ذخیرهٔ تنظیمات و دریافت حداقل یک صوت اجرا کنید تا مسیرها وجود داشته باشند.

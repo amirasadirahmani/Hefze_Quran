@@ -42,7 +42,6 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -73,6 +72,8 @@ public final class FullQuranActivity extends Activity {
     private int fontSize = 28;
     private boolean home = true;
     private boolean repeat = false;
+    private String audioReadyKey;
+    private boolean audioReady;
     private final Map<QuranBook.Ayah, int[]> offsets = new LinkedHashMap();
     private final BroadcastReceiver noisy = new BroadcastReceiver() { // from class: ir.hefze.quran.FullQuranActivity.1
         @Override // android.content.BroadcastReceiver
@@ -96,8 +97,14 @@ public final class FullQuranActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.arabic = Typeface.createFromAsset(getAssets(), "fonts/ScheherazadeNew-Regular.ttf");
         try {
+            StudyStore studyStore = new StudyStore(this);
+            try {
+                ReminderReceiver.schedule(this, studyStore.flag("reminder"));
+            } finally {
+                studyStore.close();
+            }
+            this.arabic = Typeface.createFromAsset(getAssets(), "fonts/ScheherazadeNew-Regular.ttf");
             this.book = new QuranBook(this);
             String string = getPreferences(0).getString("reciter", "ar.alafasy");
             this.reciter = this.book.reciters.get(0);
@@ -139,6 +146,7 @@ public final class FullQuranActivity extends Activity {
                 showPage();
             }
         } catch (Exception e) {
+            this.home = true;
             TextView textView = new TextView(this);
             textView.setText("متن قرآن قابل خواندن نیست.");
             setContentView(textView);
@@ -294,15 +302,6 @@ public final class FullQuranActivity extends Activity {
         return linearLayoutCol;
     }
 
-    private String normalize(String str) {
-        String strReplace = Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("\\p{M}+", "").replace((char) 1740, (char) 1610).replace((char) 1705, (char) 1603).replace((char) 1649, (char) 1575).replace("ـ", "");
-        for (int i = 0; i < 10; i++) {
-            char c = (char) (i + 48);
-            strReplace = strReplace.replace((char) (i + 1776), c).replace((char) (i + 1632), c);
-        }
-        return strReplace.trim();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void showHome() {
         if (this.player != null) {
@@ -389,7 +388,7 @@ public final class FullQuranActivity extends Activity {
     public /* synthetic */ void lambda$showHome$5(final List list, Spinner spinner, EditText editText, ListView listView) {
         list.clear();
         int selectedItemPosition = spinner.getSelectedItemPosition();
-        String strNormalize = normalize(editText.getText().toString());
+        String strNormalize = SurahSearch.normalize(editText.getText().toString());
         for (int i = 1; i <= 114; i++) {
             boolean z = selectedItemPosition == 0;
             Iterator<QuranBook.Ayah> it = this.book.surahs.get(i).iterator();
@@ -399,7 +398,7 @@ public final class FullQuranActivity extends Activity {
                     break;
                 }
             }
-            if (z && (normalize(this.book.names[i]).contains(strNormalize) || String.valueOf(i).equals(strNormalize) || (i == 36 && normalize("یاسین").contains(strNormalize)))) {
+            if (z && (SurahSearch.normalize(this.book.names[i]).contains(strNormalize) || String.valueOf(i).equals(strNormalize) || (i == 36 && SurahSearch.normalize("یاسین").contains(strNormalize)))) {
                 list.add(Integer.valueOf(i));
             }
         }
@@ -608,6 +607,15 @@ public final class FullQuranActivity extends Activity {
         move(1);
     }
 
+    private boolean currentSurahAudioReady() {
+        String key = this.reciter.id + ":" + this.selected.surah;
+        if (!key.equals(this.audioReadyKey)) {
+            this.audioReady = this.book.complete(this, this.reciter, this.selected.surah);
+            this.audioReadyKey = key;
+        }
+        return this.audioReady;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void updateTransport() {
         Button buttonIcon;
@@ -617,7 +625,7 @@ public final class FullQuranActivity extends Activity {
             return;
         }
         this.transport.removeAllViews();
-        if (this.book.complete(this, this.reciter, this.selected.surah)) {
+        if (currentSurahAudioReady()) {
             Button buttonIcon2 = icon("‹", "آیهٔ قبل", -12559574, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -666,7 +674,7 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void toggle() {
-        if (!this.book.complete(this, this.reciter, this.selected.surah)) {
+        if (!currentSurahAudioReady()) {
             downloadPopup();
             return;
         }
@@ -891,10 +899,13 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadChanged() {
+        if (!this.downloads.running) this.audioReadyKey = null;
         if (this.downloadLabel != null) {
-            this.downloadLabel.setText(this.downloads.message.isEmpty() ? "پس از دریافت، بدون اینترنت بشنوید." : this.downloads.message);
+            boolean available = this.book.supportsSurah(this.reciter, this.selected.surah);
+            this.downloadLabel.setText(!available ? "صوت کامل این سوره برای قاری انتخاب‌شده موجود نیست. قاری دیگری انتخاب کنید."
+                    : this.downloads.message.isEmpty() ? "پس از دریافت، بدون اینترنت بشنوید." : this.downloads.message);
             this.downloadBar.setProgress(this.downloads.progress);
-            this.downloadStart.setEnabled((this.downloads.running || this.book.complete(this, this.reciter, this.selected.surah)) ? false : true);
+            this.downloadStart.setEnabled(available && !this.downloads.running && !currentSurahAudioReady());
             this.downloadStop.setEnabled(this.downloads.running);
         }
         updateTransport();
@@ -954,7 +965,7 @@ public final class FullQuranActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.home) {
+        if (this.home || this.book == null) {
             super.onBackPressed();
         } else {
             showHome();

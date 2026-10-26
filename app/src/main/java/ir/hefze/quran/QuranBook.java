@@ -118,6 +118,17 @@ public final class QuranBook {
         return true;
     }
 
+    /** The CDN catalog may omit individual ayahs from an otherwise listed edition. */
+    public boolean supportsSurah(Reciter reciter, int surah) {
+        List<Ayah> verses = this.surahs.get(surah);
+        if (verses.isEmpty()) return false;
+        if (!reciter.byAyah()) return reciter.available.contains(surah);
+        for (Ayah verse : verses) {
+            if (!reciter.available.contains(verse.id)) return false;
+        }
+        return true;
+    }
+
     public String display(Ayah ayah) {
         String strReplace = ayah.text.replace("\ufeff", "");
         String strReplace2 = this.all.get(0).text.replace("\ufeff", "");

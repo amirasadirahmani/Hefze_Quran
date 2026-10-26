@@ -10,11 +10,11 @@ work=app/build/sdk-review
 mkdir -p "$work/gen" "$work/classes" "$work/dex" app/build/outputs/apk/debug
 python3 - <<'PY'
 from pathlib import Path
-s=Path('app/src/main/AndroidManifest.xml').read_text().replace('<manifest ','<manifest package="ir.hefze.quran.review05" ',1).replace('android:name=".','android:name="ir.hefze.quran.').replace('<application ','<application android:debuggable="true" ',1)
+s=Path('app/src/main/AndroidManifest.xml').read_text().replace('<manifest ','<manifest package="ir.hefze.quran.review06" ',1).replace('android:name=".','android:name="ir.hefze.quran.').replace('<application ','<application android:debuggable="true" ',1)
 Path('app/build/sdk-review/AndroidManifest.xml').write_text(s)
 PY
 "$bt/aapt2" compile --dir app/src/main/res -o "$work/res.zip"
-"$bt/aapt2" link -o "$work/resources.apk" --manifest "$work/AndroidManifest.xml" -I "$ANDROID_HOME/platforms/android-35/android.jar" --java "$work/gen" --custom-package ir.hefze.quran --min-sdk-version 26 --target-sdk-version 35 --version-code 5 --version-name 0.5.0 -A app/src/main/assets "$work/res.zip"
+"$bt/aapt2" link -o "$work/resources.apk" --manifest "$work/AndroidManifest.xml" -I "$ANDROID_HOME/platforms/android-35/android.jar" --java "$work/gen" --custom-package ir.hefze.quran --min-sdk-version 26 --target-sdk-version 35 --version-code 6 --version-name 0.6.0 -A app/src/main/assets "$work/res.zip"
 find app/src/main/java "$work/gen" -name '*.java' > "$work/sources.txt"
 javac --release 17 -cp "$ANDROID_HOME/platforms/android-35/android.jar" -d "$work/classes" @"$work/sources.txt"
 find "$work/classes" -name '*.class' > "$work/classes.txt"

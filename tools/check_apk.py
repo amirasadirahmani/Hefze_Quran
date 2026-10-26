@@ -7,7 +7,7 @@ with zipfile.ZipFile(path) as archive:
     names=archive.namelist()
     audio=[n for n in names if n.lower().endswith(('.mp3','.part'))]
     if audio:raise SystemExit('Unexpected bundled recordings: '+', '.join(audio))
-    for required in ('assets/content/yasin.json','assets/content/surahs.json','assets/fonts/ScheherazadeNew-Regular.ttf'):
+    for required in ('assets/content/quran-uthmani.json','assets/content/reciters.json','assets/fonts/Vazirmatn-LICENSE.txt','res/font/vazirmatn_regular.ttf','assets/content/yasin.json','assets/content/surahs.json','assets/fonts/ScheherazadeNew-Regular.ttf'):
         if required not in names:raise SystemExit('Missing APK reading asset: '+required)
     if not any('mushaf_pistachio' in n for n in names):raise SystemExit('Missing pistachio artwork')
 print(f'PASS: APK {path.stat().st_size:,} bytes; reading assets present; no MP3/partial files')

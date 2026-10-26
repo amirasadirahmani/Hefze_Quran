@@ -20,6 +20,7 @@ jobs:
           "$sdkmanager_bin" 'platforms;android-35' 'build-tools;35.0.0'
       - run: bash tools/test_core.sh
       - run: python3 tools/validate_assets.py
+      - run: python3 tools/verify_full_quran.py
       - run: python3 -m unittest discover -s tests -v
       - name: Verify reproducible Quran layout
         run: |
@@ -36,5 +37,5 @@ jobs:
         run: python3 tools/check_apk.py
       - uses: actions/upload-artifact@v4
         with:
-          name: hefze-yasin-debug
+          name: hefze-quran-debug
           path: app/build/outputs/apk/debug/app-debug.apk

@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 
 public final class ProgressChartView extends View {
     private final long[] values;private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
-    public ProgressChartView(Context c,long[] values){super(c);this.values=values;setContentDescription("نمودار زمان گوش‌دادن در هفت روز گذشته");}
+    public ProgressChartView(Context c,long[] values){super(c);this.values=values;paint.setTypeface(c.getResources().getFont(R.font.vazirmatn_regular));setContentDescription("نمودار زمان گوش‌دادن در هفت روز گذشته");}
     @Override protected void onDraw(Canvas c){
         super.onDraw(c);float w=getWidth()/7f,h=getHeight()-64;long max=60000;for(long n:values)max=Math.max(max,n);
         paint.setTextAlign(Paint.Align.CENTER);

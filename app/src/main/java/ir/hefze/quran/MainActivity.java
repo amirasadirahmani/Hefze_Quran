@@ -53,7 +53,7 @@ public final class MainActivity extends Activity {
         audio.queue.range(first,last);audio.queue.select(clamp(store.number("ayah",first),first,last),false);
         audio.restorePosition(store.number("position",0));hidden=store.flag("hidden");
         base();root.setGravity(Gravity.CENTER);label(root,"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",22);label(root,"حفظ یاسین",38);label(root,"هر روز، فرصتی برای حفظ و مرور",16);
-        handler.postDelayed(()->{if(!isFinishing()&&!isDestroyed()){if(store.get("name","").isEmpty())profile(false);else surahs();}},1800);
+        handler.postDelayed(()->{if(!isFinishing()&&!isDestroyed()){if(store.get("name","").isEmpty())profile(false);else reader();}},1800);
         ReminderReceiver.schedule(this,store.flag("reminder"));
     }
     private static int clamp(int n,int min,int max){return Math.max(min,Math.min(max,n));}

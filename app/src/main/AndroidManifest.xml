@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission android:name="ir.hefze.quran.permission.READING_CHANGED" android:protectionLevel="signature" />
+    <uses-permission android:name="ir.hefze.quran.permission.READING_CHANGED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />

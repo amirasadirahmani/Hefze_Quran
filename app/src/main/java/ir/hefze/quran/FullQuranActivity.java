@@ -902,6 +902,17 @@ public final class FullQuranActivity extends Activity {
         Toast.makeText(this, str, Toast.LENGTH_LONG).show();
     }
 
+    // Android 8–12 have no RECEIVER_NOT_EXPORTED flag. The signature permission
+    // restricts this app-private event there; Android 13+ also uses the flag.
+    @android.annotation.SuppressLint("UnspecifiedRegisterReceiverFlag")
+    private void registerReadingChanges() {
+        IntentFilter filter = new IntentFilter(ReadingPlaybackService.SYNC);
+        String permission = "ir.hefze.quran.permission.READING_CHANGED";
+        if (Build.VERSION.SDK_INT >= 33)
+            registerReceiver(readingChanged, filter, permission, null, Context.RECEIVER_NOT_EXPORTED);
+        else registerReceiver(readingChanged, filter, permission, null);
+    }
+
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
@@ -911,8 +922,7 @@ public final class FullQuranActivity extends Activity {
         } else {
             registerReceiver(this.noisy, intentFilter);
         }
-        if(Build.VERSION.SDK_INT>=33)registerReceiver(readingChanged,new IntentFilter(ReadingPlaybackService.SYNC),Context.RECEIVER_NOT_EXPORTED);
-        else registerReceiver(readingChanged,new IntentFilter(ReadingPlaybackService.SYNC));
+        registerReadingChanges();
         this.registered = true;
         if(book!=null && !home && !settingsOpen){
             int id=getPreferences(0).getInt("ayah",selected.id);

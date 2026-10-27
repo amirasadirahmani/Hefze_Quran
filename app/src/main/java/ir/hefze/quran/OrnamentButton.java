@@ -3,42 +3,39 @@ package ir.hefze.quran;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.InsetDrawable;
+import android.view.Gravity;
 import android.widget.Button;
 
-/* JADX INFO: loaded from: classes.dex */
+/** The supplied artwork is a real background, independent of OEM button drawing. */
 public final class OrnamentButton extends Button {
     private static Bitmap art;
-    private final Paint p;
-
     public OrnamentButton(Context context) {
-        super(context);
-        this.p = new Paint(3);
-        if (art == null) {
-            art = BitmapFactory.decodeResource(getResources(), R.drawable.ornament_button);
-        }
-        setBackgroundColor(0);
+        super(context, null, 0);
+        if (art == null) art = BitmapFactory.decodeResource(getResources(), R.drawable.ornament_button);
         setBackgroundTintList(null);
+        setStateListAnimator(null);
         setAllCaps(false);
-        setTextColor(-329495);
-        setTextSize(13.0f);
+        setTextColor(0xfffaf7ed);
         setTypeface(getResources().getFont(R.font.vazirmatn_regular));
-        setPadding(8, 0, 8, 0);
-        setMinWidth(0);
-        setMinimumWidth(0);
-        setMinHeight(0);
-        setMinimumHeight(0);
+        setGravity(Gravity.CENTER);
+        setIncludeFontPadding(false);
+        setPadding(dp(14), 0, dp(14), 0);
+        setMinWidth(0); setMinimumWidth(0); setMinHeight(0); setMinimumHeight(0);
         setSingleLine();
+        setAutoSizeTextTypeUniformWithConfiguration(10, 15, 1, 2);
+        updateBackground(0);
     }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        float fMin = Math.min(getHeight(), Math.min(getResources().getDisplayMetrics().density * 36.0f, getWidth() * 0.2f));
-        this.p.setAlpha(isEnabled() ? 255 : 120);
-        canvas.drawBitmap(art, (Rect) null, new RectF(0.0f, (getHeight() - fMin) / 2.0f, getWidth(), (getHeight() + fMin) / 2.0f), this.p);
-        super.onDraw(canvas);
+    private int dp(int n) { return Math.round(n * getResources().getDisplayMetrics().density); }
+    private void updateBackground(int height) {
+        BitmapDrawable background = new BitmapDrawable(getResources(), art);
+        background.setGravity(Gravity.FILL);
+        int inset = Math.max(0, (height - dp(36)) / 2);
+        setBackground(new InsetDrawable(background, 0, inset, 0, inset));
     }
+    @Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh); updateBackground(h);
+    }
+    @Override public void setEnabled(boolean enabled) { super.setEnabled(enabled); setAlpha(enabled ? 1f : .55f); }
 }

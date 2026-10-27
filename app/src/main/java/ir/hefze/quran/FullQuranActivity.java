@@ -68,7 +68,14 @@ public final class FullQuranActivity extends Activity {
     private ScrollView scroll;
     private QuranBook.Ayah selected;
     private LinearLayout transport;
-    private int page = 440;
+    private int page = 1;
+    private boolean hasReading, settingsOpen;
+    private String fontName = "ScheherazadeNew-Regular.ttf";
+    private int repeatCount = 3, gapSeconds = 3;
+    private ReaderSettingsScreen settingsScreen;
+    private ir.hefze.quran.core.RecitationCycle cycle;
+    private final android.os.Handler gapHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+    private final Runnable gapTask = this::finishGap;
     private int fontSize = 28;
     private boolean home = true;
     private boolean repeat = false;
@@ -79,7 +86,7 @@ public final class FullQuranActivity extends Activity {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (FullQuranActivity.this.player != null) {
-                FullQuranActivity.this.player.pause();
+                FullQuranActivity.this.pausePlayback();
             }
         }
     };
@@ -104,7 +111,12 @@ public final class FullQuranActivity extends Activity {
             } finally {
                 studyStore.close();
             }
-            this.arabic = Typeface.createFromAsset(getAssets(), "fonts/ScheherazadeNew-Regular.ttf");
+            this.fontName = getPreferences(0).getString("quran_font", "ScheherazadeNew-Regular.ttf");
+            if (!fontName.equals("Amiri-Regular.ttf")) fontName = "ScheherazadeNew-Regular.ttf";
+            this.arabic = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+            this.repeatCount = Math.max(1, Math.min(10, getPreferences(0).getInt("repeat_count", 3)));
+            this.gapSeconds = Math.max(0, Math.min(30, getPreferences(0).getInt("gap_seconds", 3)));
+            this.cycle = new ir.hefze.quran.core.RecitationCycle(repeatCount, gapSeconds);
             this.book = new QuranBook(this);
             String string = getPreferences(0).getString("reciter", "ar.alafasy");
             this.reciter = this.book.reciters.get(0);
@@ -114,8 +126,8 @@ public final class FullQuranActivity extends Activity {
                 }
             }
             this.fontSize = Math.max(18, Math.min(42, getPreferences(0).getInt("font", 28)));
-            this.page = Math.max(1, Math.min(604, getPreferences(0).getInt("page", 440)));
-            this.selected = this.book.all.get(Math.max(0, Math.min(6235, getPreferences(0).getInt("ayah", this.book.pages.get(this.page).get(0).id) - 1)));
+            this.hasReading = getPreferences(0).getBoolean("has_reading", getPreferences(0).contains("ayah"));
+            this.selected = this.book.all.get(this.book.pageIndex.restoreAyah(hasReading, getPreferences(0).getInt("ayah", 1)) - 1);
             this.page = this.selected.page;
             this.repeat = getPreferences(0).getBoolean("repeat", false);
             this.downloads = new BookDownloads(this, this.book, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda8
@@ -140,7 +152,10 @@ public final class FullQuranActivity extends Activity {
                     FullQuranActivity.this.toast((String) obj);
                 }
             });
-            if (bundle == null || bundle.getBoolean("home", true)) {
+            if (bundle != null && bundle.getBoolean("settings", false)) {
+                this.home = bundle.getBoolean("home", true);
+                openSettings(ReaderSettingsScreen.Values.from(bundle.getBundle("settings_values")));
+            } else if (bundle == null || bundle.getBoolean("home", true)) {
                 showHome();
             } else {
                 showPage();
@@ -252,38 +267,32 @@ public final class FullQuranActivity extends Activity {
         linearLayoutCol.addView(framePanel, new LinearLayout.LayoutParams(-1, 0, 1.0f));
         LinearLayout linearLayoutRow = row();
         if (z) {
-            linearLayoutRow.addView(icon("⌂", "بازگشت به صفحهٔ اصلی", -11376071, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda19
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.showHome();
-                }
-            }), new LinearLayout.LayoutParams(0, dp(48.0f), 1.0f));
-            Button buttonIcon = icon("‹", "صفحهٔ قبل", -11376071, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda20
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.lambda$mount$3();
-                }
-            });
-            buttonIcon.setEnabled(this.page > 1);
-            linearLayoutRow.addView(buttonIcon, new LinearLayout.LayoutParams(0, dp(48.0f), 1.0f));
-            Button buttonIcon2 = icon("›", "صفحهٔ بعد", -11376071, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda21
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.lambda$mount$4();
-                }
-            });
-            buttonIcon2.setEnabled(this.page < 604);
-            linearLayoutRow.addView(buttonIcon2, new LinearLayout.LayoutParams(0, dp(48.0f), 1.0f));
+            Button next = pageButton("« صفحهٔ بعد", "صفحهٔ بعد", "page_next", () -> turn(1));
+            next.setEnabled(page < book.pageIndex.pageCount());
+            linearLayoutRow.addView(next, new LinearLayout.LayoutParams(0, dp(48), 1.6f));
+            Button homeButton = icon("⌂", "بازگشت به صفحهٔ اصلی", -11376071, this::showHome);
+            homeButton.setTag("home_button");
+            linearLayoutRow.addView(homeButton, new LinearLayout.LayoutParams(0, dp(48), 1f));
         }
-        linearLayoutRow.addView(icon("⚙", "تنظیمات", -11376071, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda22
-            @Override // java.lang.Runnable
-            public final void run() {
-                FullQuranActivity.this.settings();
-            }
-        }), new LinearLayout.LayoutParams(0, dp(48.0f), 1.0f));
+        Button settingsButton = icon("⚙", "تنظیمات", -11376071, this::settings);
+        settingsButton.setTag("settings_button");
+        linearLayoutRow.addView(settingsButton, new LinearLayout.LayoutParams(0, dp(48), 1f));
+        if (z) {
+            Button previous = pageButton("صفحهٔ قبل »", "صفحهٔ قبل", "page_previous", () -> turn(-1));
+            previous.setEnabled(page > 1);
+            linearLayoutRow.addView(previous, new LinearLayout.LayoutParams(0, dp(48), 1.6f));
+        }
         linearLayoutCol.addView(linearLayoutRow);
         setContentView(linearLayoutCol);
         linearLayoutCol.requestApplyInsets();
+    }
+
+    private Button pageButton(String title, String description, String tag, Runnable action) {
+        Button b = icon(title, description, 0xff425d38, action);
+        b.setTag(tag); b.setTypeface(getResources().getFont(R.font.vazirmatn_regular));
+        b.setTextSize(13); b.setAutoSizeTextTypeUniformWithConfiguration(10, 13, 1, 2);
+        b.setBackground(surface(0xffeef2df, 0xffbdcba6));
+        return b;
     }
 
     private View header(String str, String str2) {
@@ -295,6 +304,7 @@ public final class FullQuranActivity extends Activity {
         textViewText.setAutoSizeTextTypeUniformWithConfiguration(8, 23, 1, 2);
         linearLayoutCol.addView(textViewText, new LinearLayout.LayoutParams(-1, 0, 2.0f));
         TextView textViewText2 = text(str2, 11, false);
+        textViewText2.setTag("page_label");
         textViewText2.setIncludeFontPadding(false);
         textViewText2.setSingleLine();
         textViewText2.setAutoSizeTextTypeUniformWithConfiguration(7, 12, 1, 2);
@@ -305,7 +315,7 @@ public final class FullQuranActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showHome() {
         if (this.player != null) {
-            this.player.pause();
+            pausePlayback();
         }
         this.home = true;
         this.transport = null;
@@ -370,9 +380,10 @@ public final class FullQuranActivity extends Activity {
                 FullQuranActivity.this.lambda$showHome$6(arrayList, spinner, adapterView, view, i2, j);
             }
         });
-        TextView textViewText = text("ادامهٔ مطالعه", 20, false);
+        TextView textViewText = text(hasReading ? "ادامهٔ مطالعه" : "شروع مطالعه", 20, false);
         textViewText.setTypeface(getResources().getFont(R.font.vazirmatn_regular), Typeface.BOLD);
-        textViewText.setContentDescription("ادامهٔ مطالعهٔ قبلی");
+        textViewText.setContentDescription(hasReading ? "ادامهٔ مطالعهٔ قبلی" : "شروع مطالعه");
+        textViewText.setTag("reading_entry");
         textViewText.setOnClickListener(new View.OnClickListener() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda17
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -439,7 +450,7 @@ public final class FullQuranActivity extends Activity {
     public /* synthetic */ void lambda$showHome$6(List list, Spinner spinner, AdapterView adapterView, View view, int i, long j) {
         int iIntValue = ((Integer) list.get(i)).intValue();
         int selectedItemPosition = spinner.getSelectedItemPosition();
-        this.player.stop();
+        stopPlayback();
         this.selected = this.book.surahs.get(iIntValue).get(0);
         if (selectedItemPosition > 0) {
             for (QuranBook.Ayah ayah : this.book.surahs.get(iIntValue)) {
@@ -459,8 +470,17 @@ public final class FullQuranActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    private void saveSettings() {
+        getPreferences(0).edit().putInt("font", fontSize).putString("quran_font", fontName)
+            .putString("reciter", reciter.id).putBoolean("repeat", repeat)
+            .putInt("repeat_count", repeatCount).putInt("gap_seconds", gapSeconds)
+            .putString("method", "AUDIO").putString("theme", "default").apply();
+    }
+
     public void save() {
-        getPreferences(0).edit().putInt("page", this.page).putInt("ayah", this.selected.id).putInt("font", this.fontSize).putString("reciter", this.reciter.id).putBoolean("repeat", this.repeat).apply();
+        hasReading = true;
+        getPreferences(0).edit().putBoolean("has_reading", true).putInt("page", page).putInt("ayah", selected.id).apply();
+        saveSettings();
     }
 
     private void showPage() {
@@ -471,6 +491,7 @@ public final class FullQuranActivity extends Activity {
         this.scroll.setSmoothScrollingEnabled(true);
         this.scroll.setFillViewport(false);
         this.passage = text("", this.fontSize, true);
+        this.passage.setTag("quran_passage");
         this.passage.setGravity(5);
         this.passage.setTextDirection(4);
         // Justify every complete line; the final line of each surah section stays natural.
@@ -503,7 +524,7 @@ public final class FullQuranActivity extends Activity {
             this.content.setSpan(new ClickableSpan() { // from class: ir.hefze.quran.FullQuranActivity.5
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    FullQuranActivity.this.player.stop();
+                    FullQuranActivity.this.stopPlayback();
                     FullQuranActivity.this.selected = ayah2;
                     FullQuranActivity.this.save();
                     FullQuranActivity.this.highlight(true);
@@ -583,9 +604,9 @@ public final class FullQuranActivity extends Activity {
     }
 
     private void turn(int i) {
-        this.player.stop();
-        this.page = Math.max(1, Math.min(604, this.page + i));
-        this.selected = this.book.pages.get(this.page).get(0);
+        stopPlayback();
+        this.page = this.book.pageIndex.adjacent(this.page, i);
+        this.selected = this.book.all.get(this.book.pageIndex.firstAyah(this.page) - 1);
         showPage();
     }
 
@@ -618,58 +639,22 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateTransport() {
-        Button buttonIcon;
-        LinearLayout linearLayout;
-        LinearLayout.LayoutParams layoutParams;
-        if (this.home || this.transport == null) {
-            return;
+        if (home || settingsOpen || transport == null) return;
+        transport.removeAllViews();
+        if (!currentSurahAudioReady()) {
+            Button download = ornament("دریافت صوت", this::downloadPopup); download.setTag("download_audio");
+            transport.addView(download, new LinearLayout.LayoutParams(-1, -1)); return;
         }
-        this.transport.removeAllViews();
-        if (currentSurahAudioReady()) {
-            Button buttonIcon2 = icon("‹", "آیهٔ قبل", -12559574, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda2
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.lambda$updateTransport$10();
-                }
-            });
-            buttonIcon2.setEnabled(this.reciter.byAyah() && this.selected.number > 1);
-            this.transport.addView(buttonIcon2, new LinearLayout.LayoutParams(0, -1, 1.0f));
-            Button buttonIcon3 = icon((this.player == null || !this.player.playing()) ? "▶" : "Ⅱ", (this.player == null || !this.player.playing()) ? "پخش" : "مکث", -12559574, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda3
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.toggle();
-                }
-            });
-            buttonIcon3.setEnabled(this.player == null || !this.player.loading());
-            this.transport.addView(buttonIcon3, new LinearLayout.LayoutParams(0, -1, 1.0f));
-            Button buttonIcon4 = icon("↻", this.repeat ? "خاموش\u200cکردن تکرار آیه" : "تکرار آیه", this.repeat ? -5076968 : -12559574, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda4
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.lambda$updateTransport$11();
-                }
-            });
-            buttonIcon4.setEnabled(this.reciter.byAyah());
-            this.transport.addView(buttonIcon4, new LinearLayout.LayoutParams(0, -1, 1.0f));
-            buttonIcon = icon("›", "آیهٔ بعد", -12559574, new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda5
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.lambda$updateTransport$12();
-                }
-            });
-            buttonIcon.setEnabled(this.reciter.byAyah() && this.selected.number < this.book.surahs.get(this.selected.surah).size());
-            linearLayout = this.transport;
-            layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        } else {
-            buttonIcon = ornament("دریافت صوت", new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    FullQuranActivity.this.downloadPopup();
-                }
-            });
-            linearLayout = this.transport;
-            layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        }
-        linearLayout.addView(buttonIcon, layoutParams);
+        // Physical left is NEXT, physical right is PREVIOUS in Quran reading order.
+        Button next = icon("‹", "آیهٔ بعد", -12559574, () -> move(1)); next.setTag("ayah_next");
+        next.setEnabled(reciter.byAyah() && selected.number < book.surahs.get(selected.surah).size());
+        Button play = icon(sequenceRunning() ? "Ⅱ" : "▶", sequenceRunning() ? "مکث" : "پخش", -12559574, this::toggle); play.setTag("play_pause");
+        play.setEnabled(player == null || !player.loading());
+        Button loop = icon("↻", repeat ? "خاموش‌کردن تکرار آیه" : "تکرار آیه", repeat ? -5076968 : -12559574, this::lambda$updateTransport$11); loop.setTag("repeat_one");
+        loop.setEnabled(reciter.byAyah());
+        Button previous = icon("›", "آیهٔ قبل", -12559574, () -> move(-1)); previous.setTag("ayah_previous");
+        previous.setEnabled(reciter.byAyah() && selected.number > 1);
+        for (Button button : new Button[]{next, play, loop, previous}) transport.addView(button, new LinearLayout.LayoutParams(0, -1, 1f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -678,6 +663,11 @@ public final class FullQuranActivity extends Activity {
             downloadPopup();
             return;
         }
+        if (cycle.pending()) {
+            if (cycle.paused()) { cycle.resume(android.os.SystemClock.uptimeMillis()); scheduleGap(); }
+            else pausePlayback();
+            updateTransport(); return;
+        }
         this.player.toggle(this.book.audio(this, this.reciter, this.selected));
         if (this.reciter.byAyah()) {
             highlight(true);
@@ -685,8 +675,8 @@ public final class FullQuranActivity extends Activity {
     }
 
     private void move(int i) {
-        boolean zPlaying = this.player.playing();
-        this.player.stop();
+        boolean zPlaying = sequenceRunning();
+        stopPlayback();
         List<QuranBook.Ayah> list = this.book.surahs.get(this.selected.surah);
         this.selected = list.get(Math.max(0, Math.min(list.size() - 1, (this.selected.number - 1) + i)));
         if (this.selected.page != this.page) {
@@ -703,14 +693,32 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void completed() {
-        if (this.reciter.byAyah()) {
-            if (this.repeat) {
-                this.player.start(this.book.audio(this, this.reciter, this.selected));
-            } else if (this.selected.number < this.book.surahs.get(this.selected.surah).size()) {
-                move(1);
-                this.player.start(this.book.audio(this, this.reciter, this.selected));
-            }
-        }
+        if (!reciter.byAyah()) return;
+        cycle.completed(repeat, selected.number < book.surahs.get(selected.surah).size(), android.os.SystemClock.uptimeMillis());
+        scheduleGap(); updateTransport();
+    }
+    private boolean sequenceRunning() {
+        return (player != null && player.playing()) || (cycle != null && cycle.pending() && !cycle.paused());
+    }
+    private void pausePlayback() {
+        gapHandler.removeCallbacks(gapTask);
+        if (cycle != null) cycle.pause(android.os.SystemClock.uptimeMillis());
+        if (player != null) player.pause();
+    }
+    private void stopPlayback() {
+        gapHandler.removeCallbacks(gapTask);
+        if (cycle != null) cycle.reset();
+        if (player != null) player.stop();
+    }
+    private void scheduleGap() {
+        gapHandler.removeCallbacks(gapTask);
+        if (cycle.pending() && !cycle.paused()) gapHandler.postDelayed(gapTask, cycle.remaining(android.os.SystemClock.uptimeMillis()));
+    }
+    private void finishGap() {
+        ir.hefze.quran.core.RecitationCycle.Action action = cycle.takeDue(android.os.SystemClock.uptimeMillis());
+        if (action == ir.hefze.quran.core.RecitationCycle.Action.NONE) return;
+        if (action == ir.hefze.quran.core.RecitationCycle.Action.NEXT) move(1);
+        player.start(book.audio(this, reciter, selected));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -724,105 +732,32 @@ public final class FullQuranActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void lambda$settings$13(DialogInterface dialogInterface, int i) {
-        startActivity(new Intent(this, (Class<?>) MainActivity.class));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void lambda$settings$14(Spinner spinner, SeekBar seekBar, AlertDialog alertDialog, View view) {
-        QuranBook.Reciter reciter = (QuranBook.Reciter) spinner.getSelectedItem();
-        if (this.downloads.running && !reciter.id.equals(this.reciter.id)) {
-            toast("ابتدا دانلود جاری را متوقف کنید.");
-            return;
-        }
-        this.player.stop();
-        this.reciter = reciter;
-        this.fontSize = seekBar.getProgress() + 18;
-        save();
-        alertDialog.dismiss();
-        if (this.home) {
-            showHome();
-        } else {
-            showPage();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void lambda$settings$15(final AlertDialog alertDialog, final Spinner spinner, final SeekBar seekBar, DialogInterface dialogInterface) {
-        alertDialog.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda6
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                FullQuranActivity.this.lambda$settings$14(spinner, seekBar, alertDialog, view);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void settings() {
-        this.player.pause();
-        LinearLayout linearLayoutCol = col();
-        linearLayoutCol.setPadding(dp(20.0f), dp(12.0f), dp(20.0f), dp(12.0f));
-        linearLayoutCol.addView(text("اندازهٔ متن قرآن", 17, false));
-        final TextView textViewText = text("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", this.fontSize, true);
-        final SeekBar seekBar = new SeekBar(this);
-        seekBar.setMax(24);
-        seekBar.setProgress(this.fontSize - 18);
-        linearLayoutCol.addView(seekBar);
-        linearLayoutCol.addView(textViewText);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: ir.hefze.quran.FullQuranActivity.6
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar seekBar2, int i, boolean z) {
-                textViewText.setTextSize(i + 18);
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStartTrackingTouch(SeekBar seekBar2) {
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStopTrackingTouch(SeekBar seekBar2) {
-            }
-        });
-        linearLayoutCol.addView(text("انتخاب قاری و نسخهٔ صوت", 17, false));
-        final Spinner spinner = new Spinner(this);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, this.book.reciters);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter((SpinnerAdapter) arrayAdapter);
-        spinner.setSelection(this.book.reciters.indexOf(this.reciter));
-        linearLayoutCol.addView(spinner, new LinearLayout.LayoutParams(-1, dp(56.0f)));
-        final TextView textViewText2 = text("", 13, false);
-        linearLayoutCol.addView(textViewText2);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // from class: ir.hefze.quran.FullQuranActivity.7
-            @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
-                textViewText2.setText(FullQuranActivity.this.book.reciters.get(i).byAyah() ? "پخش پیوسته، تکرار آیه و دنبال\u200cکردن آیه فعال است." : "فایل یکپارچهٔ سوره؛ زمان\u200cبندی آیات در منبع موجود نیست. دنبال\u200cکردن و تکرار آیه برای این نسخه فعال نمی\u200cشود.");
-            }
-
-            @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-        ScrollView scrollView = new ScrollView(this);
-        scrollView.addView(linearLayoutCol);
-        final AlertDialog alertDialogCreate = new AlertDialog.Builder(this).setTitle("تنظیمات").setView(scrollView).setPositiveButton("ذخیره", (DialogInterface.OnClickListener) null).setNegativeButton("بازگشت", (DialogInterface.OnClickListener) null).setNeutralButton("تمرین حفظ یاسین", new DialogInterface.OnClickListener() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda12
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                FullQuranActivity.this.lambda$settings$13(dialogInterface, i);
-            }
-        }).create();
-        alertDialogCreate.setOnShowListener(new DialogInterface.OnShowListener() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda13
-            @Override // android.content.DialogInterface.OnShowListener
-            public final void onShow(DialogInterface dialogInterface) {
-                FullQuranActivity.this.lambda$settings$15(alertDialogCreate, spinner, seekBar, dialogInterface);
-            }
-        });
-        alertDialogCreate.show();
+        pausePlayback();
+        openSettings(new ReaderSettingsScreen.Values(book.reciters.indexOf(reciter), fontSize, repeatCount, gapSeconds, fontName));
+    }
+    private void openSettings(ReaderSettingsScreen.Values initial) {
+        settingsOpen = true;
+        settingsScreen = new ReaderSettingsScreen(this, book.reciters, initial, values -> {
+            QuranBook.Reciter chosen = book.reciters.get(values.reciter);
+            if (downloads.running && !chosen.id.equals(reciter.id)) { toast("ابتدا دانلود جاری را متوقف کنید."); return; }
+            stopPlayback(); reciter = chosen; fontSize = values.size; fontName = values.font;
+            repeatCount = values.repeats; gapSeconds = values.gap;
+            cycle = new ir.hefze.quran.core.RecitationCycle(repeatCount, gapSeconds);
+            arabic = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+            audioReadyKey = null; saveSettings(); closeSettings();
+        }, this::closeSettings);
+        settingsScreen.setOnApplyWindowInsetsListener((view, insets) -> lambda$mount$2(view, insets));
+        setContentView(settingsScreen); settingsScreen.requestApplyInsets();
+    }
+    private void closeSettings() {
+        settingsOpen = false; settingsScreen = null;
+        if (home) showHome(); else showPage();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadPopup() {
-        this.player.pause();
+        pausePlayback();
         if (this.downloadDialog == null || !this.downloadDialog.isShowing()) {
             final QuranBook.Reciter reciter = this.reciter;
             final int i = this.selected.surah;
@@ -856,6 +791,7 @@ public final class FullQuranActivity extends Activity {
                     bookDownloads.cancel();
                 }
             });
+            this.downloadStop.setTag("download_stop");
             linearLayoutRow2.addView(this.downloadStop, new LinearLayout.LayoutParams(dp(48.0f), dp(48.0f)));
             linearLayoutCol.addView(linearLayoutRow2);
             this.downloadStart = ornament("دریافت سوره", new Runnable() { // from class: ir.hefze.quran.FullQuranActivity$$ExternalSyntheticLambda26
@@ -864,6 +800,7 @@ public final class FullQuranActivity extends Activity {
                     FullQuranActivity.this.lambda$downloadPopup$17(reciter, i);
                 }
             });
+            this.downloadStart.setTag("download_start");
             linearLayoutCol.addView(this.downloadStart, new LinearLayout.LayoutParams(-1, dp(48.0f)));
             this.downloadDialog.setContentView(linearLayoutCol);
             this.downloadDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -906,7 +843,7 @@ public final class FullQuranActivity extends Activity {
                     : this.downloads.message.isEmpty() ? "پس از دریافت، بدون اینترنت بشنوید." : this.downloads.message);
             this.downloadBar.setProgress(this.downloads.progress);
             this.downloadStart.setEnabled(available && !this.downloads.running && !currentSurahAudioReady());
-            this.downloadStop.setEnabled(this.downloads.running);
+            this.downloadStop.setVisibility(this.downloads.running ? View.VISIBLE : View.GONE);
         }
         updateTransport();
     }
@@ -931,7 +868,7 @@ public final class FullQuranActivity extends Activity {
     @Override // android.app.Activity
     protected void onStop() {
         if (this.player != null) {
-            this.player.pause();
+            pausePlayback();
         }
         if (this.downloads != null) {
             this.downloads.cancel();
@@ -946,11 +883,14 @@ public final class FullQuranActivity extends Activity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         bundle.putBoolean("home", this.home);
+        bundle.putBoolean("settings", settingsOpen);
+        if (settingsOpen) bundle.putBundle("settings_values", settingsScreen.values().bundle());
         super.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
+        gapHandler.removeCallbacks(gapTask);
         if (this.downloads != null) {
             this.downloads.close();
         }
@@ -965,6 +905,7 @@ public final class FullQuranActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
+        if (settingsOpen) { closeSettings(); return; }
         if (this.home || this.book == null) {
             super.onBackPressed();
         } else {

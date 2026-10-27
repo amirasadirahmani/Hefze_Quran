@@ -3,8 +3,10 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 out_dir=$(mktemp -d)
 trap 'rm -rf "$out_dir"' EXIT
-java -m jdk.compiler/com.sun.tools.javac.Main -encoding UTF-8 -d "$out_dir" app/src/main/java/ir/hefze/quran/core/*.java app/src/main/java/ir/hefze/quran/SurahSearch.java tests/CoreTests.java tests/AudioTransferTests.java tests/SurahSearchTests.java
+java -m jdk.compiler/com.sun.tools.javac.Main -encoding UTF-8 -d "$out_dir" app/src/main/java/ir/hefze/quran/core/*.java app/src/main/java/ir/hefze/quran/SurahSearch.java tests/CoreTests.java tests/AudioTransferTests.java tests/SurahSearchTests.java tests/ReaderTests.java
 java -cp "$out_dir" CoreTests
 
 java -cp "$out_dir" AudioTransferTests
 java -cp "$out_dir" SurahSearchTests
+
+java -cp "$out_dir" ReaderTests

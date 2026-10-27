@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class QuranBook {
+    public final ir.hefze.quran.core.PageIndex pageIndex;
     public final List<Ayah> all = new ArrayList();
     public final List<List<Ayah>> pages = new ArrayList();
     public final List<List<Ayah>> surahs = new ArrayList();
@@ -44,7 +45,7 @@ public final class QuranBook {
         }
 
         public String toString() {
-            return this.name + " — " + (byAyah() ? "آیه\u200cبه\u200cآیه" : "سورهٔ کامل") + " (" + this.id + ")";
+            return (this.name.equals(this.id) ? "قرائت عربی؛ نام قاری ثبت نشده" : this.name) + " · " + (byAyah() ? "آیه‌به‌آیه" : "سورهٔ کامل");
         }
     }
 
@@ -77,6 +78,9 @@ public final class QuranBook {
                 this.surahs.get(i4).add(ayah);
             }
         }
+        int[] referencePages = new int[all.size()];
+        for (int n = 0; n < all.size(); n++) referencePages[n] = all.get(n).page;
+        pageIndex = new ir.hefze.quran.core.PageIndex(referencePages);
         JSONArray jSONArray3 = new JSONArray(read(context, "content/reciters.json"));
         for (int i6 = 0; i6 < jSONArray3.length(); i6++) {
             JSONObject jSONObject3 = jSONArray3.getJSONObject(i6);

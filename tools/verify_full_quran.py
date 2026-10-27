@@ -15,3 +15,11 @@ r=json.loads((p/'reciters.json').read_text());ed=json.loads((p/'audio-editions.j
 assert {x['id'] for x in r}=={x['identifier'] for x in ed if x['language']=='ar'}
 assert all(x['available'] for x in r)
 print('PASS: complete Quran metadata and',len(r),'Arabic audio editions')
+
+reference=json.loads((Path(__file__).resolve().parents[1]/'tests/fixtures/page-reference.json').read_text())
+actual=[]
+for page in range(1,605):
+ verses=[v for v in a if v['page']==page]
+ actual.append([page,verses[0]['number'],verses[-1]['number'],verses[0]['juz']])
+assert actual==reference['pages'], 'Reference page mapping changed'
+print('PASS: all 604 page boundaries match the captured official API reference')

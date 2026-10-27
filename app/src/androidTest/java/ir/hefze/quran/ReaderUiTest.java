@@ -23,6 +23,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.is;
 import static androidx.test.espresso.Espresso.*;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.matcher.ViewMatchers.*;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 
@@ -86,20 +87,28 @@ public final class ReaderUiTest {
             });
             a.recreate();
             a.onActivity(v->{assertEquals(3,((SeekBar)view(v,"repeat_count")).getProgress());assertEquals(7,((SeekBar)view(v,"gap_seconds")).getProgress());});
-            screenshot("settings"); tap("settings_save");
+            screenshot("settings");
+            onView(withTagValue(is((Object)"reciter_choice"))).perform(scrollTo()); screenshot("settings-reciter");
+            onView(withTagValue(is((Object)"method_choice"))).perform(scrollTo()); screenshot("settings-methods");
+            tap("settings_save");
             assertEquals(4,prefs.getInt("repeat_count",0)); assertEquals(7,prefs.getInt("gap_seconds",0));
             assertEquals("Amiri-Regular.ttf",prefs.getString("quran_font","")); assertFalse(prefs.contains("ayah"));
         }
     }
     private static void assertArtwork(View v) {
         assertNotNull(v.getBackground()); assertTrue(v.getWidth()>0&&v.getHeight()>0);
-        Bitmap b=Bitmap.createBitmap(v.getWidth(),v.getHeight(),Bitmap.Config.ARGB_8888);v.draw(new Canvas(b));
-        int green=0;for(int y=0;y<b.getHeight();y++)for(int x=0;x<b.getWidth();x++){
-            int c=b.getPixel(x,y);if(Color.alpha(c)>100&&Color.green(c)>Color.blue(c)+8&&Color.green(c)<190)green++;
-        }
-        int center=b.getPixel(b.getWidth()/2,b.getHeight()/2);
-        android.util.Log.i("ReaderUiTest", "button size="+v.getWidth()+"x"+v.getHeight()+" green="+green+" center="+Integer.toHexString(center)+" bg="+v.getBackground().getBounds());
-        b.recycle();assertTrue("Button artwork must be visible: green="+green+" size="+v.getWidth()+"x"+v.getHeight()+" center="+Integer.toHexString(center),green>v.getWidth()*v.getHeight()/8);
+        // Inspect the actual composited screen. View.draw() into a software canvas can
+        // omit an already hardware-rendered TextView/background on these emulator builds.
+        Bitmap b=InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
+        assertNotNull(b);
+        int[] xy=new int[2];v.getLocationOnScreen(xy);
+        int green=0,area=0;
+        for(int y=Math.max(0,xy[1]);y<Math.min(b.getHeight(),xy[1]+v.getHeight());y++)
+            for(int x=Math.max(0,xy[0]);x<Math.min(b.getWidth(),xy[0]+v.getWidth());x++){
+                area++;int c=b.getPixel(x,y);
+                if(Color.alpha(c)>100&&Color.green(c)>Color.blue(c)+8&&Color.green(c)<190)green++;
+            }
+        b.recycle();assertTrue("Button artwork must be visible in screenshot",area>0&&green>area/8);
     }
     @Test public void downloadArtworkAndIdleStopHidden() throws Exception {
         try(ActivityScenario<FullQuranActivity> a=ActivityScenario.launch(FullQuranActivity.class)) {

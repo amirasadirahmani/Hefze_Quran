@@ -104,6 +104,8 @@ public final class FullQuranActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+                | android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         try {
             StudyStore studyStore = new StudyStore(this);
             try {
@@ -314,6 +316,7 @@ public final class FullQuranActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showHome() {
+        hideKeyboard();
         if (this.player != null) {
             pausePlayback();
         }
@@ -321,6 +324,9 @@ public final class FullQuranActivity extends Activity {
         this.transport = null;
         this.passage = null;
         LinearLayout linearLayoutCol = col();
+        linearLayoutCol.setFocusableInTouchMode(true);
+        linearLayoutCol.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+        linearLayoutCol.requestFocus();
         final EditText editText = new EditText(this);
         editText.setTextSize(15.0f);
         editText.setSingleLine();
@@ -484,6 +490,7 @@ public final class FullQuranActivity extends Activity {
     }
 
     private void showPage() {
+        hideKeyboard();
         this.home = false;
         this.page = this.selected.page;
         save();
@@ -734,6 +741,7 @@ public final class FullQuranActivity extends Activity {
     }
 
     public void settings() {
+        hideKeyboard();
         pausePlayback();
         openSettings(new ReaderSettingsScreen.Values(book.reciters.indexOf(reciter), fontSize, repeatCount, gapSeconds, fontName));
     }
@@ -750,6 +758,11 @@ public final class FullQuranActivity extends Activity {
         }, this::closeSettings);
         settingsScreen.setOnApplyWindowInsetsListener((view, insets) -> lambda$mount$2(view, insets));
         setContentView(settingsScreen); settingsScreen.requestApplyInsets();
+    }
+    private void hideKeyboard() {
+        android.view.inputmethod.InputMethodManager keyboard = (android.view.inputmethod.InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (keyboard != null) keyboard.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
     }
     private void closeSettings() {
         settingsOpen = false; settingsScreen = null;

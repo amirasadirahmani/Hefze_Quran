@@ -707,7 +707,13 @@ public final class FullQuranActivity extends Activity {
 
     private void move(int i) {
         boolean zPlaying = sequenceRunning();
-        stopPlayback();
+        boolean serviceActive = ReadingPlaybackService.activeSession();
+        if (serviceActive) {
+            // Keep the foreground service alive while changing verses. Its next start
+            // command cancels the old file and applies the new invocation in place.
+            gapHandler.removeCallbacks(gapTask);
+            opening.stop(); cycle.reset(); player.stop();
+        } else stopPlayback();
         List<QuranBook.Ayah> list = this.book.surahs.get(this.selected.surah);
         this.selected = list.get(Math.max(0, Math.min(list.size() - 1, (this.selected.number - 1) + i)));
         if (this.selected.page != this.page) {

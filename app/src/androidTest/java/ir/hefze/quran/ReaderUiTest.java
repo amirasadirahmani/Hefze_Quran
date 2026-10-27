@@ -32,7 +32,7 @@ public final class ReaderUiTest {
     private SharedPreferences prefs;
     @Before public void fresh() {
         context=ApplicationProvider.getApplicationContext();
-        prefs=context.getSharedPreferences("FullQuranActivity",0);
+        prefs=context.getSharedPreferences(FullQuranActivity.class.getName(),0);
         assertTrue(prefs.edit().clear().commit());
         remove(new File(context.getFilesDir(),"recitations"));
     }
@@ -41,9 +41,11 @@ public final class ReaderUiTest {
     private static <T extends View> T view(FullQuranActivity a,String tag) { T v=a.getWindow().getDecorView().findViewWithTag(tag); assertNotNull(tag,v); return v; }
     private static float x(View v) { int[] xy=new int[2];v.getLocationOnScreen(xy);return xy[0]; }
     private void screenshot(String name) throws Exception {
-        Bitmap bitmap=InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
-        File dir=new File(context.getExternalFilesDir(null),"ui-shots");dir.mkdirs();
-        try(FileOutputStream out=new FileOutputStream(new File(dir,name+".png"))){bitmap.compress(Bitmap.CompressFormat.PNG,100,out);} bitmap.recycle();
+        try (android.os.ParcelFileDescriptor fd = InstrumentationRegistry.getInstrumentation().getUiAutomation()
+                .executeShellCommand("screencap -p /sdcard/Download/hefze-ui-"+name+".png");
+             java.io.FileInputStream in = new java.io.FileInputStream(fd.getFileDescriptor())) {
+            byte[] buffer=new byte[1024]; while(in.read(buffer)!=-1) { }
+        }
     }
     @Test public void freshStartSettingsAndRealPageClicks() throws Exception {
         try(ActivityScenario<FullQuranActivity> a=ActivityScenario.launch(FullQuranActivity.class)) {
@@ -95,12 +97,14 @@ public final class ReaderUiTest {
         int green=0;for(int y=0;y<b.getHeight();y++)for(int x=0;x<b.getWidth();x++){
             int c=b.getPixel(x,y);if(Color.alpha(c)>100&&Color.green(c)>Color.blue(c)+8&&Color.green(c)<190)green++;
         }
-        b.recycle();assertTrue("Button artwork must be visible",green>v.getWidth()*v.getHeight()/8);
+        int center=b.getPixel(b.getWidth()/2,b.getHeight()/2);
+        android.util.Log.i("ReaderUiTest", "button size="+v.getWidth()+"x"+v.getHeight()+" green="+green+" center="+Integer.toHexString(center)+" bg="+v.getBackground().getBounds());
+        b.recycle();assertTrue("Button artwork must be visible: green="+green+" size="+v.getWidth()+"x"+v.getHeight()+" center="+Integer.toHexString(center),green>v.getWidth()*v.getHeight()/8);
     }
     @Test public void downloadArtworkAndIdleStopHidden() throws Exception {
         try(ActivityScenario<FullQuranActivity> a=ActivityScenario.launch(FullQuranActivity.class)) {
-            tap("reading_entry");a.onActivity(v->assertArtwork(view(v,"download_audio")));
-            tap("download_audio");
+            tap("reading_entry");screenshot("download-button");a.onActivity(v->assertArtwork(view(v,"download_audio")));
+            tap("download_audio");screenshot("download-dialog");
             onView(withTagValue(is((Object)"download_start"))).check((v,e)->{if(e!=null)throw e;assertArtwork(v);});
             onView(withTagValue(is((Object)"download_stop"))).check(matches(withEffectiveVisibility(Visibility.GONE)));
             screenshot("download-dialog");pressBack();

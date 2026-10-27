@@ -3,5 +3,7 @@ set -uo pipefail
 bash gradlew --no-daemon :app:connectedDebugAndroidTest
 status=$?
 mkdir -p app/build/ui-shots
-adb pull /sdcard/Android/data/ir.hefze.quran.review07/files/ui-shots/. app/build/ui-shots/ || true
+for shot in $(adb shell 'ls /sdcard/Download/hefze-ui-*.png' | tr -d '\r'); do
+    adb pull "$shot" app/build/ui-shots/ || true
+done
 exit "$status"

@@ -695,6 +695,7 @@ public final class FullQuranActivity extends Activity {
     public void completed() {
         if (!reciter.byAyah()) return;
         cycle.completed(repeat, selected.number < book.surahs.get(selected.surah).size(), android.os.SystemClock.uptimeMillis());
+        if (!cycle.pending()) cycle.reset();
         scheduleGap(); updateTransport();
     }
     private boolean sequenceRunning() {

@@ -84,6 +84,8 @@ public final class ReaderUiTest {
                 assertFalse(view(v,"translation_choice").isEnabled());
                 ((SeekBar)view(v,"repeat_count")).setProgress(3); ((SeekBar)view(v,"gap_seconds")).setProgress(7);
                 ((Spinner)view(v,"font_choice")).setSelection(1);
+                assertFalse(((android.widget.Switch)view(v,"continue_locked")).isChecked());
+                ((android.widget.Switch)view(v,"continue_locked")).setChecked(true);
             });
             a.recreate();
             a.onActivity(v->{assertEquals(3,((SeekBar)view(v,"repeat_count")).getProgress());assertEquals(7,((SeekBar)view(v,"gap_seconds")).getProgress());});
@@ -92,7 +94,8 @@ public final class ReaderUiTest {
             onView(withTagValue(is((Object)"method_choice"))).perform(scrollTo()); screenshot("settings-methods");
             tap("settings_save");
             assertEquals(4,prefs.getInt("repeat_count",0)); assertEquals(7,prefs.getInt("gap_seconds",0));
-            assertEquals("Amiri-Regular.ttf",prefs.getString("quran_font","")); assertFalse(prefs.contains("ayah"));
+            assertEquals("Amiri-Regular.ttf",prefs.getString("quran_font",""));
+            assertTrue(prefs.getBoolean("continue_locked",false)); assertFalse(prefs.contains("ayah"));
         }
     }
     private static void assertArtwork(View v) {
@@ -131,6 +134,12 @@ public final class ReaderUiTest {
             tap("reading_entry");a.onActivity(v->assertTrue(x(view(v,"ayah_next"))<x(view(v,"ayah_previous"))));
             tap("ayah_next");assertEquals(2,prefs.getInt("ayah",0));tap("ayah_previous");assertEquals(1,prefs.getInt("ayah",0));
         }
+    }
+    @Test public void openingIsBeforeManualAyahAndTawbahHasNoBasmala() {
+        assertEquals(2,OpeningRecitation.phrases(36,1).length);
+        assertEquals(1,OpeningRecitation.phrases(36,12).length);
+        assertEquals(1,OpeningRecitation.phrases(9,1).length);
+        assertTrue(OpeningRecitation.phrases(36,1)[0].contains("أَعُوذُ"));
     }
     @Test public void all604ReferencePages() throws Exception {
         QuranBook book=new QuranBook(context);

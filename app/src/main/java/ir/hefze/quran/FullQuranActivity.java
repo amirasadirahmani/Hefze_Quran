@@ -69,7 +69,8 @@ public final class FullQuranActivity extends Activity {
     private QuranBook.Ayah selected;
     private LinearLayout transport;
     private int page = 1;
-    private boolean hasReading, settingsOpen;
+    private boolean hasReading, settingsOpen, continueLocked;
+    private OpeningRecitation opening;
     private String fontName = "ScheherazadeNew-Regular.ttf";
     private int repeatCount = 3, gapSeconds = 3;
     private ReaderSettingsScreen settingsScreen;
@@ -82,6 +83,15 @@ public final class FullQuranActivity extends Activity {
     private String audioReadyKey;
     private boolean audioReady;
     private final Map<QuranBook.Ayah, int[]> offsets = new LinkedHashMap();
+    private final BroadcastReceiver readingChanged = new BroadcastReceiver() {
+        @Override public void onReceive(Context c,Intent i) {
+            if(book==null||home||settingsOpen)return;
+            int id=i.getIntExtra("ayah",selected.id);
+            if(id<1||id>book.all.size())return;
+            selected=book.all.get(id-1);
+            if(selected.page!=page)showPage();else{highlight(true);updateTransport();}
+        }
+    };
     private final BroadcastReceiver noisy = new BroadcastReceiver() { // from class: ir.hefze.quran.FullQuranActivity.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -119,6 +129,8 @@ public final class FullQuranActivity extends Activity {
             this.repeatCount = Math.max(1, Math.min(10, getPreferences(0).getInt("repeat_count", 3)));
             this.gapSeconds = Math.max(0, Math.min(30, getPreferences(0).getInt("gap_seconds", 3)));
             this.cycle = new ir.hefze.quran.core.RecitationCycle(repeatCount, gapSeconds);
+            this.continueLocked = getPreferences(0).getBoolean("continue_locked", false);
+            this.opening = new OpeningRecitation(this);
             this.book = new QuranBook(this);
             String string = getPreferences(0).getString("reciter", "ar.alafasy");
             this.reciter = this.book.reciters.get(0);
@@ -269,7 +281,7 @@ public final class FullQuranActivity extends Activity {
         linearLayoutCol.addView(framePanel, new LinearLayout.LayoutParams(-1, 0, 1.0f));
         LinearLayout linearLayoutRow = row();
         if (z) {
-            Button next = pageButton("« صفحهٔ بعد", "صفحهٔ بعد", "page_next", () -> turn(1));
+            Button next = pageButton("صفحهٔ بعد  ‹‹", "صفحهٔ بعد", "page_next", () -> turn(1));
             next.setEnabled(page < book.pageIndex.pageCount());
             linearLayoutRow.addView(next, new LinearLayout.LayoutParams(0, dp(48), 1.6f));
             Button homeButton = icon("⌂", "بازگشت به صفحهٔ اصلی", -11376071, this::showHome);
@@ -280,7 +292,7 @@ public final class FullQuranActivity extends Activity {
         settingsButton.setTag("settings_button");
         linearLayoutRow.addView(settingsButton, new LinearLayout.LayoutParams(0, dp(48), 1f));
         if (z) {
-            Button previous = pageButton("صفحهٔ قبل »", "صفحهٔ قبل", "page_previous", () -> turn(-1));
+            Button previous = pageButton("››  صفحهٔ قبل", "صفحهٔ قبل", "page_previous", () -> turn(-1));
             previous.setEnabled(page > 1);
             linearLayoutRow.addView(previous, new LinearLayout.LayoutParams(0, dp(48), 1.6f));
         }
@@ -480,7 +492,7 @@ public final class FullQuranActivity extends Activity {
         getPreferences(0).edit().putInt("font", fontSize).putString("quran_font", fontName)
             .putString("reciter", reciter.id).putBoolean("repeat", repeat)
             .putInt("repeat_count", repeatCount).putInt("gap_seconds", gapSeconds)
-            .putString("method", "AUDIO").putString("theme", "default").apply();
+            .putBoolean("continue_locked",continueLocked).putString("method", "AUDIO").putString("theme", "default").apply();
     }
 
     public void save() {
@@ -670,12 +682,24 @@ public final class FullQuranActivity extends Activity {
             downloadPopup();
             return;
         }
+        if (ReadingPlaybackService.activeSession()) {
+            startService(new Intent(this,ReadingPlaybackService.class).setAction(ReadingPlaybackService.playing()?"pause":"resume"));
+            updateTransport(); return;
+        }
+        if (opening.pending()) { stopPlayback(); updateTransport(); return; }
         if (cycle.pending()) {
             if (cycle.paused()) { cycle.resume(android.os.SystemClock.uptimeMillis()); scheduleGap(); }
             else pausePlayback();
             updateTransport(); return;
         }
-        this.player.toggle(this.book.audio(this, this.reciter, this.selected));
+        if (continueLocked) {
+            ReadingPlaybackService.start(this,reciter,selected,repeatCount,gapSeconds,repeat);
+        } else if (player.hasSession()) player.toggle(book.audio(this,reciter,selected));
+        else {
+            opening.speak(selected.surah,selected.number, () -> {
+                player.start(book.audio(this,reciter,selected)); highlight(true);
+            }, () -> toast("صدای عربی برای مقدمه روی دستگاه موجود نیست. زبان عربی موتور گفتار را نصب کنید."));
+        }
         if (this.reciter.byAyah()) {
             highlight(true);
         }
@@ -694,7 +718,8 @@ public final class FullQuranActivity extends Activity {
             updateTransport();
         }
         if (zPlaying) {
-            this.player.start(this.book.audio(this, this.reciter, this.selected));
+            if (continueLocked) ReadingPlaybackService.start(this,reciter,selected,repeatCount,gapSeconds,repeat);
+            else this.player.start(this.book.audio(this, this.reciter, this.selected));
         }
     }
 
@@ -706,15 +731,19 @@ public final class FullQuranActivity extends Activity {
         scheduleGap(); updateTransport();
     }
     private boolean sequenceRunning() {
-        return (player != null && player.playing()) || (cycle != null && cycle.pending() && !cycle.paused());
+        return ReadingPlaybackService.playing() || (opening != null && opening.pending()) || (player != null && player.playing()) || (cycle != null && cycle.pending() && !cycle.paused());
     }
     private void pausePlayback() {
         gapHandler.removeCallbacks(gapTask);
+        if (opening != null) opening.stop();
+        if (ReadingPlaybackService.activeSession()) startService(new Intent(this,ReadingPlaybackService.class).setAction("pause"));
         if (cycle != null) cycle.pause(android.os.SystemClock.uptimeMillis());
         if (player != null) player.pause();
     }
     private void stopPlayback() {
         gapHandler.removeCallbacks(gapTask);
+        if (opening != null) opening.stop();
+        ReadingPlaybackService.stopActive();
         if (cycle != null) cycle.reset();
         if (player != null) player.stop();
     }
@@ -743,7 +772,7 @@ public final class FullQuranActivity extends Activity {
     public void settings() {
         hideKeyboard();
         pausePlayback();
-        openSettings(new ReaderSettingsScreen.Values(book.reciters.indexOf(reciter), fontSize, repeatCount, gapSeconds, fontName));
+        openSettings(new ReaderSettingsScreen.Values(book.reciters.indexOf(reciter), fontSize, repeatCount, gapSeconds, fontName, continueLocked));
     }
     private void openSettings(ReaderSettingsScreen.Values initial) {
         settingsOpen = true;
@@ -751,7 +780,7 @@ public final class FullQuranActivity extends Activity {
             QuranBook.Reciter chosen = book.reciters.get(values.reciter);
             if (downloads.running && !chosen.id.equals(reciter.id)) { toast("ابتدا دانلود جاری را متوقف کنید."); return; }
             stopPlayback(); reciter = chosen; fontSize = values.size; fontName = values.font;
-            repeatCount = values.repeats; gapSeconds = values.gap;
+            repeatCount = values.repeats; gapSeconds = values.gap; continueLocked = values.continueLocked;
             cycle = new ir.hefze.quran.core.RecitationCycle(repeatCount, gapSeconds);
             arabic = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
             audioReadyKey = null; saveSettings(); closeSettings();
@@ -876,12 +905,21 @@ public final class FullQuranActivity extends Activity {
         } else {
             registerReceiver(this.noisy, intentFilter);
         }
+        if(Build.VERSION.SDK_INT>=33)registerReceiver(readingChanged,new IntentFilter(ReadingPlaybackService.SYNC),Context.RECEIVER_NOT_EXPORTED);
+        else registerReceiver(readingChanged,new IntentFilter(ReadingPlaybackService.SYNC));
         this.registered = true;
+        if(book!=null && !home && !settingsOpen){
+            int id=getPreferences(0).getInt("ayah",selected.id);
+            if(id>=1 && id<=book.all.size() && selected.id!=id){
+                selected=book.all.get(id-1);
+                if(selected.page!=page)showPage();else{highlight(true);updateTransport();}
+            }
+        }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
-        if (this.player != null) {
+        if (this.player != null && !continueLocked) {
             pausePlayback();
         }
         if (this.downloads != null) {
@@ -889,6 +927,7 @@ public final class FullQuranActivity extends Activity {
         }
         if (this.registered) {
             unregisterReceiver(this.noisy);
+            unregisterReceiver(readingChanged);
             this.registered = false;
         }
         super.onStop();
@@ -908,6 +947,7 @@ public final class FullQuranActivity extends Activity {
         if (this.downloads != null) {
             this.downloads.close();
         }
+        if (this.opening != null) this.opening.close();
         if (this.player != null) {
             this.player.close();
         }

@@ -15,16 +15,18 @@ import java.util.function.Consumer;
 final class ReaderSettingsScreen extends LinearLayout {
     static final class Values {
         int reciter, size, repeats, gap;
+        boolean continueLocked;
         String font;
-        Values(int r, int s, int n, int g, String f) { reciter=r; size=s; repeats=n; gap=g; font=f; }
+        Values(int r, int s, int n, int g, String f, boolean locked) { reciter=r; size=s; repeats=n; gap=g; font=f; continueLocked=locked; }
         Bundle bundle() {
             Bundle b=new Bundle(); b.putInt("reciter",reciter); b.putInt("size",size);
-            b.putInt("repeats",repeats); b.putInt("gap",gap); b.putString("font",font); return b;
+            b.putInt("repeats",repeats); b.putInt("gap",gap); b.putString("font",font); b.putBoolean("locked",continueLocked); return b;
         }
-        static Values from(Bundle b) { return new Values(b.getInt("reciter"),b.getInt("size",28),b.getInt("repeats",3),b.getInt("gap",3),b.getString("font","ScheherazadeNew-Regular.ttf")); }
+        static Values from(Bundle b) { return new Values(b.getInt("reciter"),b.getInt("size",28),b.getInt("repeats",3),b.getInt("gap",3),b.getString("font","ScheherazadeNew-Regular.ttf"),b.getBoolean("locked",false)); }
     }
     private final Spinner reciters, fonts;
     private final SeekBar size, repeats, gap;
+    private final Switch locked;
     private final Typeface ui;
     ReaderSettingsScreen(Context c, List<QuranBook.Reciter> editions, Values initial, Consumer<Values> save, Runnable back) {
         super(c); ui=c.getResources().getFont(R.font.vazirmatn_regular);
@@ -62,6 +64,10 @@ final class ReaderSettingsScreen extends LinearLayout {
             repeats.setEnabled(ayah); gap.setEnabled(ayah);
             mode.setText(ayah ? "تعداد شامل قرائت اول است؛ مکث برای تکرار شماست." : "صوت یکپارچهٔ سوره؛ تکرار و مکث آیه‌به‌آیه برای این قاری در دسترس نیست.");
         }));
+        locked = new Switch(c); locked.setTag("continue_locked"); locked.setText("ادامهٔ پخش هنگام قفل‌بودن صفحه");
+        locked.setTypeface(ui); locked.setTextColor(0xff33492e); locked.setTextSize(15); locked.setChecked(initial.continueLocked);
+        locked.setPadding(dp(12),dp(12),dp(12),dp(12)); practice.addView(locked);
+        practice.addView(label("با فعال‌بودن این گزینه، اعلان پخش روی صفحهٔ قفل نمایش داده می‌شود.",13));
         practice.addView(label("ترجمه",15));
         Spinner translation=choice(new String[]{"انتخاب ترجمه · به‌زودی"},0,"translation_choice"); translation.setEnabled(false); translation.setAlpha(.5f); practice.addView(translation);
         LinearLayout methods=card(body,"روش حفظ قرآن");
@@ -71,7 +77,7 @@ final class ReaderSettingsScreen extends LinearLayout {
         apply.setOnClickListener(v->save.accept(values()));
         LayoutParams saveParams=new LayoutParams(-1,dp(56)); saveParams.setMargins(dp(24),dp(4),dp(24),dp(12)); addView(apply,saveParams);
     }
-    Values values() { return new Values(reciters.getSelectedItemPosition(),size.getProgress()+18,repeats.getProgress()+1,gap.getProgress(),fontName()); }
+    Values values() { return new Values(reciters.getSelectedItemPosition(),size.getProgress()+18,repeats.getProgress()+1,gap.getProgress(),fontName(),locked.isChecked()); }
     private String fontName() { return fonts.getSelectedItemPosition()==1?"Amiri-Regular.ttf":"ScheherazadeNew-Regular.ttf"; }
     private int dp(int v) { return Math.round(v*getResources().getDisplayMetrics().density); }
     private LinearLayout column() { LinearLayout v=new LinearLayout(getContext()); v.setOrientation(VERTICAL); return v; }

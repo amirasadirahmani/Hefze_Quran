@@ -43,6 +43,8 @@ public final class BookPlayer implements AutoCloseable {
         return (this.player == null || this.ready) ? false : true;
     }
 
+    public boolean hasSession() { return player != null; }
+
     public boolean playing() {
         return this.wantsPlay;
     }

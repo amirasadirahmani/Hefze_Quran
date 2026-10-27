@@ -1,3 +1,5 @@
+> نسخهٔ ۰.۸: [تغییرات پخش هنگام قفل و مقدمهٔ صوتی](docs/REVIEW_0.8.fa.md) · [ساخت APK](docs/BUILD_APK_ACTIONS.fa.md)
+
 > نسخهٔ ۰.۷: اصلاح شروع مطالعه، تنظیمات کامل، تکرار و مکث قرائت و کنترل صفحه‌ها.
 > [گزارش تغییرات](docs/REVIEW_0.7.fa.md) · [ساخت و دانلود APK با Actions](docs/BUILD_APK_ACTIONS.fa.md)
 

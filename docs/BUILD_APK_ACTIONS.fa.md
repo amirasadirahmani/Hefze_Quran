@@ -4,7 +4,7 @@
 
 ## ۱. نسخهٔ درست را انتخاب کن
 
-با حساب دارای دسترسی نوشتن به ریپازیتوری وارد GitHub شو. در شاخهٔ `main` فایل `app/build.gradle` باید نسخهٔ `0.7.0` و `versionCode 7` داشته باشد. نسخهٔ آزمایشی با نام بستهٔ `ir.hefze.quran.review07` نصب می‌شود.
+با حساب دارای دسترسی نوشتن به ریپازیتوری وارد GitHub شو. در شاخهٔ `main` فایل `app/build.gradle` باید نسخهٔ `0.8.0` و `versionCode 8` داشته باشد. نسخهٔ آزمایشی با نام بستهٔ `ir.hefze.quran.review08` نصب می‌شود.
 
 ## ۲. اجرای ساخت
 
@@ -24,14 +24,14 @@
 
 ## ۴. نصب روی گوشی
 
-فایل APK را به گوشی منتقل کن، بازش کن و در صورت درخواست اجازهٔ نصب از همان فایل‌منیجر را فعال کن. نسخهٔ ۰.۷ کنار نسخه‌های review قبلی نصب می‌شود؛ اشتباهاً نسخهٔ قبلی را باز نکن.
+فایل APK را به گوشی منتقل کن، بازش کن و در صورت درخواست اجازهٔ نصب از همان فایل‌منیجر را فعال کن. نسخهٔ ۰.۸ کنار نسخه‌های review قبلی نصب می‌شود؛ اشتباهاً نسخهٔ قبلی را باز نکن.
 
 اگر با ADB روی مک تست می‌کنی:
 
 ```bash
 adb devices
 adb install -r "/مسیر/واقعی/app-debug.apk"
-adb shell am start -n ir.hefze.quran.review07/ir.hefze.quran.FullQuranActivity
+adb shell am start -n ir.hefze.quran.review08/ir.hefze.quran.FullQuranActivity
 ```
 
 USB debugging باید روشن باشد و درخواست اعتماد گوشی را تأیید کنی. `adb devices` باید وضعیت `device` نشان دهد.

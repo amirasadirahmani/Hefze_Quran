@@ -37,7 +37,7 @@ jobs:
         run: python3 tools/check_apk.py
       - name: Record build source
         run: |
-          printf 'Version: 0.7.0\nPackage: ir.hefze.quran.review07\nCommit: %s\nBranch: %s\nRun: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_REF_NAME" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > BUILD_INFO.txt
+          printf 'Version: 0.8.0\nPackage: ir.hefze.quran.review08\nCommit: %s\nBranch: %s\nRun: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_REF_NAME" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > BUILD_INFO.txt
           sha256sum app/build/outputs/apk/debug/app-debug.apk >> BUILD_INFO.txt
       - uses: actions/upload-artifact@v4
         with:
